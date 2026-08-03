@@ -19,6 +19,10 @@ const FAQS = [
     q: "Is the source code open?",
     a: "The application is closed core. Extension contracts are published for adapters and plugins. Installers are distributed separately from the private source repository.",
   },
+  {
+    q: "What are the paid packs?",
+    a: "Optional one-time packs: Visual Ship Gate ($15) for browser UI screenshot gates, and DTJ Trace Gate ($25) for portable .dtj session explore/analyze and incident bundles. The free launcher baseline stays free.",
+  },
 ] as const;
 
 export function Faq() {

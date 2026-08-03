@@ -1,50 +1,38 @@
 # Marketing screenshots
 
-Current files in chat exports are **~1024×661 JPEG** (soft when stretched).
-For a sharp landing, replace with **Retina window captures**:
+Product UI captures for the landing gallery, hero, and press kit.
 
 Target: **≥1800px wide PNG** (ideally full native window @2x).
+
+## Keep in this folder
+
+| File | Used for |
+|------|----------|
+| `portfolio-task-board.png` | Hero + gallery |
+| `portfolio-dashboard-overview.png` | Gallery |
+| `portfolio-dashboard-audit.png` | Gallery |
+| `portfolio-milestones.png` | Gallery |
+| `portfolio-orbit-map.png` | Gallery |
+| `portfolio-living-glossary.png` | Gallery |
+| `portfolio-mcp-history.png` | Gallery |
+| `portfolio-trophy-room.png` | Gallery |
+| `board.png` / `dashboard.png` / `trophy.png` | Legacy captures (kept as fallbacks) |
+
+Do **not** commit Visual Ship dogfood of the marketing site itself
+(`portfolio-landing-*`, `visual-ship.gif`).
 
 ## Capture (macOS)
 
 1. Open Doc Hub, enable **Settings → Screenshot mode** (hides home paths).
-2. Open the screen you want (Board / Dashboard / Trophy).
+2. Open the screen you want.
 3. From repo root:
 
 ```bash
-# Click the Doc Hub window after running — or pass -l and click
 ./site/scripts/capture-screens.sh
 ```
 
 Or manually:
 
 ```bash
-screencapture -x -o site/public/screens/board.png
-# then dashboard.png, trophy.png
+screencapture -x -o site/public/screens/portfolio-task-board.png
 ```
-
-Keep filenames: `board.png`, `dashboard.png`, `trophy.png`.
-
-## Visual Ship Gate demo
-
-- `visual-ship.gif` — short loop of pack route shots (home → press → privacy)
-- `visual-ship-still.jpg` — poster / fallback frame
-
-Regenerate from dogfood PNGs:
-
-```bash
-# after: node packages/pack-visual-ship/scripts/visual-ship.mjs …
-ffmpeg -y \
-  -loop 1 -t 1.5 -i .dochub/visual-ship/home__desktop.png \
-  -loop 1 -t 1.5 -i .dochub/visual-ship/press__desktop.png \
-  -loop 1 -t 1.5 -i .dochub/visual-ship/privacy__desktop.png \
-  -filter_complex "\
-[0:v]scale=880:520:force_original_aspect_ratio=decrease,pad=880:520:(ow-iw)/2:(oh-ih)/2:color=0x0b0f14,fps=8,format=rgba[a];\
-[1:v]scale=880:520:force_original_aspect_ratio=decrease,pad=880:520:(ow-iw)/2:(oh-ih)/2:color=0x0b0f14,fps=8,format=rgba[b];\
-[2:v]scale=880:520:force_original_aspect_ratio=decrease,pad=880:520:(ow-iw)/2:(oh-ih)/2:color=0x0b0f14,fps=8,format=rgba[c];\
-[a][b][c]concat=n=3:v=1:a=0,split[s0][s1];\
-[s0]palettegen=max_colors=48:stats_mode=diff[p];\
-[s1][p]paletteuse=dither=bayer:bayer_scale=4" \
-  site/public/screens/visual-ship.gif
-```
-

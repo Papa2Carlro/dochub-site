@@ -17,8 +17,8 @@ export function Screens() {
     >
       <h2 id="screens-title">See it in the wild</h2>
       <p>
-        Planning board, dashboard audit, and Trophy Room — click any shot to
-        enlarge.
+        Board, dashboard, milestones, Orbit, glossary, MCP history, Trophy Room
+        — click any shot to enlarge.
       </p>
       <ul className="screen-grid">
         {SHOTS.map((shot, i) => (

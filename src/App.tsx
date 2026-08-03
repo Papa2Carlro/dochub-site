@@ -8,6 +8,7 @@ import { HowItWorks } from "./components/HowItWorks";
 import { Packs } from "./components/Packs";
 import { Promo } from "./components/Promo";
 import { Screens } from "./components/Screens";
+import { Support } from "./components/Support";
 import { Waitlist } from "./components/Waitlist";
 import { WhatsNew } from "./components/WhatsNew";
 
@@ -32,6 +33,9 @@ export function App() {
           <a className="top-link" href="#packs">
             Packs
           </a>
+          <a className="top-link" href="#support">
+            Support
+          </a>
           <a className="top-link" href="#promo">
             Share
           </a>
@@ -50,6 +54,7 @@ export function App() {
       <ControlledWorkflow />
       <Features />
       <Packs />
+      <Support />
       <WhatsNew />
       <Promo />
       <Waitlist />
@@ -61,6 +66,7 @@ export function App() {
         <span className="foot-links">
           <a href="./privacy/">Privacy</a>
           <a href="./press/">Press</a>
+          <a href="#support">Support</a>
           <a href="#waitlist">Notify</a>
           <a href="#download">Download</a>
         </span>

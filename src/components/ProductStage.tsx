@@ -27,7 +27,7 @@ export function ProductStage() {
           </div>
           <img
             className="stage-shot"
-            src="./screens/board.png"
+            src="./screens/portfolio-task-board.png"
             alt="Doc Hub task board"
             width={3456}
             height={2168}

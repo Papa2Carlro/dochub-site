@@ -12,3 +12,8 @@ dm extension search
 ```
 
 Custom domain (`downloads.doc-hub.app`) comes after R2 is enabled and DNS is attached.
+
+## Upcoming paid packs
+
+- `com.dochub.pack.dtj` (**DTJ Trace Gate**, $25) — list on landing `#packs` first;
+  add to `catalog.json` only after a real signed `.dhpack` exists (same rule as Visual Ship).

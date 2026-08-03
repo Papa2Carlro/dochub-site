@@ -13,7 +13,7 @@ export function Promo() {
         <a className="btn btn-primary" href="./press/">
           Open press kit
         </a>
-        <a className="btn btn-ghost" href="./screens/board.png" download>
+        <a className="btn btn-ghost" href="./screens/portfolio-task-board.png" download>
           Download Board shot
         </a>
         <a className="btn btn-ghost" href="./og.png" download>
