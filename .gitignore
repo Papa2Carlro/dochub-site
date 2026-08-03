@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+public/store/catalog.local.json
+public/store/*.dhpack

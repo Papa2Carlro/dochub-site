@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <!-- Doc Hub mark: hub node + orbiting docs (not UB AND-gate) -->
+  <rect width="1024" height="1024" rx="224" fill="#07111a"/>
+  <rect x="56" y="56" width="912" height="912" rx="184" stroke="#1a8f86" stroke-opacity="0.35" stroke-width="8"/>
+
+  <!-- soft glow behind hub -->
+  <circle cx="512" cy="512" r="210" fill="#2ec4b6" fill-opacity="0.08"/>
+
+  <!-- spokes: hub → docs -->
+  <path d="M512 512 L320 300" stroke="#2ec4b6" stroke-opacity="0.45" stroke-width="14" stroke-linecap="round"/>
+  <path d="M512 512 L720 300" stroke="#2ec4b6" stroke-opacity="0.45" stroke-width="14" stroke-linecap="round"/>
+  <path d="M512 512 L512 760" stroke="#2ec4b6" stroke-opacity="0.45" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- doc card top-left -->
+  <g transform="translate(214 198)">
+    <rect width="168" height="210" rx="28" fill="#0d1b27" stroke="#2ec4b6" stroke-width="14"/>
+    <rect x="36" y="52" width="96" height="14" rx="7" fill="#e7f2f4" fill-opacity="0.85"/>
+    <rect x="36" y="86" width="78" height="12" rx="6" fill="#8eacb4" fill-opacity="0.7"/>
+    <rect x="36" y="116" width="88" height="12" rx="6" fill="#8eacb4" fill-opacity="0.45"/>
+    <rect x="36" y="146" width="64" height="12" rx="6" fill="#8eacb4" fill-opacity="0.35"/>
+  </g>
+
+  <!-- doc card top-right -->
+  <g transform="translate(642 198)">
+    <rect width="168" height="210" rx="28" fill="#0d1b27" stroke="#2ec4b6" stroke-width="14"/>
+    <rect x="36" y="52" width="96" height="14" rx="7" fill="#e7f2f4" fill-opacity="0.85"/>
+    <rect x="36" y="86" width="78" height="12" rx="6" fill="#8eacb4" fill-opacity="0.7"/>
+    <rect x="36" y="116" width="88" height="12" rx="6" fill="#8eacb4" fill-opacity="0.45"/>
+    <rect x="36" y="146" width="64" height="12" rx="6" fill="#8eacb4" fill-opacity="0.35"/>
+  </g>
+
+  <!-- doc card bottom -->
+  <g transform="translate(428 658)">
+    <rect width="168" height="210" rx="28" fill="#0d1b27" stroke="#2ec4b6" stroke-width="14"/>
+    <rect x="36" y="52" width="96" height="14" rx="7" fill="#e7f2f4" fill-opacity="0.85"/>
+    <rect x="36" y="86" width="78" height="12" rx="6" fill="#8eacb4" fill-opacity="0.7"/>
+    <rect x="36" y="116" width="88" height="12" rx="6" fill="#8eacb4" fill-opacity="0.45"/>
+    <rect x="36" y="146" width="64" height="12" rx="6" fill="#8eacb4" fill-opacity="0.35"/>
+  </g>
+
+  <!-- central hub -->
+  <circle cx="512" cy="512" r="92" fill="#2ec4b6"/>
+  <circle cx="512" cy="512" r="92" stroke="#1a8f86" stroke-width="16"/>
+  <circle cx="512" cy="512" r="36" fill="#07111a"/>
+  <circle cx="512" cy="512" r="14" fill="#e7f2f4"/>
+</svg>

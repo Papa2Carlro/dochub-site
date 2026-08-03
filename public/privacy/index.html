@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy — Doc Hub</title>
+    <meta
+      name="description"
+      content="Privacy policy for the Doc Hub product website and desktop app analytics defaults."
+    />
+    <link rel="canonical" href="https://doc-hub.app/privacy/" />
+    <link rel="icon" type="image/png" href="../app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0e1218;
+        --foam: #e8eaed;
+        --mute: #9aa0a9;
+        --accent: #5b8def;
+        --display: "Syne", system-ui, sans-serif;
+        --body: "DM Sans", system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        background: var(--ink);
+        color: var(--foam);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-family: var(--display);
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        font-family: var(--display);
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+      p,
+      li {
+        color: var(--mute);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p><a href="../">← Doc Hub</a></p>
+      <h1>Privacy</h1>
+      <p>
+        This page covers the public Doc Hub website and how we think about data
+        for the desktop app.
+      </p>
+      <h2>Product site</h2>
+      <p>
+        The marketing site is static. If privacy-friendly analytics (for example
+        Plausible) is enabled via <code>VITE_PLAUSIBLE_DOMAIN</code>, it loads
+        without cookies and without selling personal data. We do not run ads on
+        this site. An optional waitlist may send your email to Formspree only to
+        notify you about releases.
+      </p>
+      <h2>Desktop app</h2>
+      <p>
+        Doc Hub is local-first. Planning and docs live on your machine. In-app
+        analytics buffers default to local-only with sync off unless you turn
+        something on later. We do not require an account for the free baseline.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        Questions about privacy: open an issue on the
+        <a href="https://github.com/Papa2Carlro/doc-hub-releases/issues"
+          >public releases repo</a
+        >
+        or reach out via the channel listed on a release.
+      </p>
+    </main>
+  </body>
+</html>
