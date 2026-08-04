@@ -11,7 +11,7 @@ const DOWNLOADS_BASE = (
 
 /** Optional GitHub mirror while CDN is empty (build artifacts only). */
 const DIST_REPO =
-  import.meta.env.VITE_DIST_REPO?.trim() || "Papa2Carlro/doc-hub-releases";
+  import.meta.env.VITE_DIST_REPO?.trim() || "Papa2Carlro/dochub-releases";
 
 export const USES_OWN_CDN = Boolean(DOWNLOADS_BASE);
 
