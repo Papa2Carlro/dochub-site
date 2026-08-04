@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T16:55:00Z",
+  "updated_at": "2026-08-04T17:10:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -29,6 +29,16 @@
       "description": "Maps local git HEAD commit and branch into scm.* platform events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.git/0.1.0.dhpack",
       "sha256": "c07559d0348ee1ffa413547e68a82b7d377a001290e932c9cbd49c9764145c17",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.adapter.python",
+      "name": "Python adapter",
+      "version": "0.1.0",
+      "description": "Maps pytest / ruff / mypy into platform build.* and test.* events.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.python/0.1.0.dhpack",
+      "sha256": "e7f3f6e2c466d563ec5326942a0a8af0a7bace5c98e0d51189d3e1a2bf386fe8",
       "tier": "free",
       "min_api": "^1.0.0"
     },
