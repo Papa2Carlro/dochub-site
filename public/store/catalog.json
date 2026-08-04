@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T16:30:00Z",
+  "updated_at": "2026-08-04T16:55:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -19,6 +19,16 @@
       "description": "Maps Unity Editor activity into platform events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.unity/0.1.0.dhpack",
       "sha256": "6a354fa6d2d2472a45535e631aa94499eefe939eaa535b5a27ecfab221453d0f",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.adapter.git",
+      "name": "Git / SCM adapter",
+      "version": "0.1.0",
+      "description": "Maps local git HEAD commit and branch into scm.* platform events.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.git/0.1.0.dhpack",
+      "sha256": "c07559d0348ee1ffa413547e68a82b7d377a001290e932c9cbd49c9764145c17",
       "tier": "free",
       "min_api": "^1.0.0"
     },

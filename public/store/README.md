@@ -15,6 +15,7 @@ Custom domain (`downloads.doc-hub.app`) comes after R2 is enabled and DNS is att
 
 ## Free packs
 
+- `com.dochub.adapter.git` — local git HEAD → `scm.commit` / `scm.branch`
 - `com.dochub.pack.visual-ship-teaser` — UI teaser scanners (funnel → Visual Ship Gate)
 
 ## Upcoming paid packs
