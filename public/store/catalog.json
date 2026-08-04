@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T17:10:00Z",
+  "updated_at": "2026-08-04T18:55:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -43,10 +43,20 @@
       "min_api": "^1.0.0"
     },
     {
+      "id": "com.dochub.adapter.rust",
+      "name": "Rust adapter",
+      "version": "0.1.0",
+      "description": "Maps cargo build / test / clippy into platform build.* and test.* events.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.rust/0.1.0.dhpack",
+      "sha256": "f397e2294c5afe3b05e7c6a31cb6cdd99457958d3a58e69d128edbc0e15e5253",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
       "id": "com.dochub.pack.visual-ship-teaser",
       "name": "Visual Ship Teaser",
       "version": "0.1.0",
-      "description": "Free UI teaser scanners (ui-scan / docs-drift / CR attachments). Upsell → Visual Ship Gate.",
+      "description": "Free UI teaser scanners (ui-scan / docs-drift / CR attachments). Upsell \u2192 Visual Ship Gate.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.visual-ship-teaser/0.1.0.dhpack",
       "sha256": "dd4e836c03bc1cdcc96906b269df349b44fbbf8db21ce3ce7ee95c562762f9c4",
       "tier": "free",
@@ -56,7 +66,7 @@
       "id": "com.dochub.pack.visual-ship",
       "name": "Visual Ship Gate",
       "version": "0.6.0",
-      "description": "Paid Visual Ship Gate: Playwright shots/diff/gate for any local web UI routes → Doc Hub attachments/CI ($15). Not a Node/API pack.",
+      "description": "Paid Visual Ship Gate: Playwright shots/diff/gate for any local web UI routes \u2192 Doc Hub attachments/CI ($15). Not a Node/API pack.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.visual-ship/0.6.0.dhpack",
       "sha256": "110792a36628b13c1a41750f91200df65ff708a994e98245ad0e5ff109764ada",
       "tier": "paid",
