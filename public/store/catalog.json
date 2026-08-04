@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-03T22:45:00Z",
+  "updated_at": "2026-08-04T15:00:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -8,7 +8,7 @@
       "version": "0.1.0",
       "description": "Maps Node/TS tooling into platform events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.typescript/0.1.0.dhpack",
-      "sha256": "502130552e0d6ecfa49686b643c301f8b2359048445773ad4fc28bdd0bb076ba",
+      "sha256": "eb61408042d32cd9043d3e9a823da72ba04a52dbff1408f678bc5fdcf0940309",
       "tier": "free",
       "min_api": "^1.0.0"
     },
@@ -18,7 +18,7 @@
       "version": "0.1.0",
       "description": "Maps Unity Editor activity into platform events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.unity/0.1.0.dhpack",
-      "sha256": "0e48c3501189ec200683efbb68e4b5cff0c423b35d499ac5d62c4579496979c1",
+      "sha256": "6a354fa6d2d2472a45535e631aa94499eefe939eaa535b5a27ecfab221453d0f",
       "tier": "free",
       "min_api": "^1.0.0"
     },
@@ -26,9 +26,9 @@
       "id": "com.dochub.pack.visual-ship",
       "name": "Visual Ship Gate",
       "version": "0.6.0",
-      "description": "Paid Visual Ship Gate: Playwright shots/diff/gate for any local web UI routes \u2192 Doc Hub attachments/CI ($15). Not a Node/API pack.",
+      "description": "Paid Visual Ship Gate: Playwright shots/diff/gate for any local web UI routes → Doc Hub attachments/CI ($15). Not a Node/API pack.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.visual-ship/0.6.0.dhpack",
-      "sha256": "4bb820b8f5f4117213475faf06f319551ca74881098725536cb3025481d3726f",
+      "sha256": "110792a36628b13c1a41750f91200df65ff708a994e98245ad0e5ff109764ada",
       "tier": "paid",
       "min_api": "^1.0.0",
       "checkout_url": "https://gumroad.com/l/dochub-visual-ship"
