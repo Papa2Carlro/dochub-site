@@ -13,6 +13,10 @@ dm extension search
 
 Custom domain (`downloads.doc-hub.app`) comes after R2 is enabled and DNS is attached.
 
+## Free packs
+
+- `com.dochub.pack.visual-ship-teaser` — UI teaser scanners (funnel → Visual Ship Gate)
+
 ## Upcoming paid packs
 
 - `com.dochub.pack.dtj` (**DTJ Trace Gate**, $25) — list on landing `#packs` first;

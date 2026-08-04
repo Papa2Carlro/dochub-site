@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T15:00:00Z",
+  "updated_at": "2026-08-04T16:30:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -19,6 +19,16 @@
       "description": "Maps Unity Editor activity into platform events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.unity/0.1.0.dhpack",
       "sha256": "6a354fa6d2d2472a45535e631aa94499eefe939eaa535b5a27ecfab221453d0f",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.pack.visual-ship-teaser",
+      "name": "Visual Ship Teaser",
+      "version": "0.1.0",
+      "description": "Free UI teaser scanners (ui-scan / docs-drift / CR attachments). Upsell → Visual Ship Gate.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.visual-ship-teaser/0.1.0.dhpack",
+      "sha256": "dd4e836c03bc1cdcc96906b269df349b44fbbf8db21ce3ce7ee95c562762f9c4",
       "tier": "free",
       "min_api": "^1.0.0"
     },
