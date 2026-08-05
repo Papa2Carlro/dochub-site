@@ -18,6 +18,7 @@ Custom domain (`downloads.doc-hub.app`) comes after R2 is enabled and DNS is att
 - `com.dochub.adapter.git` — local git HEAD → `scm.commit` / `scm.branch`
 - `com.dochub.adapter.python` — pytest / ruff / mypy → `build.*` / `test.*`
 - `com.dochub.adapter.rust` — cargo build/test/clippy → `build.*` / `test.*`
+- `com.dochub.adapter.dotnet` — dotnet build/test → `build.*` / `test.*`
 - `com.dochub.pack.visual-ship-teaser` — UI teaser scanners (funnel → Visual Ship Gate)
 
 ## Upcoming paid packs

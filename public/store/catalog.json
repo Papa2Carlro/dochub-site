@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T18:55:00Z",
+  "updated_at": "2026-08-04T19:40:00Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -49,6 +49,16 @@
       "description": "Maps cargo build / test / clippy into platform build.* and test.* events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.rust/0.1.0.dhpack",
       "sha256": "f397e2294c5afe3b05e7c6a31cb6cdd99457958d3a58e69d128edbc0e15e5253",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.adapter.dotnet",
+      "name": ".NET / Dotnet adapter",
+      "version": "0.1.0",
+      "description": "Maps dotnet build / test into platform build.* and test.* events (non-Unity C#).",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.dotnet/0.1.0.dhpack",
+      "sha256": "4a96a6a0fa02105f32c37e820700f4fa42c98777bb948a1456fddbc8e4ae1c58",
       "tier": "free",
       "min_api": "^1.0.0"
     },
