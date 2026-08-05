@@ -6,7 +6,7 @@ import { useEffect } from "react";
  * Cloudflare Web Analytics — prefer this on Pages:
  *   VITE_CF_BEACON_TOKEN=<site_token from Web Analytics>
  * Optional Plausible:
- *   VITE_PLAUSIBLE_DOMAIN=doc-hub.app
+ *   VITE_PLAUSIBLE_DOMAIN=dochub-site.pages.dev
  */
 export function Analytics() {
   useEffect(() => {

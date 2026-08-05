@@ -7,7 +7,7 @@ export function Promo() {
       <h2 id="promo-title">Share it</h2>
       <p>
         Local-first docs &amp; planning — free baseline, no cloud required. Grab
-        the Board shot or OG image and post when the site is live.
+        the Board shot or OG image and post.
       </p>
       <div className="promo-actions">
         <a className="btn btn-primary" href="./press/">
@@ -23,7 +23,7 @@ export function Promo() {
       <pre className="promo-blurb" tabIndex={0}>
         {`Doc Hub — local-first launcher for docs & planning.
 Free baseline, no cloud required.
-https://doc-hub.app`}
+https://dochub-site.pages.dev`}
       </pre>
     </section>
   );

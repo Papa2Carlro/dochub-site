@@ -1,36 +1,35 @@
 # Doc Hub landing (React)
 
-Downloads are meant to go through **your CDN** (not GitHub) so you can count them.
+Live (free ship): **https://dochub-site.pages.dev**  
+Later: `doc-hub.app` + `downloads.doc-hub.app`.
+
+Downloads go through the **Worker CDN** (not GitHub) so KV can count them.
 
 ```bash
-VITE_DOWNLOADS_BASE=https://downloads.doc-hub.app
+VITE_SITE_URL=https://dochub-site.pages.dev
+VITE_DOWNLOADS_BASE=https://dochub-downloads.dochubhq.workers.dev
 ```
 
-CTAs → `https://downloads.doc-hub.app/d/{mac|win|linux}` → Cloudflare Worker
-increments KV → streams the installer from R2.
+CTAs → `…/d/{mac|win|linux}` → Worker increments KV → streams installer from R2.
 
-Worker + setup: [`workers/downloads/`](./workers/downloads/).
-
-Promo: [`PROMO.md`](./PROMO.md) + live press kit at `/press/`.
-
-## Domain
-
-Prefer **`doc-hub.app`** + subdomain **`downloads.doc-hub.app`**.
+Worker: sibling repo `dochub-downloads-worker`.  
+Promo: [`PROMO.md`](./PROMO.md) + press kit at `/press/`.
 
 ## Backend?
 
 | Need | What |
 |------|------|
-| Landing / SEO | Static Pages |
-| Download counts | **Worker + KV** (this folder’s sibling `workers/downloads`) — not a full app server |
-| Page analytics | Plausible (optional) |
+| Landing / SEO | Cloudflare Pages |
+| Download counts | Worker + KV |
+| Page analytics | Cloudflare Web Analytics (`VITE_CF_BEACON_TOKEN`) / optional Plausible |
 | Waitlist email | Later |
 
 ## Dev
 
 ```bash
+pnpm install
+cp .env.example .env
 pnpm run site:dev
 ```
 
-Copy `.env.example` → `.env` and set `VITE_DOWNLOADS_BASE` when the Worker is live.
-Until then, the site falls back to GitHub Releases links.
+Without `VITE_DOWNLOADS_BASE`, Download buttons fall back to GitHub Releases.
