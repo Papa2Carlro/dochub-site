@@ -99,6 +99,32 @@ macOS (Apple Silicon) / Windows / Linux — інсталери вже на са�
 → https://dochub-site.pages.dev/#download
 ```
 
+## Context Benchmark (EN)
+
+```
+We ran the same 5 engineering prompts two ways:
+
+Plain chat (no tools) → 0 PASS
+Doc Memory → 5/5 PASS
+
+Not a claim that Doc Hub writes better code — just whether project hard rules show up. Walkthroughs:
+
+→ https://dochub-site.pages.dev/benchmark
+```
+
+## Context Benchmark (UA)
+
+```
+Ті самі 5 інженерних промптів:
+
+Звичайний чат без інструментів → 0 PASS
+Чат з Doc Memory → 5/5 PASS
+
+Не про «кращий код» — про те, чи жорсткі правила проєкту взагалі з’являються. Walkthroughs:
+
+→ https://dochub-site.pages.dev/benchmark
+```
+
 ## Patreon (support)
 
 ```
