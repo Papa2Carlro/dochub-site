@@ -8,17 +8,25 @@ declare global {
   }
 }
 
+function gaAlreadyInHead(measurementId: string) {
+  return Boolean(
+    document.querySelector(
+      `script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`,
+    ) || document.querySelector(`script[data-ga-id="${measurementId}"]`),
+  );
+}
+
 function ensureGtag(measurementId: string) {
-  if (document.querySelector(`script[data-ga-id="${measurementId}"]`)) {
-    return;
-  }
+  if (gaAlreadyInHead(measurementId)) return;
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
-  };
-  window.gtag("js", new Date());
-  window.gtag("config", measurementId, { send_page_view: false });
+  if (!window.gtag) {
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { send_page_view: false });
+  }
 
   const el = document.createElement("script");
   el.async = true;
@@ -29,6 +37,8 @@ function ensureGtag(measurementId: string) {
 
 function trackGaPageView(measurementId: string, path: string, title: string) {
   if (!window.gtag) return;
+  // Initial home page_view already sent by static index.html gtag('config').
+  // SPA navigations need explicit page_view events.
   window.gtag("event", "page_view", {
     page_path: path,
     page_title: title,
@@ -45,6 +55,7 @@ function trackGaPageView(measurementId: string, path: string, title: string) {
  *
  * Optional Google Analytics 4 (cookies / Ads signals — see /privacy/):
  *   VITE_GA_MEASUREMENT_ID=G-XXXXXXXX
+ *   (also injected into index.html at build time for GSC / crawlers)
  */
 export function Analytics() {
   const { pathname, search } = useLocation();
@@ -80,6 +91,8 @@ export function Analytics() {
     if (!gaId) return;
     ensureGtag(gaId);
     const path = `${pathname}${search}`;
+    // Skip duplicate first hit when static head already configured gtag on "/"
+    if (path === "/" && gaAlreadyInHead(gaId)) return;
     trackGaPageView(gaId, path, document.title);
   }, [pathname, search]);
 

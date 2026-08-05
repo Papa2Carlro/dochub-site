@@ -7,6 +7,20 @@ export default defineConfig(({ mode }) => {
   const siteUrl = (
     env.VITE_SITE_URL || "https://dochub-site.pages.dev"
   ).replace(/\/$/, "");
+  const gsc = env.VITE_GOOGLE_SITE_VERIFICATION?.trim() || "";
+  const gaId = env.VITE_GA_MEASUREMENT_ID?.trim() || "";
+
+  const gscMeta = gsc
+    ? `<meta name="google-site-verification" content="${gsc}" />`
+    : "";
+
+  // Static gtag in <head> so Search Console / crawlers see it without waiting for React.
+  const gaSnippet = gaId
+    ? [
+        `<script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}"></script>`,
+        `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');</script>`,
+      ].join("\n    ")
+    : "";
 
   return {
     plugins: [
@@ -14,7 +28,10 @@ export default defineConfig(({ mode }) => {
       {
         name: "dochub-html-site-url",
         transformIndexHtml(html) {
-          return html.replaceAll("%SITE_URL%", siteUrl);
+          return html
+            .replaceAll("%SITE_URL%", siteUrl)
+            .replace("<!--GOOGLE_SITE_VERIFICATION-->", gscMeta)
+            .replace("</head>", `${gaSnippet ? `    ${gaSnippet}\n  ` : ""}</head>`);
         },
       },
     ],
