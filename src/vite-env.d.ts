@@ -6,6 +6,8 @@ interface ImportMetaEnv {
   /** Tracked downloads CDN origin, e.g. https://downloads.doc-hub.app */
   readonly VITE_DOWNLOADS_BASE?: string;
   /** Plausible site domain, e.g. doc-hub.app — enables script when set */
+  /** Cloudflare Web Analytics site token (beacon). */
+  readonly VITE_CF_BEACON_TOKEN?: string;
   readonly VITE_PLAUSIBLE_DOMAIN?: string;
   readonly VITE_PLAUSIBLE_SRC?: string;
   /** Formspree form id for the waitlist (optional) */
