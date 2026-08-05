@@ -1,4 +1,5 @@
 import { useI18n } from "../i18n";
+import { SocialLinks } from "components/SocialLinks";
 
 /**
  * Promo strip — share CTA + press kit. Copy lives on /press/ for full drafts.
@@ -27,6 +28,7 @@ export function Promo() {
       <pre className="promo-blurb" tabIndex={0}>
         {t("promo", "shareBlurb")}
       </pre>
+      <SocialLinks className="promo-social" />
     </section>
   );
 }

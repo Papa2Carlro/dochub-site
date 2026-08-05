@@ -1,0 +1,174 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.Packs {
+  &__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$accent;
+    font-weight: 600;
+  }
+
+  &__early {
+    margin: 1.25rem 0 0;
+    max-width: 40rem;
+    padding: 0.95rem 1.1rem 1.05rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(91, 141, 239, 0.32);
+    background: linear-gradient(160deg, rgba(91, 141, 239, 0.14), rgba(21, 27, 36, 0.55));
+
+    p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: v.$mute;
+      max-width: none;
+    }
+
+    a {
+      color: v.$accent;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__earlyKicker {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #b8d0ff;
+    max-width: none;
+  }
+
+  &__grid {
+    @include m.reset-list;
+    margin: 1.65rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 0.9rem;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1.1rem 1.15rem 1.2rem;
+    border-radius: 1.15rem;
+    animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba(91, 141, 239, 0.38);
+      box-shadow:
+        0 1px 0 var(--glass-shine) inset,
+        0 24px 52px rgba(0, 0, 0, 0.34);
+    }
+
+    &.featured {
+      border-color: rgba(91, 141, 239, 0.32);
+    }
+  }
+
+  &__cardTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.65rem;
+    margin-bottom: 0.35rem;
+  }
+
+  &__glyph {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #dce7ff;
+    background: linear-gradient(145deg, rgba(91, 141, 239, 0.45), rgba(61, 90, 153, 0.35));
+    border: 1px solid rgba(232, 234, 237, 0.14);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset;
+
+    &.paid {
+      background: linear-gradient(145deg, rgba(56, 189, 168, 0.4), rgba(91, 141, 239, 0.35));
+    }
+  }
+
+  &__tier {
+    padding: 0.22rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+
+    &.free {
+      color: v.$mute;
+      background: rgba(232, 234, 237, 0.06);
+      border-color: rgba(232, 234, 237, 0.1);
+    }
+
+    &.paid {
+      color: #b8d0ff;
+      background: rgba(91, 141, 239, 0.16);
+      border-color: rgba(91, 141, 239, 0.28);
+    }
+  }
+
+  &__name {
+    margin: 0;
+    font-family: v.$display;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  &__id {
+    margin: 0;
+    font-size: 0.7rem;
+    color: v.$faint;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: none;
+  }
+
+  &__blurb {
+    margin: 0.15rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: v.$mute;
+    max-width: none;
+    flex: 1;
+  }
+
+  &__cta {
+    margin-top: 0.75rem;
+    align-self: flex-start;
+    min-height: 2.4rem;
+    font-size: 0.88rem;
+  }
+
+  &__meta {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: v.$faint;
+  }
+}

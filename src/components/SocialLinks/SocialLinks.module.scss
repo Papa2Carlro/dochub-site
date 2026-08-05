@@ -1,0 +1,71 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.SocialLinks {
+  margin: 0;
+
+  &__lede {
+    margin: 0 0 0.65rem;
+    color: v.$mute;
+    font-size: 0.95rem;
+    max-width: 36rem;
+  }
+
+  &__list {
+    @include m.reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1.15rem;
+
+    a {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      text-decoration: none;
+      color: v.$foam;
+      line-height: 1.25;
+
+      &:hover {
+        color: v.$accent;
+
+        .SocialLinks__handle {
+          color: v.$mute;
+        }
+      }
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
+
+  &__handle {
+    font-size: 0.78rem;
+    color: v.$faint;
+  }
+
+  &.footer {
+    .SocialLinks__list {
+      gap: 0.45rem 0.95rem;
+
+      a {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.35rem;
+        color: v.$mute;
+        font-size: 0.82rem;
+      }
+    }
+
+    .SocialLinks__label {
+      font-weight: 500;
+      font-size: inherit;
+    }
+
+    .SocialLinks__handle {
+      font-size: 0.78rem;
+    }
+  }
+}

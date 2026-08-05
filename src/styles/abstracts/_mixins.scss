@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin media-down($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin media-down-md {
+  @include media-down(v.$bp-md) {
+    @content;
+  }
+}

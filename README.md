@@ -13,7 +13,8 @@ VITE_DOWNLOADS_BASE=https://dochub-downloads.dochubhq.workers.dev
 CTAs → `…/d/{mac|win|linux}` → Worker increments KV → streams installer from R2.
 
 Worker: sibling repo `dochub-downloads-worker`.  
-Promo: [`PROMO.md`](./PROMO.md) + press kit at `/press/`.
+Promo: [`PROMO.md`](./PROMO.md) + press kit at `/press/`.  
+Frontend canon: [`Docs/`](./Docs/) — [ADR 0001](./Docs/ADR/0001-view-scoped-zustand-hybrid.md) + [frontend-code-style](./Docs/frontend-code-style.md).
 
 ## Backend?
 

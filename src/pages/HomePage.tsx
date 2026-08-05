@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { ControlledWorkflow } from "../components/ControlledWorkflow";
 import { DownloadBand } from "../components/DownloadBand";
-import { Faq } from "../components/Faq";
+import { Faq } from "components/Faq";
 import { Features } from "../components/Features";
 import { Hero } from "../components/Hero";
 import { HowItWorks } from "../components/HowItWorks";
-import { Packs } from "../components/Packs";
+import { Packs } from "components/Packs";
 import { Promo } from "../components/Promo";
 import { Screens } from "../components/Screens";
 import { SiteHeader } from "../components/SiteHeader";
+import { SocialLinks } from "components/SocialLinks";
 import { Support } from "../components/Support";
 import { Waitlist } from "../components/Waitlist";
 import { WhatsNew } from "../components/WhatsNew";
@@ -35,7 +36,10 @@ export function HomePage() {
       <DownloadBand />
 
       <footer className="foot">
-        <span>{t("footer", "tagline")}</span>
+        <div className="foot-brand">
+          <span>{t("footer", "tagline")}</span>
+          <SocialLinks variant="footer" />
+        </div>
         <span className="foot-links">
           <a href="/privacy/">{t("footer", "privacy")}</a>
           <a href="/press/">{t("footer", "press")}</a>

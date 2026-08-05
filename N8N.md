@@ -20,10 +20,19 @@ Webhook:
 ```bash
 curl -X POST http://localhost:5678/webhook/doc-hub-promo \
   -H 'Content-Type: application/json' \
-  -d '{"channel":"both","dry_run":false,"text":"… з PROMO.md …"}'
+  -d '{"channel":"telegram","dry_run":false,"text":"… з PROMO.md …","image":"https://dochub-site.pages.dev/screens/portfolio-task-board.png"}'
 ```
 
-**X:** credential OAuth1 уже в локальному n8n. Якщо live дає `Error in workflow` — у X Console **Regenerate Access Token** після Read and write, онови credential `Carlo Forge X OAuth1` (oauthToken + oauthTokenSecret).
+Опційно `image` — публічний HTTPS URL. Для Telegram: `sendPhoto` + caption = `text` (≤1024 символів). Без `image` — звичайний текстовий пост. X поки лише текст.
+
+**X:** credential `Carlo Forge X OAuth1` на ноді X (HTTP → `api.twitter.com/2/tweets`). Якщо live дає `oauth1 app permissions` / Forbidden — у [X Developer Console](https://developer.x.com/en/portal/dashboard):
+
+1. App → **User authentication settings** → App permissions = **Read and write**
+2. **Keys and tokens** → **Regenerate** Access Token & Secret
+3. У n8n онови credential `Carlo Forge X OAuth1` (`oauthToken` + `oauthTokenSecret`)
+4. Publish workflow → знову `channel: "twitter"`
+
+OAuth2 user token у `.secrets/x-oauth2.txt` короткоживучий (~2h); для постів надійніше OAuth1 після write permissions.
 
 ---
 
@@ -40,7 +49,7 @@ docker compose up -d
 - Webhook (локально): `POST http://localhost:5678/webhook/doc-hub-promo`  
   body: `{ "channel": "telegram", "text": "...", "dry_run": false }`
 
-Cursor MCP після Enable Instance MCP:
+Cursor MCP після Enable Instance MCP — **і** в `~/.cursor/mcp.json` (user), **і** в project `.cursor/mcp.json`:
 
 ```json
 "n8n": {
@@ -51,6 +60,8 @@ Cursor MCP після Enable Instance MCP:
   }
 }
 ```
+
+User-level `~/.cursor/mcp.json` має пріоритет для Cursor MCP (`user-n8n`). Якщо там Cloud URL — агент править Cloud, а webhook лишається на Docker. Після зміни: Reload MCP.
 
 Зовнішні webhooks з інтернету потребують тунель (Cloudflare Tunnel / ngrok). Локальні пости з Cursor — ок на `localhost`.
 
@@ -161,8 +172,9 @@ Cursor MCP після Enable Instance MCP:
 
 | Поле | Значення |
 |------|----------|
-| `channel` | `telegram` · `discord` · `both` |
-| `text` | текст поста (з `PROMO.md`) |
+| `channel` | `telegram` · `discord` · `twitter`/`x` · `both` (TG+X) · `all` |
+| `text` | текст поста (з `PROMO.md`); для photo — caption |
+| `image` | опційно HTTPS URL (напр. `/screens/portfolio-task-board.png`) |
 | `dry_run` | `true` = тільки перевірка, `false` = пост |
 
 Тексти брати з: `dochub-site/PROMO.md`  
@@ -176,7 +188,9 @@ Cursor MCP після Enable Instance MCP:
 |---------|----------------|
 | MCP червоний / unauthorized | URL + `Bearer ` + токен; Instance MCP увімкнений |
 | Workflow не видно | Available in MCP + Publish |
+| Зміни з MCP не в webhook | Cursor `user-n8n` може бити в Cloud; webhook — `localhost:5678` (Docker). Перевір `search_workflows` id |
 | Telegram error | bot admin у каналі; правильний chat id |
+| Photo не йде | потрібен `image` HTTPS URL; caption ≤1024 |
 | Import кривий | збері workflow вручну: Trigger → IF dry_run → Telegram |
 
 Fallback MCP (якщо HTTP не тягнеться):

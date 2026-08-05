@@ -102,12 +102,13 @@ macOS (Apple Silicon) / Windows / Linux — інсталери вже на са�
 ## Context Benchmark (EN)
 
 ```
-We ran the same 5 engineering prompts two ways:
+Fair bake-off — Docs MD (Read/Grep) vs Doc Memory MCP (n=5):
 
-Plain chat (no tools) → 0 PASS
-Doc Memory → 5/5 PASS
+PASS rate:              100%  =  100%
+Mean extra lookups:     20.4  →  31.4  (MCP cost more here)
+Packet recall (Phase A): 67.8% → 88.4%  (+20.6 pp)
 
-Not a claim that Doc Hub writes better code — just whether project hard rules show up. Walkthroughs:
+Empty-chat starvation is History — not the fair headline.
 
 → https://dochub-site.pages.dev/benchmark
 ```
@@ -115,12 +116,13 @@ Not a claim that Doc Hub writes better code — just whether project hard rules 
 ## Context Benchmark (UA)
 
 ```
-Ті самі 5 інженерних промптів:
+Чесний bake-off — Docs MD (Read/Grep) vs Doc Memory MCP (n=5):
 
-Звичайний чат без інструментів → 0 PASS
-Чат з Doc Memory → 5/5 PASS
+PASS rate:              100%  =  100%
+Середні зайві пошуки:   20.4  →  31.4  (MCP дорожчий тут)
+Packet recall (Phase A): 67.8% → 88.4%  (+20.6 pp)
 
-Не про «кращий код» — про те, чи жорсткі правила проєкту взагалі з’являються. Walkthroughs:
+Empty-chat starvation — у History, не як чесний headline.
 
 → https://dochub-site.pages.dev/benchmark
 ```

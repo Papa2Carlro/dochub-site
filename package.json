@@ -7,17 +7,22 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --port 4174 --strictPort",
-    "admin": "vite --config vite.admin.config.ts"
+    "admin": "vite --config vite.admin.config.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json}\" \"Docs/**/*.md\" \"*.md\""
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "^7.18.2",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
+    "prettier": "^3.9.6",
+    "sass": "^1.102.0",
     "typescript": "~5.8.3",
     "vite": "^7.0.4"
   }

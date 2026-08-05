@@ -75,6 +75,12 @@
               "name": "text",
               "value": "={{ $json.text }}",
               "type": "string"
+            },
+            {
+              "id": "a5",
+              "name": "image",
+              "type": "string",
+              "value": "={{ $json.image }}"
             }
           ]
         },
@@ -91,162 +97,162 @@
     },
     {
       "parameters": {
+        "options": {
+          "fallbackOutput": "extra"
+        },
         "rules": {
           "values": [
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-tg",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "telegram"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "9924d1d3-de06-40bb-8fb8-30ae40ab1d12",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "telegram",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "telegram"
+              "outputKey": "telegram",
+              "renameOutput": true
             },
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-dc",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "discord"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "f6b918ed-e664-4a34-a27e-0f2e0d152c54",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "discord",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "discord"
+              "outputKey": "discord",
+              "renameOutput": true
             },
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-tw",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "twitter"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "5edc4ddf-f494-497b-926a-08ba4b696284",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "twitter",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "twitter"
+              "outputKey": "twitter",
+              "renameOutput": true
             },
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-x",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "x"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "57b2ecb4-4759-4073-83ed-27614f7b698f",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "x",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "x"
+              "outputKey": "x",
+              "renameOutput": true
             },
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-both",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "both"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "113d76f8-374c-4751-8275-344f67778a2e",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "both",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "both"
+              "outputKey": "both",
+              "renameOutput": true
             },
             {
               "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ch-all",
+                    "leftValue": "={{ $json.channel }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "all"
+                  }
+                ],
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
                   "typeValidation": "strict",
                   "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "b443ac1b-ee1a-42a5-8a89-1b14a06f244e",
-                    "leftValue": "={{ $json.channel }}",
-                    "rightValue": "all",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
+                }
               },
-              "renameOutput": true,
-              "outputKey": "all"
+              "outputKey": "all",
+              "renameOutput": true
             }
           ]
-        },
-        "options": {
-          "fallbackOutput": "none"
         }
       },
       "id": "1bee91c7-f149-488f-8aa6-b288a49079a2",
@@ -375,6 +381,12 @@
               "name": "dry_run",
               "value": "={{ $json.dry_run ?? $json.body?.dry_run ?? false }}",
               "type": "boolean"
+            },
+            {
+              "id": "n4",
+              "name": "image",
+              "type": "string",
+              "value": "={{ $json.image ?? $json.body?.image ?? '' }}"
             }
           ]
         },
@@ -382,37 +394,73 @@
       }
     },
     {
-      "id": "x-tweet-http-001",
+      "id": "97cff518-a3c9-4537-a0fc-86e94f508f2f",
       "name": "X",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
       "position": [
         304,
         480
       ],
       "parameters": {
-        "method": "POST",
-        "url": "https://api.twitter.com/2/tweets",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth1Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ text: String($json.text || \"\") }) }}",
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
+        "resource": "tweet",
+        "operation": "create",
+        "text": "={{ $json.text }}"
+      },
+      "notes": "Posts via X OAuth2. channel=twitter|x|both|all",
+      "onError": "stopWorkflow",
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "cvpYMfb7yvgEF4GF",
+          "name": "X account"
+        }
+      }
+    },
+    {
+      "id": "has-image-001",
+      "name": "Has image?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        160,
+        128
+      ],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ Boolean($json.image) }}",
+              "value2": true
             }
-          }
+          ]
+        }
+      }
+    },
+    {
+      "id": "tg-photo-001",
+      "name": "Telegram Photo",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        304,
+        0
+      ],
+      "parameters": {
+        "resource": "message",
+        "operation": "sendPhoto",
+        "chatId": "-1004394881673",
+        "file": "={{ $json.image }}",
+        "additionalFields": {
+          "caption": "={{ $json.text }}"
         }
       },
       "credentials": {
-        "oAuth1Api": {
-          "id": "REPLACE_ME",
-          "name": "Carlo Forge X OAuth1"
+        "telegramApi": {
+          "id": "I90JMFqIlbAxJOFZ",
+          "name": "Carlo Forge Telegram"
         }
       },
-      "onError": "stopWorkflow"
+      "notes": "sendPhoto when body.image is a public HTTPS URL"
     }
   ],
   "connections": {
@@ -438,7 +486,7 @@
       "main": [
         [
           {
-            "node": "Telegram",
+            "node": "Has image?",
             "type": "main",
             "index": 0
           }
@@ -466,7 +514,7 @@
         ],
         [
           {
-            "node": "Telegram",
+            "node": "Has image?",
             "type": "main",
             "index": 0
           },
@@ -478,7 +526,7 @@
         ],
         [
           {
-            "node": "Telegram",
+            "node": "Has image?",
             "type": "main",
             "index": 0
           },
@@ -517,6 +565,17 @@
         ]
       ]
     },
+    "X": {
+      "main": [
+        [
+          {
+            "node": "Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Webhook": {
       "main": [
         [
@@ -539,7 +598,25 @@
         ]
       ]
     },
-    "X": {
+    "Has image?": {
+      "main": [
+        [
+          {
+            "node": "Telegram Photo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Photo": {
       "main": [
         [
           {

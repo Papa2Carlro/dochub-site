@@ -1,6 +1,7 @@
 import { useI18n } from "../i18n";
 import { FEEDBACK_EMAIL, licenseMailto } from "../lib/contact";
 import { PATREON_TIERS, PATREON_URL } from "../lib/patreon";
+import { SocialLinks } from "components/SocialLinks";
 
 const BLURB_KEY = {
   spark: "sparkBlurb",
@@ -40,6 +41,8 @@ export function Support() {
         {t("support", "feedback")}{" "}
         <a href={licenseMailto()}>{FEEDBACK_EMAIL}</a>
       </p>
+
+      <SocialLinks className="support-social" />
 
       <ul className="support-grid">
         {PATREON_TIERS.map((tier, index) => (

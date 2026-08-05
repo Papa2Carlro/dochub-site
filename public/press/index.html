@@ -150,13 +150,15 @@
       <h2>Evidence — Context Benchmark</h2>
       <p>
         Internal technical evidence only (not market traction). Public summary:
-        <a href="../benchmark">/benchmark</a>.
+        <a href="../benchmark">/benchmark</a>
+        (Now = Docs MD vs MCP fair bake-off; History = empty-chat + R&amp;D).
       </p>
-      <pre>Same 5 engineering prompts.
-• Plain chat (no tools): 0 PASS (4 FAIL, 1 PARTIAL)
-• Chat with Doc Memory: 5/5 PASS
+      <p><strong>Now</strong> — Docs MD (Read/Grep) vs Doc Memory MCP (n=5)</p>
+      <pre>PASS rate:               100%  =  100%
+Mean extra lookups:      20.4  →  31.4   (MCP cost more on this pilot)
+Packet recall (Phase A): 67.8% →  88.4%  (+20.6 pp)
 
-Walkthroughs show what each arm does. Older Grep-baseline and pre-fix R&amp;D live under “Updates” on that page.
+Empty-chat starvation is History — not the fair headline.
 
 → https://dochub-site.pages.dev/benchmark</pre>
 
@@ -218,22 +220,20 @@ https://dochub-site.pages.dev</pre>
 → https://dochub-site.pages.dev</pre>
 
       <p><strong>Benchmark (EN)</strong></p>
-      <pre>We ran the same 5 engineering prompts two ways:
+      <pre>Fair bake-off — Docs MD vs Doc Memory MCP (n=5):
 
-Plain chat (no tools) → 0 PASS
-Doc Memory → 5/5 PASS
-
-Not a claim that Doc Hub writes better code — just whether project hard rules show up. Walkthroughs:
+PASS:                   100% = 100%
+Mean extra lookups:     20.4 → 31.4
+Packet recall (Phase A): 67.8% → 88.4%
 
 → https://dochub-site.pages.dev/benchmark</pre>
 
       <p><strong>Benchmark (UA)</strong></p>
-      <pre>Ті самі 5 інженерних промптів:
+      <pre>Чесний bake-off — Docs MD vs Doc Memory MCP (n=5):
 
-Звичайний чат без інструментів → 0 PASS
-Чат з Doc Memory → 5/5 PASS
-
-Не про «кращий код» — про те, чи жорсткі правила проєкту взагалі з’являються. Walkthroughs:
+PASS:                   100% = 100%
+Середні зайві пошуки:   20.4 → 31.4
+Packet recall (Phase A): 67.8% → 88.4%
 
 → https://dochub-site.pages.dev/benchmark</pre>
 
@@ -250,7 +250,11 @@ Not a claim that Doc Hub writes better code — just whether project hard rules 
         <li>Free forever on the launcher baseline</li>
         <li>Platforms: macOS, Windows, Linux</li>
         <li>Early pack license by email until 1 Sep 2026</li>
-        <li>Context Benchmark: plain chat 0 PASS vs Doc Memory 5/5 on 5 prompts — <a href="../benchmark">/benchmark</a></li>
+        <li>
+          Context Benchmark: Docs MD vs MCP — PASS parity 100%=100%, recall
+          67.8%→88.4%, extras 20.4→31.4 —
+          <a href="../benchmark">/benchmark</a>
+        </li>
         <li>Do not link the private source repository</li>
       </ul>
     </main>

@@ -15,7 +15,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "styles/*": ["src/styles/*"],
+      "pages/*": ["src/pages/*"],
+      "lib/*": ["src/lib/*"],
+      "i18n": ["src/i18n/index.tsx"],
+      "i18n/*": ["src/i18n/*"]
+    }
   },
   "include": ["src"]
 }

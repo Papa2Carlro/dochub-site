@@ -1,0 +1,21 @@
+// SCSS aliases → CSS custom properties from src/index.css :root.
+// New modules must use these — do not invent parallel hex values.
+$ink: var(--ink);
+$ink-soft: var(--ink-soft);
+$foam: var(--foam);
+$mute: var(--mute);
+$faint: var(--faint);
+$line: var(--line);
+$surface: var(--surface);
+$raised: var(--raised);
+$overlay: var(--overlay);
+$accent: var(--accent);
+$accent-deep: var(--accent-deep);
+$good: var(--good);
+$warn: var(--warn);
+
+$display: var(--display);
+$body: var(--body);
+
+$bp-md: 800px;
+$bp-lg: 1100px;

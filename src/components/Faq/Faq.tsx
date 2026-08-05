@@ -1,4 +1,9 @@
-import { useI18n } from "../i18n";
+import { FC } from "react";
+import classNames from "classnames/bind";
+import { useI18n } from "i18n";
+import scss from "./Faq.module.scss";
+
+const cn = classNames.bind(scss);
 
 const FAQ_KEYS = [
   ["q1", "a1"],
@@ -10,7 +15,7 @@ const FAQ_KEYS = [
   ["q7", "a7"],
 ] as const;
 
-export function Faq() {
+const Faq: FC = () => {
   const { t } = useI18n();
   const faqs = FAQ_KEYS.map(([q, a]) => ({
     q: t("faq", q),
@@ -31,20 +36,19 @@ export function Faq() {
   };
 
   return (
-    <section className="band faq" id="faq" aria-labelledby="faq-title">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <section className={`band ${cn("Faq")}`} id="faq" aria-labelledby="faq-title">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h2 id="faq-title">{t("faq", "title")}</h2>
-      <dl className="faq-list">
+      <dl className={cn("Faq__list")}>
         {faqs.map((item) => (
-          <div key={item.q} className="faq-item">
-            <dt>{item.q}</dt>
-            <dd>{item.a}</dd>
+          <div key={item.q} className={cn("Faq__item")}>
+            <dt className={cn("Faq__q")}>{item.q}</dt>
+            <dd className={cn("Faq__a")}>{item.a}</dd>
           </div>
         ))}
       </dl>
     </section>
   );
-}
+};
+
+export { Faq };

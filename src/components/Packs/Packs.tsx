@@ -1,10 +1,15 @@
-import { useI18n } from "../i18n";
+import { FC } from "react";
+import classNames from "classnames/bind";
+import { useI18n } from "i18n";
 import {
   EARLY_LICENSE_UNTIL_LABEL,
   FEEDBACK_EMAIL,
   earlyLicenseOpen,
   licenseMailto,
-} from "../lib/contact";
+} from "lib/contact";
+import scss from "./Packs.module.scss";
+
+const cn = classNames.bind(scss);
 
 const CATALOG = [
   {
@@ -41,22 +46,19 @@ const CATALOG = [
   },
 ] as const;
 
-export function Packs() {
+const Packs: FC = () => {
   const { t } = useI18n();
   const earlyOpen = earlyLicenseOpen();
 
   return (
-    <section className="band packs" id="packs" aria-labelledby="packs-title">
-      <p className="packs-eyebrow">{t("packs", "eyebrow")}</p>
+    <section className={`band ${cn("Packs")}`} id="packs" aria-labelledby="packs-title">
+      <p className={cn("Packs__eyebrow")}>{t("packs", "eyebrow")}</p>
       <h2 id="packs-title">{t("packs", "title")}</h2>
       <p>{t("packs", "lede")}</p>
 
       {earlyOpen ? (
-        <aside
-          className="store-early"
-          aria-label={t("packs", "earlyAria")}
-        >
-          <p className="store-early-kicker">
+        <aside className={cn("Packs__early")} aria-label={t("packs", "earlyAria")}>
+          <p className={cn("Packs__earlyKicker")}>
             {t("packs", "earlyKicker", { date: EARLY_LICENSE_UNTIL_LABEL })}
           </p>
           <p>
@@ -73,52 +75,45 @@ export function Packs() {
                   </span>
                 ) : (
                   <span key={i}>{part}</span>
-                ),
+                )
               )}
           </p>
         </aside>
       ) : null}
 
-      <ul className="store-grid">
+      <ul className={cn("Packs__grid")}>
         {CATALOG.map((pack, index) => {
           const name = t("packs", pack.nameKey);
+          const featured = "featured" in pack && pack.featured;
           return (
             <li
               key={pack.id}
-              className={`glass-card store-card${"featured" in pack && pack.featured ? " store-card--featured" : ""}`}
+              className={`glass-card ${cn("Packs__card", { featured })}`}
               style={{ animationDelay: `${120 + index * 80}ms` }}
             >
-              <div className="store-card-top">
-                <span
-                  className={`store-glyph${pack.tier === "paid" ? " store-glyph--paid" : ""}`}
-                  aria-hidden
-                >
+              <div className={cn("Packs__cardTop")}>
+                <span className={cn("Packs__glyph", { paid: pack.tier === "paid" })} aria-hidden>
                   {pack.glyph}
                 </span>
-                <span className={`store-tier store-tier--${pack.tier}`}>
+                <span className={cn("Packs__tier", pack.tier)}>
                   {t("packs", pack.tier === "paid" ? "tierPaid" : "tierFree")}
                 </span>
               </div>
-              <h3>{name}</h3>
-              <p className="store-id">{pack.id}</p>
-              <p className="store-blurb">{t("packs", pack.blurbKey)}</p>
+              <h3 className={cn("Packs__name")}>{name}</h3>
+              <p className={cn("Packs__id")}>{pack.id}</p>
+              <p className={cn("Packs__blurb")}>{t("packs", pack.blurbKey)}</p>
               {pack.tier === "paid" ? (
                 earlyOpen ? (
-                  <a
-                    className="btn btn-primary store-card-cta"
-                    href={licenseMailto(name)}
-                  >
+                  <a className={`btn btn-primary ${cn("Packs__cta")}`} href={licenseMailto(name)}>
                     {t("packs", "ctaEmailLicense", { price: pack.priceUsd })}
                   </a>
                 ) : (
-                  <a className="btn btn-primary store-card-cta" href="#waitlist">
+                  <a className={`btn btn-primary ${cn("Packs__cta")}`} href="#waitlist">
                     {t("packs", "ctaNotify", { price: pack.priceUsd })}
                   </a>
                 )
               ) : (
-                <span className="store-card-meta">
-                  {t("packs", "includedMeta")}
-                </span>
+                <span className={cn("Packs__meta")}>{t("packs", "includedMeta")}</span>
               )}
             </li>
           );
@@ -126,4 +121,6 @@ export function Packs() {
       </ul>
     </section>
   );
-}
+};
+
+export { Packs };
