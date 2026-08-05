@@ -20,6 +20,12 @@
   --body: "DM Sans", system-ui, sans-serif;
 }
 
+/* Cyrillic locale: Syne/DM Sans lack Cyrillic glyphs — geometric stand-ins */
+html[lang="uk"] {
+  --display: "Onest", system-ui, sans-serif;
+  --body: "Manrope", system-ui, sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -116,7 +122,19 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem 1.15rem;
+}
+
+.top-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1rem;
+}
+
+.top-cluster-pages {
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--glass-edge);
 }
 
 .brand {
@@ -139,11 +157,20 @@ a {
   color: var(--accent);
 }
 
+.top-link-cta {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.top-link-cta:hover {
+  color: var(--text);
+}
+
 .lang-switch {
   display: inline-flex;
   align-items: center;
   gap: 0.15rem;
-  margin-left: 0.35rem;
+  margin-left: 0.15rem;
   padding-left: 0.65rem;
   border-left: 1px solid var(--glass-edge);
 }
@@ -1705,10 +1732,52 @@ a {
 
 .bench-bar-row {
   display: grid;
-  grid-template-columns: 7.5rem 1fr 3.4rem;
+  grid-template-columns: 9.5rem 1fr 3.4rem;
   gap: 0.65rem;
   align-items: center;
   margin: 0.55rem 0;
+}
+
+.bench-examples {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.bench-example {
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1.05rem 1.15rem 1.15rem;
+  background: var(--surface);
+}
+
+.bench-example-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.45rem;
+}
+
+.bench-example-head strong {
+  font-family: var(--display);
+  font-size: 1.02rem;
+  color: var(--foam);
+  letter-spacing: -0.01em;
+}
+
+.bench-example-id {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.bench-example p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .bench-bar-label {
@@ -1820,15 +1889,28 @@ a {
 
 .bench-case {
   display: grid;
-  grid-template-columns: 4.2rem 1fr;
+  grid-template-columns: minmax(8.5rem, 11rem) 1fr;
   gap: 0.75rem;
   align-items: center;
 }
 
-.bench-case-id {
+.bench-case-meta {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.bench-case-title {
   font-family: var(--display);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--foam);
+  line-height: 1.2;
+}
+
+.bench-case-id {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--faint);
 }
 
 .bench-case-bars {
@@ -1934,14 +2016,217 @@ a {
   }
 }
 
+/* —— Docs (getting started) page —— */
+.docs-page .top {
+  margin-bottom: 0;
+}
+
+.docs {
+  max-width: 58rem;
+  padding-top: 1.25rem;
+  padding-bottom: 4rem;
+}
+
+.docs-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 0 0 2rem;
+  padding: 0.85rem 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.docs-toc a {
+  color: var(--mute);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.docs-toc a:hover {
+  color: var(--accent);
+}
+
+.docs-section {
+  margin: 0 0 2.25rem;
+  animation: rise 0.5s ease both;
+}
+
+.docs-section:nth-of-type(2) {
+  animation-delay: 0.04s;
+}
+
+.docs-section:nth-of-type(3) {
+  animation-delay: 0.08s;
+}
+
+.docs-steps {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.docs-steps li {
+  border-left: 2px solid var(--accent);
+  padding: 0.15rem 0 0.15rem 0.9rem;
+}
+
+.docs-steps strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.docs-steps p {
+  margin: 0;
+  color: var(--mute);
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.docs-card {
+  border: 1px solid var(--glass-edge);
+  border-radius: 0.75rem;
+  background: var(--glass-strong);
+  backdrop-filter: blur(12px);
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.docs-card strong {
+  display: block;
+  font-family: var(--display);
+  margin-bottom: 0.35rem;
+}
+
+.docs-card p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.95rem;
+}
+
+.docs-cta-row {
+  margin: 1.1rem 0 0;
+}
+
+.docs-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  border-radius: 0.55rem;
+  background: var(--accent);
+  color: #0b0d10;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.docs-cta:hover {
+  filter: brightness(1.08);
+}
+
+.docs-cta.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--line);
+}
+
+.docs-cta.ghost:hover {
+  border-color: var(--accent);
+  filter: none;
+}
+
+.docs-code {
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--glass-edge);
+  background: rgba(8, 10, 14, 0.72);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.docs-code-wide {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.docs-tool-list {
+  display: grid;
+  gap: 1.15rem;
+  margin: 1.35rem 0 1.75rem;
+}
+
+.docs-tool {
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--glass-edge);
+  border-radius: 0.75rem;
+  background: var(--glass-strong);
+  backdrop-filter: blur(12px);
+}
+
+.docs-tool .bench-h3 {
+  margin-top: 0;
+}
+
+.docs-tool > p {
+  margin: 0.35rem 0 0;
+  color: var(--mute);
+}
+
+.docs-tool-mcp {
+  margin: 0.65rem 0 0;
+  color: var(--faint);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.docs-tool-mcp span {
+  color: var(--mute);
+  font-weight: 600;
+}
+
+.docs-foot {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+}
+
+.docs-foot a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.docs-foot a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 720px) {
   .bench-hero-metrics,
-  .bench-fix-grid {
+  .bench-fix-grid,
+  .bench-examples,
+  .docs-grid {
     grid-template-columns: 1fr;
   }
 
   .bench-bar-row {
-    grid-template-columns: 5.5rem 1fr 2.8rem;
+    grid-template-columns: 6.5rem 1fr 2.8rem;
     gap: 0.4rem;
+  }
+
+  .bench-case {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
   }
 }

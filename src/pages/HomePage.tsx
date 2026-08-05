@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Analytics } from "../components/Analytics";
 import { ControlledWorkflow } from "../components/ControlledWorkflow";
 import { DownloadBand } from "../components/DownloadBand";
 import { Faq } from "../components/Faq";
@@ -20,7 +19,6 @@ export function HomePage() {
   const { t } = useI18n();
   return (
     <div className="page">
-      <Analytics />
       <SiteHeader variant="home" />
 
       <Hero />
@@ -41,6 +39,7 @@ export function HomePage() {
         <span className="foot-links">
           <a href="/privacy/">{t("footer", "privacy")}</a>
           <a href="/press/">{t("footer", "press")}</a>
+          <Link to="/docs">{t("footer", "docs")}</Link>
           <Link to="/benchmark">{t("footer", "benchmark")}</Link>
           <a href="#support">{t("footer", "support")}</a>
           <a href={FEEDBACK_MAILTO}>{FEEDBACK_EMAIL}</a>

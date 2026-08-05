@@ -14,11 +14,14 @@
     />
     <meta name="author" content="Doc Hub" />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0e1218" />
+    <meta name="color-scheme" content="dark" />
     <link rel="canonical" href="%SITE_URL%/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Doc Hub" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="uk_UA" />
     <meta property="og:url" content="%SITE_URL%/" />
     <meta
       property="og:title"
@@ -31,6 +34,10 @@
     <meta property="og:image" content="%SITE_URL%/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Doc Hub — local-first docs and planning launcher"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -42,6 +49,10 @@
       content="Free offline-first planning and docs for solo builders."
     />
     <meta name="twitter:image" content="%SITE_URL%/og.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Doc Hub — local-first docs and planning launcher"
+    />
 
     <link rel="icon" type="image/png" href="/app-icon.png" />
     <link rel="apple-touch-icon" href="/app-icon.png" />
@@ -67,19 +78,22 @@
             },
             "description": "Local-first solo-dev launcher for docs, planning, and extensions.",
             "url": "%SITE_URL%/",
-            "image": "%SITE_URL%/app-icon.png",
-            "downloadUrl": "https://github.com/Papa2Carlro/doc-hub-releases/releases/latest"
+            "image": "%SITE_URL%/og.png",
+            "screenshot": "%SITE_URL%/screens/portfolio-task-board.png",
+            "downloadUrl": "%SITE_URL%/#download"
           },
           {
             "@type": "WebSite",
             "name": "Doc Hub",
             "url": "%SITE_URL%/",
-            "description": "Product site for the Doc Hub desktop launcher."
+            "description": "Product site for the Doc Hub desktop launcher.",
+            "inLanguage": ["en", "uk"]
           },
           {
             "@type": "Organization",
             "name": "Doc Hub",
-            "url": "%SITE_URL%/"
+            "url": "%SITE_URL%/",
+            "logo": "%SITE_URL%/app-icon.png"
           }
         ]
       }

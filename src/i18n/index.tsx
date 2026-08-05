@@ -18,6 +18,23 @@ import { uk } from "./messages/uk";
 
 const catalogs: Record<Locale, Messages> = { en, uk };
 
+/** Onest ≈ Syne (display); Manrope ≈ DM Sans (body) — both ship Cyrillic. */
+const CYRILLIC_FONTS_HREF =
+  "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Onest:wght@600;700;800&display=swap";
+const CYRILLIC_FONTS_ID = "dochub-cyrillic-fonts";
+
+function ensureCyrillicFonts(locale: Locale) {
+  if (typeof document === "undefined") return;
+  let link = document.getElementById(CYRILLIC_FONTS_ID) as HTMLLinkElement | null;
+  if (locale !== "uk") return;
+  if (link) return;
+  link = document.createElement("link");
+  link.id = CYRILLIC_FONTS_ID;
+  link.rel = "stylesheet";
+  link.href = CYRILLIC_FONTS_HREF;
+  document.head.appendChild(link);
+}
+
 type MessageSection = keyof Messages;
 type MessageKey<S extends MessageSection> = keyof Messages[S] & string;
 
@@ -52,6 +69,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = locale;
+    ensureCyrillicFonts(locale);
   }, [locale]);
 
   const messages = catalogs[locale];

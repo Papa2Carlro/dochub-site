@@ -16,10 +16,6 @@ export function detectLocale(): Locale {
   } catch {
     /* ignore */
   }
-  if (typeof navigator !== "undefined") {
-    const lang = (navigator.language || "").toLowerCase();
-    if (lang.startsWith("uk") || lang.startsWith("ru")) return "uk";
-  }
   return "en";
 }
 

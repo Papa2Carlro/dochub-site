@@ -21,7 +21,8 @@ Promo: [`PROMO.md`](./PROMO.md) + press kit at `/press/`.
 |------|------|
 | Landing / SEO | Cloudflare Pages |
 | Download counts | Worker + KV |
-| Page analytics | Cloudflare Web Analytics (`VITE_CF_BEACON_TOKEN`) / optional Plausible |
+| Page analytics | Cloudflare Web Analytics (`VITE_CF_BEACON_TOKEN`) · optional Plausible · optional GA4 (`VITE_GA_MEASUREMENT_ID`) |
+| SEO | Per-route meta via `Seo` · sitemap + robots · JSON-LD in `index.html` · optional `VITE_GOOGLE_SITE_VERIFICATION` |
 | Waitlist email | Later |
 
 ## Dev

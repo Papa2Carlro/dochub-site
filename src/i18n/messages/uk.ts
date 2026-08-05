@@ -2,12 +2,24 @@ import type { Messages } from "./en";
 
 /** Ukrainian catalog — same keys as en.ts */
 export const uk: Messages = {
+  seo: {
+    homeTitle: "Doc Hub — локальний лаунчер для docs і планування",
+    homeDescription:
+      "Безкоштовний offline-first лаунчер для соло-розробників: workspaces, браузер docs, дошка планування та розширення — без хмари на базовому рівні. macOS, Windows, Linux.",
+    docsTitle: "Документація — як користуватися Doc Hub",
+    docsDescription:
+      "Встановіть Doc Hub, відкрийте workspace з Docs/, підключіть агентів через dm / MCP і користуйтеся картою інструментів: session, fence, orbit, planning.",
+    benchmarkTitle: "Context Benchmark — Doc Hub",
+    benchmarkDescription:
+      "Публічне резюме свідчень retrieval контексту Doc Hub: recall критичного контексту, Phase B пілот і пост-фікс efficiency probe.",
+  },
   nav: {
     ariaPrimary: "Основна навігація",
     how: "Як це працює",
     screens: "Екрани",
     workflow: "Процес",
     packs: "Паки",
+    docs: "Документація",
     benchmark: "Бенчмарк",
     support: "Підтримка",
     share: "Поділитися",
@@ -219,90 +231,255 @@ export const uk: Messages = {
     tagline: "Closed core · завантаження рахуються на нашому CDN",
     privacy: "Конфіденційність",
     press: "Press",
+    docs: "Документація",
     benchmark: "Бенчмарк",
     support: "Підтримка",
     notify: "Сповіщення",
     download: "Завантажити",
   },
+  docs: {
+    crumbHome: "← Doc Hub",
+    crumbCurrent: " · Документація",
+    title: "Як користуватися Doc Hub",
+    lede: "Гід для безкоштовного лаунчера — встановлення, workspace, щоденний цикл, агенти та поверхня dm / doc-memory, яку агенти реально викликають. Обліковий запис не потрібен.",
+    tocLabel: "На цій сторінці",
+    installTitle: "1. Встановлення",
+    installStep1Title: "Завантажте збірку для своєї ОС",
+    installStep1Body:
+      "Секція Download на цьому сайті. Інсталятори з нашого CDN — macOS зараз Apple Silicon; також є Windows і Linux.",
+    installStep2Title: "Відкрийте застосунок один раз",
+    installStep2Body:
+      "Без входу. Якщо ОС блокує непідписану збірку — див. розділ Trust нижче, потім відкрийте знову.",
+    installStep3Title: "Тримайте оновлення",
+    installStep3Body:
+      "Автооновлення в застосунку йде через підписаний канал latest.json, коли з’являється новіша збірка.",
+    installCta: "До Download",
+    workspaceTitle: "2. Відкрийте workspace",
+    workspaceBody:
+      "Вкажіть Doc Hub на теку проєкту. Краще дерево, де вже є Docs/ — саме на це спираються локальний індекс і сесії агентів.",
+    workspaceLi1:
+      "Документація лишається на вашій машині. Індексація локальна; хмарний sync не входить у безкоштовний базовий рівень.",
+    workspaceLi2:
+      "Стан планування живе в .dochub/ у workspace (SQLite-дошка). Не створюйте другу board DB у корені репо.",
+    workspaceLi3:
+      "Workspace можна змінювати пізніше — кожна тека тримає свою локальну дошку й індекс docs.",
+    workspaceExample:
+      "dm init\ndm info\ndm doctor\ndm use my-project",
+    dailyTitle: "3. Щоденний цикл",
+    dailyBody:
+      "Doc Hub — локальна панель керування проєктом, не хмарне IDE.",
+    dailyBoardTitle: "Дошка планування",
+    dailyBoardBody:
+      "Open → In Progress → review → done. Milestones і trail тримають delivery видимим без SaaS-дошки.",
+    dailyDocsTitle: "Браузер Docs",
+    dailyDocsBody:
+      "Переглядайте й шукайте Docs проєкту, не звалюючи цілі файли в кожен чат. Краще короткі, task-shaped пакети.",
+    dailyOrbitTitle: "Orbit і glossary",
+    dailyOrbitBody:
+      "Карти доменів і спільні терміни — щоб агенти й люди мали на увазі одне й те саме.",
+    agentsTitle: "4. Агенти й MCP",
+    agentsBody:
+      "Doc Hub дає CLI dm і MCP-сервер doc-memory. Cursor (чи інший MCP-клієнт) має викликати ці інструменти, а не звалювати весь Docs/ у контекст.",
+    agentsStep1Title: "Init + Agents pack",
+    agentsStep1Body:
+      "Запустіть dm init у workspace (або Workspace Doctor → Init у застосунку). Це створює .dochub/workspace.sqlite, індексує Docs/ і синхронізує Agents pack у ~/.config/doc-hub/agents/.",
+    agentsStep2Title: "Підключіть MCP у редакторі",
+    agentsStep2Body:
+      "У Cursor: Settings → MCP → увімкніть сервер Doc Hub / doc-memory з застосунку або Agents pack. Токени локальні — ніколи не комітьте їх.",
+    agentsStep3Title: "Стартуйте з session-пакета",
+    agentsStep3Body:
+      "Попросіть агента почати з dm session / doc_session під задачу. Поглиблюйте через chain, section або search лише за потреби — не з повного Read репо.",
+    agentsExample:
+      "dm session \"fix download CTA copy\" --domain wires\ndm chain \"download band CTAs\"\ndm section getting-started.md \"Quick start\"",
+    agentsCalloutStrong: "Агенти прискорюють; ви перевіряєте.",
+    agentsCalloutBody:
+      "Перед шипом — impact, тести й людський review. Повна карта інструментів:",
+    agentsToolsLink: "dm і MCP ↓",
+    toolsTitle: "5. dm і MCP інструменти",
+    toolsLede:
+      "Інструментів багато навмисно — згруповані за задачею. Беріть найменший пакет, що відповідає на задачу. dm — CLI-дзеркало MCP-сервера (doc-memory).",
+    toolsMirrorStrong: "Одна поверхня, двоє дверей.",
+    toolsMirrorBody:
+      "dm session ≈ MCP doc_session. dm fence check ≈ fence_check. Якщо в агента лише MCP — MCP-імена; у терміналі — dm.",
+    toolsMcpLabel: "MCP:",
+    toolsBootTitle: "Bootstrap",
+    toolsBootBody:
+      "Створити/мігрувати локальну board DB, перевірити здоров’я індексу й синхронізувати skills/rules у Cursor / Claude / Codex.",
+    toolsBootCmds:
+      "dm init\ndm info\ndm doctor\ndm agents status|update\ndm skills status|update",
+    toolsBootMcp: "doc_init_project · doc_info · doc_doctor · doc_agents_* · doc_skills_*",
+    toolsLookupTitle: "Пошук у Docs (старт агентських чатів)",
+    toolsLookupBody:
+      "Маршрутизувати задачу до Docs без читання цілих канон-файлів. session — звичний one-shot вхід; section/brief поглиблюють один heading.",
+    toolsLookupCmds:
+      "dm session \"…\" [--domain …]\ndm chain \"…\"\ndm route \"…\"\ndm search \"…\"\ndm section path.md \"Heading\"\ndm brief path.md\ndm stale",
+    toolsLookupMcp:
+      "doc_session · doc_chain · doc_route · doc_search · doc_section · doc_brief · doc_stale_check · doc_starter · doc_depth · doc_map_section",
+    toolsReposTitle: "Workspace і constellation",
+    toolsReposBody:
+      "Аліаси вказують на зареєстровані репо. Перемикання фокусу — use. Groups (constellation) роблять read-only fan-out по пов’язаних репо.",
+    toolsReposCmds:
+      "dm list\ndm use <alias>\ndm rename <alias> <new>\ndm group list|create|…",
+    toolsReposMcp:
+      "doc_list_repos · doc_use_repo · doc_rename_repo · group_* / constellation tools",
+    toolsSafetyTitle: "Безпека перед правкою",
+    toolsSafetyBody:
+      "Межі Orbit, quarantine fences, blast-radius поверхні, stop-lines і confidence zones — перевіряйте перед розширенням крихкого шляху.",
+    toolsSafetyCmds:
+      "dm orbit of <path>\ndm orbit gate\ndm fence check <path> …\ndm fence gate\ndm blast match <path>\ndm stop evaluate\ndm confidence match <path>",
+    toolsSafetyMcp:
+      "orbit_* · fence_* · blast_* · stop_* · confidence_*",
+    toolsHandoffTitle: "Неперервність і дослідження",
+    toolsHandoffBody:
+      "Заморозити сесію, передати іншій людині/репо, вести open questions, debt, findings, glossary і rituals.",
+    toolsHandoffCmds:
+      "dm capsule capture|resume …\ndm briefcase create|seal|export …\ndm question list|create …\ndm debt create|list …\ndm finding list|create …\ndm glossary lookup …\ndm ritual list|due",
+    toolsHandoffMcp:
+      "capsule_* · briefcase_* · question_* · debt_* · finding_* · glossary_* · ritual_*",
+    toolsCraftTitle: "Shape, friction, audit",
+    toolsCraftBody:
+      "Dry-run розбиття файлів/тек, скан friction агента з MCP history і post-work audit prompt для задачі на дошці.",
+    toolsCraftCmds:
+      "dm shape plan <path>\ndm shape folder <dir>\ndm friction scan\ndm history\ndm audit-prompt <task_id>",
+    toolsCraftMcp:
+      "shape_* · friction_* · doc_history · audit_prompt_get",
+    toolsOpsTitle: "Extensions, license, serve",
+    toolsOpsBody:
+      "Реєстр розширень, visibility fences, capability consent, ліцензії паків і довгоживучі workers для лаунчера.",
+    toolsOpsCmds:
+      "dm extension …\ndm visibility …\ndm consent …\ndm license …\ndm mcp\ndm serve\ndm legacy list|clean",
+    toolsOpsMcp:
+      "extension_* · visibility / consent tools · license_* · MCP stdio / worker serve",
+    toolsBoardTitle: "Дошка планування (MCP)",
+    toolsBoardBody:
+      "Tasks, epics, milestones, attachments, leases і close/export живуть переважно як MCP planning tools, поки лаунчер підключений — той самий .dochub/workspace.sqlite, що й UI.",
+    toolsBoardMcp:
+      "task_* · epic_* · milestone_* · attachment_* · lease_* · planning_* · backlog_import · board_writers",
+    toolsMapTitle: "Повна карта команд dm",
+    toolsMapBody:
+      "Top-level сабкоманди dm (прапорці: dm <cmd> -h). MCP віддає ті самі jobs під іменами doc_* / family_*.",
+    toolsMapCmds:
+      "info doctor init legacy list use rename group\nextension visibility consent\nsession chain route search section brief stale history\norbit fence capsule briefcase question blast confidence finding stop debt glossary ritual friction shape\naudit-prompt agents skills license mcp serve",
+    toolsMapHint: "Підказка: dm --help друкує це з вашої встановленої CLI.",
+    packsTitle: "6. Паки",
+    packsBody:
+      "Безкоштовний базовий рівень лаунчера лишається безкоштовним. Опційні one-time паки додають gates (скріни UI, DTJ-трейси), не замикаючи core.",
+    packsLi1:
+      "Безкоштовні адаптери (TypeScript, Unity, …) є в first-party store-каталозі.",
+    packsLi2:
+      "Платні паки: Visual Ship Gate і DTJ Trace Gate — ціни в секції Packs на головній.",
+    packsLi3:
+      "До 1 вересня 2026 можна написати на email за ранній ключ; після — звичайний checkout.",
+    packsCta: "Дивитись Packs",
+    trustTitle: "7. Довіра ОС (непідписані збірки)",
+    trustBody:
+      "Ранні збірки можуть ще не бути нотарізовані. Це gate ОС, не стіна логіну Doc Hub.",
+    trustLi1: "macOS: клацніть правою по застосунку → Відкрити → Відкрити.",
+    trustLi2: "Windows: SmartScreen → Докладніше → Виконати все одно.",
+    trustLi3: "Linux: дотримуйтесь політики дистрибутива для AppImage / пакетів.",
+    helpTitle: "8. Допомога",
+    helpBody:
+      "Баги, фідбек або ранні ліцензії паків — email. FAQ на головній покриває ціни, платформи й політику сорсу.",
+    helpFaq: "FAQ",
+    helpBenchmark: "Context Benchmark",
+    footBack: "← Назад до Doc Hub",
+    footDownload: "Завантажити",
+  },
   benchmark: {
-    documentTitle: "Context Benchmark — Doc Hub",
     crumbHome: "← Doc Hub",
     crumbCurrent: " · Context Benchmark",
     title: "Context Benchmark",
-    lede: "Внутрішні технічні свідчення того, як Doc Hub відбирає знання проєкту для агентів — спочатку покриття, потім overhead retrieval після системних фіксів. Не ринкова тяга. Не твердження, що Doc Hub пише кращий код.",
-    badgePhaseA: "Phase A заморожено",
-    badgePhaseAEm: "покриття",
-    badgePhaseB: "Phase B пілот",
-    badgePhaseBEm: "PASS/PASS",
-    badgePostFix: "Пост-фікс зонд",
-    badgePostFixEm: "−76% fetches",
-    recallLabel: "Recall критичного контексту",
-    recallNote: "Baseline 67.8% → Doc Hub 88.4% (Phase A, n=20)",
-    missLabel: "Відносне скорочення промахів",
-    missNote: "Miss rate 32.2% → 11.6% на gold критичних обмеженнях",
-    extraLabel: "Середнє extra-context",
-    extraNote: "Pre-fix → post-fix Doc Hub (−75.8%), ті самі 5 кейсів",
-    calloutStrong: "Читайте цифри чесно.",
+    lede: "Ми дали агентам реальні інженерні задачі й перевірили, чи Doc Hub кладе жорсткі правила проєкту їм перед носом — а потім, чи після фіксів шумних сесій їм треба менше копатись у файлах. Лише внутрішні технічні свідчення. Не ринкова тяга. Не твердження, що Doc Hub пише кращий код.",
+    badgeCoverage: "Покриття",
+    badgeCoverageEm: "n=20",
+    badgeOutcomes: "Результати",
+    badgeOutcomesEm: "PASS/PASS",
+    badgeEfficiency: "Зайві пошуки",
+    badgeEfficiencyEm: "−76%",
+    metricRulesLabel: "Більше жорстких правил у першому пакеті",
+    metricRulesNote: "Baseline 67.8% → Doc Hub 88.4% (20 задач)",
+    metricMissLabel: "Менше пропущених must-know правил",
+    metricMissNote: "Miss rate 32.2% → 11.6% на gold обмеженнях",
+    metricLookupsLabel: "Менше зайвих пошуків після першого пакета",
+    metricLookupsNote: "До фіксів → після фіксів Doc Hub (−75.8%), ті самі 5 задач",
+    calloutStrong: "Як це читати.",
     calloutBody:
-      "Phase A вимірює, чи з’являються критичні обмеження в retrieved packet. Phase B не показав переваги в engineering outcome (PASS/PASS обидва плечі). Пост-фікс зонд вимірює менше recovery fetches після трьох фіксів retrieval/session — не перевагу над Baseline у повторному лабораторному прогоні.",
-    phaseATitle: "Phase A — покриття критичного контексту",
-    phaseABody:
-      "20 історичних інженерних задач. Baseline = AGENTS.md / CLAUDE.md + product head. Doc Hub = route/session packets. Евристичний recall на gold критичних обмеженнях — не якість коду.",
+      "Покриття питає, чи must-know правило з’явилось у першому контекстному пакеті — не чи агент написав кращий код. На п’яти парних задачах обидва режими закінчили PASS; переваги в якості не було. Після трьох фіксів session/retrieval Doc Hub робив менше recovery-пошуків — Baseline у тому зонді не перезапускали.",
+    examplesTitle: "Як виглядає «жорстке правило»",
+    examplesLede:
+      "Ось типи обмежень, які ми оцінювали. Пропусти одне — і агент часто «чинить» задачу не тим способом.",
+    ex1Title: "Одна локальна дошка, без хмарного перепису",
+    ex1Body:
+      "Задача: кілька локальних процесів ділять одну planning-дошку. Жорсткі правила: один `.dochub/workspace.sqlite`, WAL + busy, без CRDT і без hosted DB. Пропустиш — агент вигадає cloud sync або другу базу.",
+    ex2Title: "Unity pin без поломки Doc Hub",
+    ex2Body:
+      "Задача: вікна Cursor для Unity потребують Doc Hub MCP на Unity-проєкт. Жорсткі правила: краще per-project pin; має співіснувати з існуючим вікном doc-hub. Пропустиш — зламаєш основні сесії Doc Hub.",
+    coverageTitle: "Покриття — жорсткі правила в першому пакеті",
+    coverageBody:
+      "20 історичних інженерних задач. Baseline = AGENTS.md / CLAUDE.md + репозиторій. Doc Hub = спочатку session-пакет. Ми оцінювали, чи gold must-know правила з’явились у цьому ранньому контексті — не якість коду.",
     barBaseline: "Baseline",
     barDocHub: "Doc Hub",
-    phaseAFaint: "Абсолютний Δ recall +20.6 п.п. · відносне скорочення miss ≈ 64%",
-    phaseBTitle: "Phase B пілот — engineering outcomes",
-    phaseBBody:
-      "П’ять парних задач агента (CB-001, CB-002, CB-005, CB-007, CB-011) за заблокованим скорингом. Лише артефакти; ті самі промпти; Doc Hub стартує з doc_session.",
+    coverageFaint:
+      "+20.6 відсоткових пунктів більше покритих правил · ~64% відносне скорочення промахів",
+    outcomesTitle: "Результати — чи стала робота кращою?",
+    outcomesBody:
+      "П’ять парних задач агента за зафіксованим скорингом. Ті самі промпти; лише design-артефакти. Doc Hub стартує з session-пакета. Той самий фініш — Doc Hub коштував більше копання до пізніших фіксів.",
     thResult: "Результат",
     thValue: "Значення",
-    rowOutcomes: "Outcomes",
+    rowOutcomes: "Фініш задачі",
     rowOutcomesValue: "PASS / PASS на всіх 5 парах",
     rowQuality: "Дельти якості",
     rowQualityValue:
       "Переваги в critical / architecture / verification / rework не спостерігалися",
-    rowOverhead: "Overhead Doc Hub",
-    rowOverheadValue: "Середнє +11 extra-context fetches vs Baseline",
-    phaseBFaint:
-      "Інтерпретація: історичний корпус часто вже recoverable через Read/Grep — обмежена outcome-дискримінація. Пілот закрито; скоринг заблоковано.",
-    evalFixTitle: "Фікс за оцінкою (CB-001 → CB-001-R1)",
-    evalFixFaint:
-      "~46% менше Doc Hub extra-context fetches після обмеженого фіксу routing/session. Outcome все ще PASS. Оригінальний CB-001 незмінний.",
-    postFixTitle: "Пост-фікс efficiency probe",
-    postFixLede:
-      "Окремий експеримент після трьох системних фіксів. Ті самі п’ять кейсів. Вимірює overhead retrieval — не перепис скорингу Phase B пілота.",
-    fix1Title: "1. Document-family closure",
+    rowOverhead: "Зайве копання",
+    rowOverheadValue: "Середнє +11 зайвих пошуків файлів/docs vs Baseline",
+    outcomesFaint:
+      "Ці задачі часто вже розв’язувались звичайним Read/Grep по репо — тож фінішні скори майже не розвели два режими. Пілот закрито; скоринг зафіксовано.",
+    efficiencyTitle: "Менше полювання після фіксів сесії",
+    efficiencyLede:
+      "Окрема перевірка на тих самих п’яти задачах після трьох продуктових фіксів. Міряє зайві пошуки після першого пакета — не перепис outcome-скорів вище.",
+    fix1Title: "1. Тягнути пов’язані docs разом",
     fix1Body:
-      "Тримати пов’язані ADR / docs у початковому ланцюгу (напр. CB-005 0001–0004).",
-    fix2Title: "2. Індексація канонічних джерел",
+      "Тримати родину ADR / docs у першому ланцюгу, замість змушувати агента відкривати їх по одному.",
+    fix2Title: "2. Індексувати канонічні джерела",
     fix2Body:
-      "Allowlist README пакета, MCP pin config, schema digests як знання ext/.",
-    fix3Title: "3. Session sufficiency",
+      "Allowlist README пакетів, MCP pin config і schema digests — щоб сесія цитувала справжнє джерело правди.",
+    fix3Title: "3. Сказати, коли пакета вже досить",
     fix3Body:
-      "Детермінований сигнал sufficient / partial / insufficient + stop guidance (інструменти не блокуються).",
-    meanTitle: "Середнє additional context (Doc Hub)",
-    barPre: "Pre-fix",
-    barPost: "Post-fix",
+      "Чіткий сигнал sufficient / partial / insufficient плюс stop guidance — інструменти лишаються доступні; агент отримує підказку не молотитись.",
+    meanTitle: "Середні зайві пошуки (Doc Hub)",
+    barPre: "До фіксів",
+    barPost: "Після фіксів",
     meanFaint:
-      "Абсолютний Δ −23.8 · відносний −75.8% · медіана 7 · усі п’ять outcomes усе ще PASS · board/bridge/map recovery після session = 0",
-    perCaseTitle: "Extra-context по кейсах (pre → post)",
-    perCaseAria: "Fetches по кейсах",
-    labelPre: "pre",
-    labelPost: "post",
-    residualTitle: "Що лишилось після «sufficient»",
+      "−23.8 абсолютно · −75.8% відносно · медіана 7 · усі п’ять усе ще PASS · нуль board/bridge/map recovery після сесії",
+    evalFixTitle: "Бенчмарк знайшов борг → фікс → перевірка",
+    evalFixPreLabel: "До (CB-001)",
+    evalFixPostLabel: "Після (CB-001-R1)",
+    evalFixFaint:
+      "~46% менше зайвих пошуків після обмеженого фіксу routing/session. Усе ще PASS. Оригінальний прогін CB-001 не змінювали.",
+    perCaseTitle: "Зайві пошуки по задачах (до → після)",
+    perCaseAria: "Зайві пошуки по задачах",
+    labelPre: "до",
+    labelPost: "після",
+    case001Title: "Спільна локальна дошка",
+    case002Title: "SQLite busy / WAL",
+    case005Title: "ADR runtime truth",
+    case007Title: "Unity MCP pin",
+    case011Title: "Quarantine fence",
+    residualTitle: "Що лишилось після «достатньо, щоб почати»",
     residualLede:
-      "Залишкові fetches майже повністю були необхідною інспекцією імплементації — не board/bridge/map recovery.",
-    legendNecessary: "Необхідна імплементація (34)",
+      "Майже всі залишкові пошуки — читання коду для імплементації дизайну, не полювання на board/docs maps.",
+    legendNecessary: "Потрібно для імпл. (34)",
     legendOptional: "Опційне підтвердження (3)",
     legendRedundant: "Надлишкове (1)",
     legendBoard: "Board/bridge/map (0)",
     limitationsTitle: "Обмеження",
-    lim1: "Recall Phase A — евристика пакета: може завищувати/занижувати.",
-    lim2: "Phase B пілот n = 5; історичні задачі; не сліпа оцінка; лише design-артефакти.",
-    lim3: "Пост-фікс зонд використовував venv session entry, коли live MCP був stale; Baseline не перезапускали.",
+    lim1: "Скоринг покриття — евристика пакета: може завищувати або занижувати.",
+    lim2: "Outcome-пілот n = 5; історичні задачі; не сліпий; лише design-артефакти.",
+    lim3: "Efficiency-зонд використав свіжу локальну сесію, коли live MCP був stale; Baseline не перезапускали.",
     lim4: "На цій сторінці немає зовнішніх свідчень тяги чи readiness-to-pay.",
     footSnapshot:
-      "Дата знімку 2026-08-05 · Свідчення в grant-корпусі екосистеми Doc Hub. Ця сторінка — лише публічне візуальне резюме.",
+      "Дата знімку 2026-08-05 · Повні свідчення в grant-корпусі екосистеми Doc Hub. Ця сторінка — лише публічне візуальне резюме.",
     footBack: "← Назад до Doc Hub",
     footPress: "Press kit",
     footDownload: "Завантажити",

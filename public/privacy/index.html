@@ -66,11 +66,26 @@
       </p>
       <h2>Product site</h2>
       <p>
-        The marketing site is static. Privacy-friendly analytics may load
-        Cloudflare Web Analytics (<code>VITE_CF_BEACON_TOKEN</code>) and/or
-        Plausible (<code>VITE_PLAUSIBLE_DOMAIN</code>) — no cookies, no selling
-        personal data. We do not run ads on this site. An optional waitlist may
-        send your email to Formspree only to notify you about releases.
+        The marketing site is a static SPA on Cloudflare Pages. Privacy-friendly
+        analytics may load when configured at build time:
+      </p>
+      <ul>
+        <li>
+          Cloudflare Web Analytics (<code>VITE_CF_BEACON_TOKEN</code>) — preferred,
+          no cookies
+        </li>
+        <li>
+          Plausible (<code>VITE_PLAUSIBLE_DOMAIN</code>) — optional, no cookies
+        </li>
+        <li>
+          Google Analytics 4 (<code>VITE_GA_MEASUREMENT_ID</code>) — optional; uses
+          Google’s measurement cookies / signals when enabled. Leave unset to keep
+          the site on privacy-friendly beacons only.
+        </li>
+      </ul>
+      <p>
+        We do not sell personal data or run ads on this site. An optional waitlist
+        may send your email to Formspree only to notify you about releases.
       </p>
       <h2>Desktop app</h2>
       <p>
