@@ -537,7 +537,7 @@ export const uk: Messages = {
       "Starvation: plain рука не може Read Docs. Не трактуй 0%→100% як чесний headline.",
     phaseCDualTitle: "Empty chat PASS vs MCP PASS",
     phaseCDefer:
-      "CB-004 / CB-006: docs_md extension PASS/PASS (History Phase D). Тут лишаються як empty-chat starvation пари.",
+      "CB-004 / CB-006 також вище на Phase D fair (docs_md vs MCP). Тут лишаються як empty-chat starvation пари.",
     phaseAMeta: "пакет instruction files vs Doc Hub session · без кодингу",
     phaseARecallFiles: "Recall · instruction files",
     phaseARecallDm: "Recall · Doc Memory",
@@ -547,7 +547,8 @@ export const uk: Messages = {
     phaseARelCut: "Відносне скорочення miss",
     barFiles: "Instruction files",
     barDm: "Doc Memory",
-    phaseBMeta: "Phase D saturated fair руки · Baseline = Docs MD · Doc Hub = MCP",
+    phaseBMeta:
+      "Saturated Docs MD vs MCP · pilot n=5 + docs_md extension CB-004/006",
     phaseBPassBase: "PASS · Docs MD",
     phaseBPassDm: "PASS · MCP",
     phaseBExtraBase: "Середні зайві пошуки · Docs MD",
@@ -555,7 +556,9 @@ export const uk: Messages = {
     phaseBDelta: "Δ середніх зайвих пошуків",
     phaseBCrit: "Critical misses (обидві)",
     phaseBNote:
-      "Docs-saturated dogfood: PASS/PASS (n=5 pilot). CB-004/006 docs_md extension теж PASS/PASS. Discriminative Phase E — на Зараз.",
+      "PASS/PASS на всіх семи. Pilot means були MD 20.4 / MCP 31.4 (n=5); extension карти тягнуть MCP extras вниз. Discriminative Phase E — на Зараз.",
+    phaseDPerCaseAria: "Зайві пошуки по Phase D задачах · Docs MD vs MCP",
+    phaseDExtTag: "docs_md extension",
     cb001Meta: "Той самий промпт · зайві пошуки Doc Memory після обмеженого фіксу routing/session",
     cb001Before: "Зайві пошуки · CB-001",
     cb001After: "Зайві пошуки · CB-001-R1",

@@ -486,7 +486,7 @@ export function MiniBar({
   label: string;
   width: number;
   value: number;
-  tone: "pre" | "post";
+  tone: "pre" | "post" | "md" | "mcp";
 }) {
   return (
     <div className="bench-mini">

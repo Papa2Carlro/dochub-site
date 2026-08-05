@@ -1,14 +1,14 @@
-import { useCallback, useState } from "react";
-import { useI18n } from "../i18n";
-import {
-  SHOTS,
-  SHOT_ALT_KEY,
-  SHOT_CAPTION_KEY,
-} from "../lib/shots";
-import { Lightbox } from "./Lightbox";
+import { useCallback, useState, type FC } from "react";
+import classNames from "classnames/bind";
+import { useI18n } from "i18n";
+import { SHOTS, SHOT_ALT_KEY, SHOT_CAPTION_KEY } from "lib/shots";
+import { Lightbox } from "components/Lightbox";
+import scss from "./ProductStage.module.scss";
+
+const cn = classNames.bind(scss);
 
 /** Hero product plane — real Doc Hub board screenshot (click to enlarge). */
-export function ProductStage() {
+const ProductStage: FC = () => {
   const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -24,21 +24,21 @@ export function ProductStage() {
 
   return (
     <>
-      <div className="stage">
+      <div className={cn("ProductStage")}>
         <button
           type="button"
-          className="stage-window stage-window--shot stage-open"
+          className={cn("ProductStage__window", "shot", "open")}
           onClick={() => setOpenIndex(0)}
           aria-label={t("hero", "stageAriaOpen")}
         >
-          <div className="stage-chrome">
-            <span className="dot" />
-            <span className="dot" />
-            <span className="dot" />
-            <span className="chrome-title">Doc Hub</span>
+          <div className={cn("ProductStage__chrome")}>
+            <span className={cn("ProductStage__dot")} />
+            <span className={cn("ProductStage__dot")} />
+            <span className={cn("ProductStage__dot")} />
+            <span className={cn("ProductStage__chromeTitle")}>Doc Hub</span>
           </div>
           <img
-            className="stage-shot"
+            className={cn("ProductStage__shot")}
             src="./screens/portfolio-task-board.png"
             alt={t("hero", "stageAlt")}
             width={3456}
@@ -57,4 +57,6 @@ export function ProductStage() {
       ) : null}
     </>
   );
-}
+};
+
+export { ProductStage };

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames/bind";
-import { DownloadCtas } from "../DownloadCtas";
-import { ProductStage } from "../ProductStage";
+import { DownloadCtas } from "components/DownloadCtas";
+import { ProductStage } from "components/ProductStage";
 import { useI18n } from "i18n";
 import scss from "./Hero.module.scss";
 
@@ -17,7 +17,7 @@ const Hero: FC = () => {
         <p className={cn("Hero__brand")}>Doc Hub</p>
         <h1 className={cn("Hero__title")}>{t("hero", "headline")}</h1>
         <p className={cn("Hero__lede")}>{t("hero", "lede")}</p>
-        <DownloadCtas />
+        <DownloadCtas className={cn("Hero__ctas")} />
       </div>
     </section>
   );

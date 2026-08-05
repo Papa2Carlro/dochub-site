@@ -2,10 +2,12 @@ import { useI18n } from "../../i18n";
 import {
   CASE_SCALE,
   CB001_R1,
+  EXTRA_SCALE,
   PHASE_A,
-  PHASE_B,
   PHASE_C,
   PHASE_C_CASES,
+  PHASE_D,
+  PHASE_D_CASES,
   PHASE_E,
   POST_FIX,
   TIMELINE,
@@ -131,37 +133,69 @@ export function BenchmarkHistory() {
 
       <article className="bench-version">
         <header className="bench-version-head">
-          <h3 className="bench-h3">{PHASE_B.name}</h3>
-          <span className="bench-block-meta">{PHASE_B.date}</span>
+          <h3 className="bench-h3">{PHASE_D.name}</h3>
+          <span className="bench-block-meta">{PHASE_D.date}</span>
         </header>
         <p className="bench-block-meta">
-          n={PHASE_B.n} · {t("benchmark", "phaseBMeta")}
+          n={PHASE_D.n} · {t("benchmark", "phaseBMeta")}
         </p>
         <div className="bench-metric-row">
           <div className="bench-mini-metric">
             <span>{t("benchmark", "phaseBPassBase")}</span>
             <strong>
-              {PHASE_B.baselinePass}/{PHASE_B.n}
+              {PHASE_D.mdPass}/{PHASE_D.n}
             </strong>
           </div>
           <div className="bench-mini-metric">
             <span>{t("benchmark", "phaseBPassDm")}</span>
             <strong>
-              {PHASE_B.dmPass}/{PHASE_B.n}
+              {PHASE_D.mcpPass}/{PHASE_D.n}
             </strong>
           </div>
           <div className="bench-mini-metric">
             <span>{t("benchmark", "phaseBExtraBase")}</span>
-            <strong>{PHASE_B.baselineMeanExtra}</strong>
+            <strong>{PHASE_D.mdMeanExtra}</strong>
           </div>
           <div className="bench-mini-metric">
             <span>{t("benchmark", "phaseBExtraDm")}</span>
-            <strong>{PHASE_B.dmMeanExtra}</strong>
+            <strong>{PHASE_D.mcpMeanExtra}</strong>
           </div>
           <div className="bench-mini-metric">
             <span>{t("benchmark", "phaseBDelta")}</span>
-            <strong>+{PHASE_B.deltaExtra.toFixed(1)}</strong>
+            <strong>+{PHASE_D.deltaExtra.toFixed(1)}</strong>
           </div>
+        </div>
+        <div
+          className="bench-panel bench-cases"
+          aria-label={t("benchmark", "phaseDPerCaseAria")}
+        >
+          {PHASE_D_CASES.map((c) => (
+            <div className="bench-case" key={c.id}>
+              <div className="bench-case-meta">
+                <span className="bench-case-title">
+                  {t("benchmark", c.titleKey)}
+                  {c.extension ? (
+                    <span className="bench-case-id"> · {t("benchmark", "phaseDExtTag")}</span>
+                  ) : null}
+                </span>
+                <span className="bench-case-id">{c.id}</span>
+              </div>
+              <div className="bench-case-bars">
+                <MiniBar
+                  label={t("benchmark", "labelMdShort")}
+                  width={(c.mdExtra / EXTRA_SCALE) * 100}
+                  value={c.mdExtra}
+                  tone="md"
+                />
+                <MiniBar
+                  label={t("benchmark", "labelMcpShort")}
+                  width={(c.mcpExtra / EXTRA_SCALE) * 100}
+                  value={c.mcpExtra}
+                  tone="mcp"
+                />
+              </div>
+            </div>
+          ))}
         </div>
         <p className="bench-faint">{t("benchmark", "phaseBNote")}</p>
       </article>

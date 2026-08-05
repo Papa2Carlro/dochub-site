@@ -2,7 +2,7 @@ import { useCallback, useState, type FC } from "react";
 import classNames from "classnames/bind";
 import { useI18n } from "i18n";
 import { SHOTS, SHOT_ALT_KEY, SHOT_CAPTION_KEY, type Shot } from "lib/shots";
-import { Lightbox } from "../Lightbox";
+import { Lightbox } from "components/Lightbox";
 import scss from "./Screens.module.scss";
 
 const cn = classNames.bind(scss);

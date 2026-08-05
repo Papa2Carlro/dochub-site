@@ -535,7 +535,7 @@ export const en = {
       "Starvation contrast: plain arm cannot Read Docs. Do not treat 0%→100% as the fair headline.",
     phaseCDualTitle: "Empty chat PASS vs MCP PASS",
     phaseCDefer:
-      "CB-004 / CB-006: docs_md extension PASS/PASS (History Phase D). Still shown here as empty-chat starvation pairs.",
+      "CB-004 / CB-006 also appear above on Phase D fair (docs_md vs MCP). Here they remain empty-chat starvation pairs.",
     phaseAMeta: "instruction-file packet vs Doc Hub session packet · no coding",
     phaseARecallFiles: "Recall · instruction files",
     phaseARecallDm: "Recall · Doc Memory",
@@ -545,7 +545,8 @@ export const en = {
     phaseARelCut: "Relative miss cut",
     barFiles: "Instruction files",
     barDm: "Doc Memory",
-    phaseBMeta: "Phase D saturated fair arms · Baseline = Docs MD · Doc Hub = MCP",
+    phaseBMeta:
+      "Saturated Docs MD vs MCP · pilot n=5 + docs_md extension CB-004/006",
     phaseBPassBase: "PASS · Docs MD",
     phaseBPassDm: "PASS · MCP",
     phaseBExtraBase: "Mean extra lookups · Docs MD",
@@ -553,7 +554,9 @@ export const en = {
     phaseBDelta: "Δ mean extra lookups",
     phaseBCrit: "Critical misses (both)",
     phaseBNote:
-      "Docs-saturated dogfood: PASS/PASS (n=5 pilot). CB-004/006 docs_md extension also PASS/PASS. Discriminative Phase E is on Now.",
+      "PASS/PASS on all seven. Pilot means were MD 20.4 / MCP 31.4 (n=5); extension cards pull MCP extras down. Discriminative Phase E is on Now.",
+    phaseDPerCaseAria: "Extra lookups per Phase D task · Docs MD vs MCP",
+    phaseDExtTag: "docs_md extension",
     cb001Meta: "Same prompt · Doc Memory extra lookups after a bounded routing/session fix",
     cb001Before: "Extra lookups · CB-001",
     cb001After: "Extra lookups · CB-001-R1",

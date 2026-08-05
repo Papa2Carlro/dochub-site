@@ -18,15 +18,18 @@ export const CURRENT = {
   liveAe: true,
 } as const;
 
-/** Phase D / Phase B saturated fair bake-off — History. */
+/** Phase D saturated fair bake-off — History (pilot n=5 + CB-004/006 docs_md extension). */
 export const PHASE_D = {
-  n: 5,
-  date: "2026-08-05",
-  mdPass: 5,
-  mcpPass: 5,
-  mdMeanExtra: 20.4,
-  mcpMeanExtra: 31.4,
-  deltaExtra: 11.0,
+  name: "Phase D fair (Docs MD vs MCP)",
+  n: 7,
+  date: "2026-08-06",
+  mdPass: 7,
+  mcpPass: 7,
+  mdMeanExtra: 17.9,
+  mcpMeanExtra: 24.0,
+  deltaExtra: 6.1,
+  pilotN: 5,
+  extensionN: 2,
 } as const;
 
 /** Phase A packet recall — History / secondary. */
@@ -182,10 +185,11 @@ export const WALKTHROUGHS: Walkthrough[] = [
   },
 ];
 
-/** Legacy Phase D per-task extras (History context). */
+/** Phase D per-task extras (History). Pilot five + CB-004/006 docs_md extension. */
 export const PHASE_D_CASES: (CurrentCase & {
   mdExtra: number;
   mcpExtra: number;
+  extension?: boolean;
 })[] = [
   {
     id: "CB-001",
@@ -220,6 +224,23 @@ export const PHASE_D_CASES: (CurrentCase & {
     mcpExtra: 26,
   },
   {
+    id: "CB-004",
+    titleKey: "case004Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 11,
+    mcpExtra: 5,
+    extension: true,
+  },
+  {
     id: "CB-005",
     titleKey: "case005Title",
     plainOutcome: "PASS",
@@ -234,6 +255,23 @@ export const PHASE_D_CASES: (CurrentCase & {
     dmVerifN: 3,
     mdExtra: 35,
     mcpExtra: 45,
+  },
+  {
+    id: "CB-006",
+    titleKey: "case006Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 3,
+    dmCritMiss: 0,
+    dmCritN: 3,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 12,
+    mcpExtra: 6,
+    extension: true,
   },
   {
     id: "CB-007",
@@ -398,8 +436,9 @@ export const PHASE_A = {
   relativeMissCut: 64,
 } as const;
 
+/** Locked Phase B pilot (n=5) — timeline / R&D; History fair viz uses PHASE_D (n=7). */
 export const PHASE_B = {
-  name: "Phase B pilot (= Phase D fair arms)",
+  name: "Phase B pilot",
   date: "2026-08-05",
   n: 5,
   baselinePass: 5,

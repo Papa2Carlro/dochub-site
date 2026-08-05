@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { ControlledWorkflow } from "../components/ControlledWorkflow";
-import { DownloadBand } from "../components/DownloadBand";
+import { ControlledWorkflow } from "components/ControlledWorkflow";
+import { DownloadBand } from "components/DownloadBand";
 import { Faq } from "components/Faq";
 import { Features } from "components/Features";
 import { Hero } from "components/Hero";

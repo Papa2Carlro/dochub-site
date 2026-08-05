@@ -1,21 +1,22 @@
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, type FC } from "react";
 import { createPortal } from "react-dom";
-import { useI18n } from "../i18n";
-import type { Shot } from "../lib/shots";
+import classNames from "classnames/bind";
+import { useI18n } from "i18n";
+import type { Shot } from "lib/shots";
+import scss from "./Lightbox.module.scss";
+
+const cn = classNames.bind(scss);
 
 type LightboxShot = Shot & { caption: string; alt: string };
 
-export function Lightbox({
-  shots,
-  index,
-  onClose,
-  onIndexChange,
-}: {
+type LightboxProps = {
   shots: LightboxShot[];
   index: number;
   onClose: () => void;
   onIndexChange: (next: number) => void;
-}) {
+};
+
+const Lightbox: FC<LightboxProps> = ({ shots, index, onClose, onIndexChange }) => {
   const { t } = useI18n();
   const shot = shots[index];
   const titleId = useId();
@@ -51,17 +52,17 @@ export function Lightbox({
 
   return createPortal(
     <div
-      className="lightbox"
+      className={cn("Lightbox")}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
       onClick={onClose}
     >
-      <div className="lightbox-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="lightbox-toolbar">
-          <p id={titleId} className="lightbox-caption">
+      <div className={cn("Lightbox__panel")} onClick={(e) => e.stopPropagation()}>
+        <div className={cn("Lightbox__toolbar")}>
+          <p id={titleId} className={cn("Lightbox__caption")}>
             {shot.caption}
-            <span className="lightbox-count">
+            <span className={cn("Lightbox__count")}>
               {" "}
               · {index + 1}/{shots.length}
             </span>
@@ -69,7 +70,7 @@ export function Lightbox({
           <button
             ref={closeRef}
             type="button"
-            className="lightbox-close"
+            className={cn("Lightbox__btn")}
             onClick={onClose}
             aria-label={t("screens", "close")}
           >
@@ -77,27 +78,25 @@ export function Lightbox({
           </button>
         </div>
         <img
-          className="lightbox-img"
+          className={cn("Lightbox__img")}
           src={shot.src}
           alt={shot.alt}
           width={3456}
           height={2168}
         />
         {shots.length > 1 ? (
-          <div className="lightbox-nav">
+          <div className={cn("Lightbox__nav")}>
             <button
               type="button"
-              className="lightbox-nav-btn"
-              onClick={() =>
-                onIndexChange((index - 1 + shots.length) % shots.length)
-              }
+              className={cn("Lightbox__btn")}
+              onClick={() => onIndexChange((index - 1 + shots.length) % shots.length)}
               aria-label={t("screens", "previousAria")}
             >
               {t("screens", "previous")}
             </button>
             <button
               type="button"
-              className="lightbox-nav-btn"
+              className={cn("Lightbox__btn")}
               onClick={() => onIndexChange((index + 1) % shots.length)}
               aria-label={t("screens", "nextAria")}
             >
@@ -107,6 +106,9 @@ export function Lightbox({
         ) : null}
       </div>
     </div>,
-    document.body,
+    document.body
   );
-}
+};
+
+export { Lightbox };
+export type { LightboxProps, LightboxShot };

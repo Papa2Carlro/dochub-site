@@ -1,0 +1,78 @@
+@use "styles/abstracts/variables" as v;
+
+.Lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(7, 11, 18, 0.88);
+  backdrop-filter: blur(6px);
+  animation: rise 0.2s ease both;
+
+  &__panel {
+    width: min(1200px, 100%);
+    max-height: calc(100dvh - 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__caption {
+    margin: 0;
+    font-family: v.$display;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  &__count {
+    font-weight: 500;
+    color: v.$mute;
+    font-family: v.$body;
+    font-size: 0.9rem;
+  }
+
+  &__btn {
+    min-height: 2.4rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 0.45rem;
+    border: 1px solid v.$line;
+    background: rgba(232, 234, 237, 0.06);
+    color: v.$foam;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      border-color: rgba(91, 141, 239, 0.55);
+      color: v.$accent;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100dvh - 8rem);
+    object-fit: contain;
+    border-radius: 0.55rem;
+    border: 1px solid v.$line;
+    background: #0a0d12;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+}

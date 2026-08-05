@@ -1,0 +1,127 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ProductStage {
+  position: absolute;
+  inset: 8% -4% -6% 34%;
+  z-index: 1;
+  pointer-events: none;
+  animation: stage-in 1.05s 0.08s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @include m.media-down(960px) {
+    position: relative;
+    inset: auto;
+    margin: 0.5rem 0 1.5rem;
+    height: 340px;
+  }
+
+  @include m.media-down(640px) {
+    height: 300px;
+  }
+
+  &__window {
+    height: 100%;
+    min-height: 420px;
+    border: 1px solid var(--glass-edge);
+    border-radius: 18px 0 0 18px;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(26, 29, 35, 0.55) 55%,
+      rgba(14, 18, 24, 0.72) 100%
+    );
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 var(--glass-shine) inset,
+      -24px 28px 80px rgba(0, 0, 0, 0.45);
+    transform: perspective(1600px) rotateY(-6deg) rotateX(2deg);
+    transform-origin: left center;
+    display: flex;
+    flex-direction: column;
+
+    &.shot {
+      min-height: 0;
+    }
+
+    &.open {
+      pointer-events: auto;
+      cursor: zoom-in;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      appearance: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(91, 141, 239, 0.7);
+      outline-offset: 3px;
+    }
+
+    @include m.media-down(960px) {
+      border-radius: 12px;
+      transform: none;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  &__shot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    flex: 1;
+    min-height: 360px;
+  }
+
+  &__chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--glass-edge);
+    background: rgba(34, 38, 46, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  &__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: v.$overlay;
+
+    &:nth-child(1) {
+      background: #ff5f57;
+    }
+    &:nth-child(2) {
+      background: #febc2e;
+    }
+    &:nth-child(3) {
+      background: #28c840;
+    }
+  }
+
+  &__chromeTitle {
+    margin-left: 0.6rem;
+    font-size: 0.75rem;
+    color: v.$mute;
+    font-weight: 500;
+  }
+}
