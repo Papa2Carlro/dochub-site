@@ -6,7 +6,71 @@ import type { Messages } from "../i18n/messages/en";
 
 type BenchKey = keyof Messages["benchmark"] & string;
 
-const CASES: {
+const PHASE_C_CASES: {
+  id: string;
+  titleKey: BenchKey;
+  plainKey: BenchKey;
+  dmKey: BenchKey;
+}[] = [
+  {
+    id: "CB-001",
+    titleKey: "case001Title",
+    plainKey: "case001Plain",
+    dmKey: "case001Dm",
+  },
+  {
+    id: "CB-002",
+    titleKey: "case002Title",
+    plainKey: "case002Plain",
+    dmKey: "case002Dm",
+  },
+  {
+    id: "CB-005",
+    titleKey: "case005Title",
+    plainKey: "case005Plain",
+    dmKey: "case005Dm",
+  },
+  {
+    id: "CB-007",
+    titleKey: "case007Title",
+    plainKey: "case007Plain",
+    dmKey: "case007Dm",
+  },
+  {
+    id: "CB-011",
+    titleKey: "case011Title",
+    plainKey: "case011Plain",
+    dmKey: "case011Dm",
+  },
+];
+
+const WALKTHROUGHS: {
+  id: string;
+  titleKey: BenchKey;
+  promptKey: BenchKey;
+  plainKey: BenchKey;
+  dmKey: BenchKey;
+  takeawayKey: BenchKey;
+}[] = [
+  {
+    id: "CB-001",
+    titleKey: "walk1Title",
+    promptKey: "walk1Prompt",
+    plainKey: "walk1Plain",
+    dmKey: "walk1Dm",
+    takeawayKey: "walk1Takeaway",
+  },
+  {
+    id: "CB-007",
+    titleKey: "walk2Title",
+    promptKey: "walk2Prompt",
+    plainKey: "walk2Plain",
+    dmKey: "walk2Dm",
+    takeawayKey: "walk2Takeaway",
+  },
+];
+
+const EFFICIENCY_CASES: {
   id: string;
   pre: number;
   post: number;
@@ -17,15 +81,6 @@ const CASES: {
   { id: "CB-005", pre: 45, post: 8, titleKey: "case005Title" },
   { id: "CB-007", pre: 24, post: 7, titleKey: "case007Title" },
   { id: "CB-011", pre: 34, post: 9, titleKey: "case011Title" },
-];
-
-const EXAMPLES: {
-  id: string;
-  titleKey: BenchKey;
-  bodyKey: BenchKey;
-}[] = [
-  { id: "CB-001", titleKey: "ex1Title", bodyKey: "ex1Body" },
-  { id: "CB-007", titleKey: "ex2Title", bodyKey: "ex2Body" },
 ];
 
 const CASE_SCALE = 45;
@@ -51,45 +106,47 @@ export function BenchmarkPage() {
 
         <div className="bench-badges">
           <span className="bench-badge">
-            {t("benchmark", "badgeCoverage")}
-            <em>{t("benchmark", "badgeCoverageEm")}</em>
+            {t("benchmark", "badgePrompts")}
+            <em>{t("benchmark", "badgePromptsEm")}</em>
           </span>
           <span className="bench-badge">
-            {t("benchmark", "badgeOutcomes")}
-            <em>{t("benchmark", "badgeOutcomesEm")}</em>
+            {t("benchmark", "badgePlain")}
+            <em>{t("benchmark", "badgePlainEm")}</em>
           </span>
           <span className="bench-badge">
-            {t("benchmark", "badgeEfficiency")}
-            <em>{t("benchmark", "badgeEfficiencyEm")}</em>
+            {t("benchmark", "badgeDm")}
+            <em>{t("benchmark", "badgeDmEm")}</em>
           </span>
         </div>
 
         <div className="bench-hero-metrics">
           <article className="bench-metric">
             <div className="bench-metric-label">
-              {t("benchmark", "metricRulesLabel")}
+              {t("benchmark", "metricPlainLabel")}
             </div>
-            <div className="bench-metric-value accent">+20.6 pp</div>
+            <div className="bench-metric-value">{t("benchmark", "metricPlainValue")}</div>
             <p className="bench-metric-note">
-              {t("benchmark", "metricRulesNote")}
+              {t("benchmark", "metricPlainNote")}
             </p>
           </article>
           <article className="bench-metric">
             <div className="bench-metric-label">
-              {t("benchmark", "metricMissLabel")}
+              {t("benchmark", "metricDmLabel")}
             </div>
-            <div className="bench-metric-value good">~64%</div>
-            <p className="bench-metric-note">
-              {t("benchmark", "metricMissNote")}
-            </p>
+            <div className="bench-metric-value good">
+              {t("benchmark", "metricDmValue")}
+            </div>
+            <p className="bench-metric-note">{t("benchmark", "metricDmNote")}</p>
           </article>
           <article className="bench-metric">
             <div className="bench-metric-label">
-              {t("benchmark", "metricLookupsLabel")}
+              {t("benchmark", "metricContrastLabel")}
             </div>
-            <div className="bench-metric-value good">31.4 → 7.6</div>
+            <div className="bench-metric-value accent">
+              {t("benchmark", "metricContrastValue")}
+            </div>
             <p className="bench-metric-note">
-              {t("benchmark", "metricLookupsNote")}
+              {t("benchmark", "metricContrastNote")}
             </p>
           </article>
         </div>
@@ -99,21 +156,84 @@ export function BenchmarkPage() {
           {t("benchmark", "calloutBody")}
         </div>
 
-        <h2 className="bench-h2">{t("benchmark", "examplesTitle")}</h2>
-        <p>{t("benchmark", "examplesLede")}</p>
+        <h2 className="bench-h2">{t("benchmark", "armsTitle")}</h2>
+        <p>{t("benchmark", "armsLede")}</p>
         <div className="bench-examples">
-          {EXAMPLES.map((ex) => (
-            <article className="bench-example" key={ex.id}>
+          <article className="bench-example">
+            <div className="bench-example-head">
+              <strong>{t("benchmark", "armPlainTitle")}</strong>
+            </div>
+            <p>{t("benchmark", "armPlainBody")}</p>
+          </article>
+          <article className="bench-example">
+            <div className="bench-example-head">
+              <strong>{t("benchmark", "armDmTitle")}</strong>
+            </div>
+            <p>{t("benchmark", "armDmBody")}</p>
+          </article>
+        </div>
+
+        <h2 className="bench-h2">{t("benchmark", "walkTitle")}</h2>
+        <p>{t("benchmark", "walkLede")}</p>
+        <div className="bench-walks">
+          {WALKTHROUGHS.map((w) => (
+            <article className="bench-walk" key={w.id}>
               <div className="bench-example-head">
-                <strong>{t("benchmark", ex.titleKey)}</strong>
-                <span className="bench-example-id">{ex.id}</span>
+                <strong>{t("benchmark", w.titleKey)}</strong>
+                <span className="bench-example-id">{w.id}</span>
               </div>
-              <p>{t("benchmark", ex.bodyKey)}</p>
+              <p className="bench-walk-prompt">{t("benchmark", w.promptKey)}</p>
+              <div className="bench-walk-cols">
+                <div>
+                  <div className="bench-walk-label">
+                    {t("benchmark", "labelPlain")}
+                  </div>
+                  <p>{t("benchmark", w.plainKey)}</p>
+                </div>
+                <div>
+                  <div className="bench-walk-label">
+                    {t("benchmark", "labelDm")}
+                  </div>
+                  <p>{t("benchmark", w.dmKey)}</p>
+                </div>
+              </div>
+              <p className="bench-walk-takeaway">
+                {t("benchmark", w.takeawayKey)}
+              </p>
             </article>
           ))}
         </div>
 
-        <h2 className="bench-h2">{t("benchmark", "coverageTitle")}</h2>
+        <h2 className="bench-h2">{t("benchmark", "resultsTitle")}</h2>
+        <p>{t("benchmark", "resultsLede")}</p>
+        <div className="bench-panel">
+          <table className="bench-table">
+            <thead>
+              <tr>
+                <th>{t("benchmark", "thTask")}</th>
+                <th>{t("benchmark", "thPlain")}</th>
+                <th>{t("benchmark", "thDm")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PHASE_C_CASES.map((c) => (
+                <tr key={c.id}>
+                  <td className="strong">
+                    {c.id} · {t("benchmark", c.titleKey)}
+                  </td>
+                  <td>{t("benchmark", c.plainKey)}</td>
+                  <td>{t("benchmark", c.dmKey)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="bench-faint">{t("benchmark", "resultsFaint")}</p>
+        </div>
+
+        <h2 className="bench-h2">{t("benchmark", "updatesTitle")}</h2>
+        <p>{t("benchmark", "updatesLede")}</p>
+
+        <h3 className="bench-h3">{t("benchmark", "coverageTitle")}</h3>
         <p>{t("benchmark", "coverageBody")}</p>
         <div className="bench-panel">
           <BarRow
@@ -129,7 +249,7 @@ export function BenchmarkPage() {
           <p className="bench-faint">{t("benchmark", "coverageFaint")}</p>
         </div>
 
-        <h2 className="bench-h2">{t("benchmark", "outcomesTitle")}</h2>
+        <h3 className="bench-h3">{t("benchmark", "outcomesTitle")}</h3>
         <p>{t("benchmark", "outcomesBody")}</p>
         <div className="bench-panel">
           <table className="bench-table">
@@ -157,25 +277,8 @@ export function BenchmarkPage() {
           <p className="bench-faint">{t("benchmark", "outcomesFaint")}</p>
         </div>
 
-        <h2 className="bench-h2">{t("benchmark", "efficiencyTitle")}</h2>
+        <h3 className="bench-h3">{t("benchmark", "efficiencyTitle")}</h3>
         <p>{t("benchmark", "efficiencyLede")}</p>
-
-        <div className="bench-fix-grid">
-          <article className="bench-fix">
-            <strong>{t("benchmark", "fix1Title")}</strong>
-            <p>{t("benchmark", "fix1Body")}</p>
-          </article>
-          <article className="bench-fix">
-            <strong>{t("benchmark", "fix2Title")}</strong>
-            <p>{t("benchmark", "fix2Body")}</p>
-          </article>
-          <article className="bench-fix">
-            <strong>{t("benchmark", "fix3Title")}</strong>
-            <p>{t("benchmark", "fix3Body")}</p>
-          </article>
-        </div>
-
-        <h3 className="bench-h3">{t("benchmark", "meanTitle")}</h3>
         <div className="bench-panel">
           <BarRow
             label={t("benchmark", "barPre")}
@@ -214,7 +317,7 @@ export function BenchmarkPage() {
           className="bench-panel bench-cases"
           aria-label={t("benchmark", "perCaseAria")}
         >
-          {CASES.map((c) => (
+          {EFFICIENCY_CASES.map((c) => (
             <div className="bench-case" key={c.id}>
               <div className="bench-case-meta">
                 <span className="bench-case-title">
@@ -238,46 +341,6 @@ export function BenchmarkPage() {
               </div>
             </div>
           ))}
-        </div>
-
-        <h3 className="bench-h3">{t("benchmark", "residualTitle")}</h3>
-        <p>{t("benchmark", "residualLede")}</p>
-        <div className="bench-panel">
-          <div
-            className="bench-stack"
-            title="Post-sufficient fetch mix across 5 cases"
-          >
-            <span
-              style={{ width: "89.5%", background: "var(--accent)" }}
-              title="Necessary implementation"
-            />
-            <span
-              style={{ width: "7.9%", background: "var(--warn)" }}
-              title="Optional confirmation"
-            />
-            <span
-              style={{ width: "2.6%", background: "#6b7280" }}
-              title="Redundant navigation"
-            />
-          </div>
-          <div className="bench-legend">
-            <span>
-              <i style={{ background: "var(--accent)" }} />
-              {t("benchmark", "legendNecessary")}
-            </span>
-            <span>
-              <i style={{ background: "var(--warn)" }} />
-              {t("benchmark", "legendOptional")}
-            </span>
-            <span>
-              <i style={{ background: "#6b7280" }} />
-              {t("benchmark", "legendRedundant")}
-            </span>
-            <span>
-              <i style={{ background: "var(--good)" }} />
-              {t("benchmark", "legendBoard")}
-            </span>
-          </div>
         </div>
 
         <h2 className="bench-h2">{t("benchmark", "limitationsTitle")}</h2>
