@@ -1,0 +1,32 @@
+@use "styles/abstracts/variables" as v;
+
+.Promo {
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.15rem;
+  }
+
+  &__blurb {
+    margin: 1.15rem 0 0;
+    padding: 1rem 1.1rem;
+    max-width: 36rem;
+    border-radius: 0.9rem;
+    border: 1px solid var(--glass-edge);
+    background:
+      linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(26, 29, 35, 0.3) 100%),
+      var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--glass-shine) inset;
+    color: v.$foam;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+  }
+
+  &__social {
+    margin-top: 1.15rem;
+  }
+}

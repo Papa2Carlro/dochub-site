@@ -186,7 +186,7 @@ cn("SocialLinks__list");
 - [x] Path aliases у Vite + tsconfig.
 - [x] Перший пілотний folder-компонент: `components/SocialLinks`.
 - [x] Перший ADR 0001 view store: Benchmark tabs.
-- [x] Наступні sections: `components/Faq`, `components/Packs`.
+- [x] Наступні sections: `components/Faq`, `components/Packs`, `components/Support`, `components/Promo`, `components/Waitlist`, `components/SiteHeader`, `components/Hero`, `components/Features`, `components/HowItWorks`, `components/Screens`.
 - [ ] Не переписувати весь `index.css` у тому ж PR.
 
 ---

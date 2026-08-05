@@ -218,9 +218,16 @@ export function PerTaskDualPanel({
     mcpPass: boolean;
     mdExtra: number;
     mcpExtra: number;
+    mdOutcome?: string;
+    mcpOutcome?: string;
   }[];
 }) {
   const maxExtra = Math.max(...cases.flatMap((c) => [c.mdExtra, c.mcpExtra]), 1);
+  const pillClass = (outcome: string) => {
+    if (outcome === "PASS") return "pass";
+    if (outcome === "PARTIAL") return "partial";
+    return "fail";
+  };
   return (
     <article className="bench-viz-card bench-viz-wide">
       <div className="bench-viz-head">
@@ -231,19 +238,23 @@ export function PerTaskDualPanel({
       </div>
       <div className="bench-dual-top">
         <span className="bench-dual-caption">{rateLabel}</span>
-        {cases.map((c) => (
+        {cases.map((c) => {
+          const mdOut = c.mdOutcome ?? (c.mdPass ? "PASS" : "FAIL");
+          const mcpOut = c.mcpOutcome ?? (c.mcpPass ? "PASS" : "FAIL");
+          return (
           <div className="bench-dual-task" key={c.id}>
             <span className="bench-dual-id">{c.id}</span>
             <div className="bench-dual-pills">
-              <span className={`bench-pill ${c.mdPass ? "pass" : "fail"}`}>
-                {mdLabel} {c.mdPass ? "PASS" : "FAIL"}
+              <span className={`bench-pill ${pillClass(mdOut)}`}>
+                {mdLabel} {mdOut}
               </span>
-              <span className={`bench-pill ${c.mcpPass ? "pass" : "fail"}`}>
-                {mcpLabel} {c.mcpPass ? "PASS" : "FAIL"}
+              <span className={`bench-pill ${pillClass(mcpOut)}`}>
+                {mcpLabel} {mcpOut}
               </span>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
       <div className="bench-dual-bottom">
         <span className="bench-dual-caption">Extra lookups</span>

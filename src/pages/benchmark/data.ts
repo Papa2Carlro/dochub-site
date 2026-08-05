@@ -1,23 +1,35 @@
 import type { BenchKey, CurrentCase, Walkthrough } from "./types";
 
-/** Fair Now suite — Phase D / Phase B pilot (Docs MD vs MCP). */
+/** Now suite — Phase E discriminative (Docs MD vs MCP). */
 export const CURRENT = {
+  n: 7,
+  date: "2026-08-06",
+  mdPass: 5,
+  mcpPass: 7,
+  mdPartial: 1,
+  mdFail: 1,
+  advantageMdPass: 3,
+  advantageMcpPass: 5,
+  advantageN: 5,
+  classFTies: 2,
+  mdMeanExtra: 12.1,
+  mcpMeanExtra: 14.3,
+  deltaExtra: 2.2,
+  liveAe: true,
+} as const;
+
+/** Phase D / Phase B saturated fair bake-off — History. */
+export const PHASE_D = {
   n: 5,
   date: "2026-08-05",
   mdPass: 5,
   mcpPass: 5,
-  mdCritMiss: 0,
-  mcpCritMiss: 0,
-  critApplicable: 19,
-  mdVerifMiss: 0,
-  mcpVerifMiss: 0,
-  verifApplicable: 15,
   mdMeanExtra: 20.4,
   mcpMeanExtra: 31.4,
   deltaExtra: 11.0,
 } as const;
 
-/** Phase A packet recall — secondary Now panel. */
+/** Phase A packet recall — History / secondary. */
 export const PHASE_A_RECALL = {
   mdRecall: 67.8,
   mcpRecall: 88.4,
@@ -26,6 +38,152 @@ export const PHASE_A_RECALL = {
 } as const;
 
 export const CURRENT_CASES: (CurrentCase & {
+  mdExtra: number;
+  mcpExtra: number;
+  klass: string;
+})[] = [
+  {
+    id: "CB-E-001",
+    titleKey: "caseE001Title",
+    plainOutcome: "PARTIAL",
+    dmOutcome: "PASS",
+    plainCritMiss: 1,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 1,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 13,
+    mcpExtra: 6,
+    klass: "A",
+  },
+  {
+    id: "CB-E-002",
+    titleKey: "caseE002Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 11,
+    mcpExtra: 12,
+    klass: "B",
+  },
+  {
+    id: "CB-E-003",
+    titleKey: "caseE003Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 10,
+    mcpExtra: 15,
+    klass: "C",
+  },
+  {
+    id: "CB-E-004",
+    titleKey: "caseE004Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 5,
+    dmCritMiss: 0,
+    dmCritN: 5,
+    plainVerifMiss: 0,
+    plainVerifN: 4,
+    dmVerifMiss: 0,
+    dmVerifN: 4,
+    mdExtra: 16,
+    mcpExtra: 18,
+    klass: "D",
+  },
+  {
+    id: "CB-E-005",
+    titleKey: "caseE005Title",
+    plainOutcome: "FAIL",
+    dmOutcome: "PASS",
+    plainCritMiss: 2,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 2,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 10,
+    mcpExtra: 4,
+    klass: "E",
+  },
+  {
+    id: "CB-E-006",
+    titleKey: "caseE006Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 12,
+    mcpExtra: 20,
+    klass: "F",
+  },
+  {
+    id: "CB-E-007",
+    titleKey: "caseE007Title",
+    plainOutcome: "PASS",
+    dmOutcome: "PASS",
+    plainCritMiss: 0,
+    plainCritN: 4,
+    dmCritMiss: 0,
+    dmCritN: 4,
+    plainVerifMiss: 0,
+    plainVerifN: 3,
+    dmVerifMiss: 0,
+    dmVerifN: 3,
+    mdExtra: 13,
+    mcpExtra: 22,
+    klass: "F",
+  },
+];
+
+export const WALKTHROUGHS: Walkthrough[] = [
+  {
+    id: "CB-E-001",
+    titleKey: "walkE1Title",
+    promptKey: "walkE1Prompt",
+    plainKey: "walkE1Plain",
+    dmKey: "walkE1Dm",
+    takeawayKey: "walkE1Takeaway",
+  },
+  {
+    id: "CB-E-005",
+    titleKey: "walkE2Title",
+    promptKey: "walkE2Prompt",
+    plainKey: "walkE2Plain",
+    dmKey: "walkE2Dm",
+    takeawayKey: "walkE2Takeaway",
+  },
+];
+
+/** Legacy Phase D per-task extras (History context). */
+export const PHASE_D_CASES: (CurrentCase & {
   mdExtra: number;
   mcpExtra: number;
 })[] = [
@@ -108,25 +266,6 @@ export const CURRENT_CASES: (CurrentCase & {
     dmVerifN: 3,
     mdExtra: 17,
     mcpExtra: 34,
-  },
-];
-
-export const WALKTHROUGHS: Walkthrough[] = [
-  {
-    id: "CB-001",
-    titleKey: "walk1Title",
-    promptKey: "walk1Prompt",
-    plainKey: "walk1Plain",
-    dmKey: "walk1Dm",
-    takeawayKey: "walk1Takeaway",
-  },
-  {
-    id: "CB-007",
-    titleKey: "walk2Title",
-    promptKey: "walk2Prompt",
-    plainKey: "walk2Plain",
-    dmKey: "walk2Dm",
-    takeawayKey: "walk2Takeaway",
   },
 ];
 
@@ -294,6 +433,19 @@ export const POST_FIX = {
     { id: "CB-007", titleKey: "case007Title" as BenchKey, before: 24, after: 7 },
     { id: "CB-011", titleKey: "case011Title" as BenchKey, before: 34, after: 9 },
   ],
+} as const;
+
+/** Discriminative Phase E — History only (not Now). */
+export const PHASE_E = {
+  name: "Phase E",
+  date: "2026-08-06",
+  wave1N: 7,
+  wave1bN: 2,
+  advantageMdPass: 3,
+  advantageMcpPass: 5,
+  advantageN: 5,
+  classFTies: 2,
+  liveCapsules: true,
 } as const;
 
 /** Timeline milestones for History step chart (extras or recall). */

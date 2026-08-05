@@ -6,6 +6,7 @@ import {
   PHASE_B,
   PHASE_C,
   PHASE_C_CASES,
+  PHASE_E,
   POST_FIX,
   TIMELINE,
 } from "./data";
@@ -40,6 +41,40 @@ export function BenchmarkHistory() {
         }))}
       />
       <p className="bench-faint">{t("benchmark", "timelineNote")}</p>
+
+      <article className="bench-version">
+        <header className="bench-version-head">
+          <h3 className="bench-h3">{t("benchmark", "phaseETitle")}</h3>
+          <span className="bench-block-meta">{PHASE_E.date}</span>
+        </header>
+        <p className="bench-block-meta">{t("benchmark", "phaseEMeta")}</p>
+        <p className="bench-fair-callout">{t("benchmark", "phaseECallout")}</p>
+        <div className="bench-metric-row">
+          <div className="bench-mini-metric">
+            <span>{t("benchmark", "phaseEAdvMd")}</span>
+            <strong>
+              {PHASE_E.advantageMdPass}/{PHASE_E.advantageN}
+            </strong>
+          </div>
+          <div className="bench-mini-metric">
+            <span>{t("benchmark", "phaseEAdvMcp")}</span>
+            <strong className="good">
+              {PHASE_E.advantageMcpPass}/{PHASE_E.advantageN}
+            </strong>
+          </div>
+          <div className="bench-mini-metric">
+            <span>{t("benchmark", "phaseEF")}</span>
+            <strong>
+              {PHASE_E.classFTies}/{PHASE_E.classFTies} {t("benchmark", "phaseETie")}
+            </strong>
+          </div>
+          <div className="bench-mini-metric">
+            <span>{t("benchmark", "phaseELive")}</span>
+            <strong className="good">{t("benchmark", "phaseELiveYes")}</strong>
+          </div>
+        </div>
+        <p className="bench-faint">{t("benchmark", "phaseENote")}</p>
+      </article>
 
       <article className="bench-version">
         <header className="bench-version-head">

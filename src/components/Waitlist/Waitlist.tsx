@@ -1,11 +1,15 @@
-import { FormEvent, useState } from "react";
-import { useI18n } from "../i18n";
+import { FormEvent, useState, type FC } from "react";
+import classNames from "classnames/bind";
+import { useI18n } from "i18n";
 import {
   EARLY_LICENSE_UNTIL_LABEL,
   FEEDBACK_EMAIL,
   earlyLicenseOpen,
   licenseMailto,
-} from "../lib/contact";
+} from "lib/contact";
+import scss from "./Waitlist.module.scss";
+
+const cn = classNames.bind(scss);
 
 type Status = "idle" | "loading" | "ok" | "error";
 
@@ -13,7 +17,7 @@ type Status = "idle" | "loading" | "ok" | "error";
  * Optional waitlist via Formspree (no custom backend).
  * Set VITE_FORMSPREE_ID=xxxxxxxx at build time.
  */
-export function Waitlist() {
+const Waitlist: FC = () => {
   const { t } = useI18n();
   const formId = import.meta.env.VITE_FORMSPREE_ID?.trim();
   const [email, setEmail] = useState("");
@@ -22,16 +26,11 @@ export function Waitlist() {
 
   if (!formId) {
     return (
-      <section
-        className="band waitlist"
-        id="waitlist"
-        aria-labelledby="waitlist-title"
-      >
+      <section className={`band ${cn("Waitlist")}`} id="waitlist" aria-labelledby="waitlist-title">
         <h2 id="waitlist-title">{t("waitlist", "title")}</h2>
         <p>
           {t("waitlist", "ledeNoFormBefore")}{" "}
-          <a href="#download">{t("waitlist", "downloadLink")}</a>{" "}
-          {t("waitlist", "ledeNoFormAfter")}
+          <a href="#download">{t("waitlist", "downloadLink")}</a> {t("waitlist", "ledeNoFormAfter")}
           {earlyLicenseOpen() ? (
             <>
               {" "}
@@ -48,7 +47,7 @@ export function Waitlist() {
                     </span>
                   ) : (
                     <span key={i}>{part}</span>
-                  ),
+                  )
                 )}
             </>
           ) : null}
@@ -81,14 +80,10 @@ export function Waitlist() {
   }
 
   return (
-    <section
-      className="band waitlist"
-      id="waitlist"
-      aria-labelledby="waitlist-title"
-    >
+    <section className={`band ${cn("Waitlist")}`} id="waitlist" aria-labelledby="waitlist-title">
       <h2 id="waitlist-title">{t("waitlist", "title")}</h2>
       <p>{t("waitlist", "ledeWithForm")}</p>
-      <form className="waitlist-form" onSubmit={(e) => void onSubmit(e)}>
+      <form className={cn("Waitlist__form")} onSubmit={(e) => void onSubmit(e)}>
         <label className="sr-only" htmlFor="waitlist-email">
           {t("waitlist", "emailLabel")}
         </label>
@@ -103,24 +98,17 @@ export function Waitlist() {
           onChange={(ev) => setEmail(ev.target.value)}
           disabled={status === "loading" || status === "ok"}
         />
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={status === "loading" || status === "ok"}
-        >
-          {status === "loading"
-            ? t("waitlist", "submitting")
-            : t("waitlist", "submit")}
+        <button type="submit" className="btn btn-primary" disabled={status === "loading" || status === "ok"}>
+          {status === "loading" ? t("waitlist", "submitting") : t("waitlist", "submit")}
         </button>
       </form>
       {message ? (
-        <p
-          className={status === "error" ? "hint hint-error" : "hint hint-ok"}
-          role="status"
-        >
+        <p className={status === "error" ? "hint hint-error" : "hint hint-ok"} role="status">
           {message}
         </p>
       ) : null}
     </section>
   );
-}
+};
+
+export { Waitlist };

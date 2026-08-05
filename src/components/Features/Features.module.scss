@@ -1,0 +1,30 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.Features {
+  &__list {
+    @include m.reset-list;
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+
+    @include m.media-down(800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__name {
+    margin: 0 0 0.45rem;
+    font-family: v.$display;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  &__body {
+    margin: 0;
+    color: v.$mute;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+}

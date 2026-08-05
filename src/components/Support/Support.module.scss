@@ -1,0 +1,148 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.Support {
+  &__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$accent;
+    font-weight: 600;
+  }
+
+  &__feedback {
+    margin: 0.75rem 0 0;
+    color: v.$mute;
+    font-size: 0.95rem;
+
+    a {
+      color: v.$accent;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 1.15rem;
+  }
+
+  &__grid {
+    @include m.reset-list;
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+
+    @include m.media-down(900px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include m.media-down(560px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.9rem 1rem 1rem;
+    border-radius: 1rem;
+    animation: rise 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba(91, 141, 239, 0.38);
+      box-shadow:
+        0 1px 0 var(--glass-shine) inset,
+        0 18px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    &.featured {
+      border-color: rgba(91, 141, 239, 0.36);
+    }
+  }
+
+  &__cardTop {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: v.$display;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  &__price {
+    margin: 0;
+    white-space: nowrap;
+    color: v.$foam;
+  }
+
+  &__priceAmt {
+    font-family: v.$display;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  &__priceUnit {
+    margin-left: 0.1rem;
+    font-size: 0.75rem;
+    color: v.$mute;
+  }
+
+  &__blurb {
+    margin: 0.1rem 0 0;
+    font-size: 0.84rem;
+    line-height: 1.4;
+    color: v.$mute;
+    max-width: none;
+    flex: 1;
+  }
+
+  &__badge {
+    align-self: flex-start;
+    margin-top: 0.45rem;
+    padding: 0.18rem 0.45rem;
+    border-radius: 0.35rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #b8d0ff;
+    background: rgba(91, 141, 239, 0.16);
+    border: 1px solid rgba(91, 141, 239, 0.28);
+  }
+
+  &__cta {
+    margin-top: 1.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1.15rem;
+  }
+
+  &__note {
+    margin: 0;
+    font-size: 0.84rem;
+    color: v.$faint;
+    max-width: 28rem;
+  }
+}

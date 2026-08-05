@@ -1,0 +1,60 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.Hero {
+  position: relative;
+  min-height: calc(100dvh - 4.25rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  align-items: center;
+
+  @include m.media-down(960px) {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  &__copy {
+    position: relative;
+    z-index: 2;
+    max-width: 28rem;
+    padding: 2rem 0 4rem;
+    animation: rise 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+    @include m.media-down(960px) {
+      padding: 0.5rem 0 1.5rem;
+      max-width: none;
+    }
+  }
+
+  &__brand {
+    margin: 0 0 0.85rem;
+    font-family: v.$display;
+    font-weight: 800;
+    font-size: clamp(3.2rem, 9vw, 5.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: v.$display;
+    font-weight: 700;
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+
+    @include m.media-down(960px) {
+      max-width: none;
+    }
+  }
+
+  &__lede {
+    margin: 1rem 0 0;
+    color: v.$mute;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+}

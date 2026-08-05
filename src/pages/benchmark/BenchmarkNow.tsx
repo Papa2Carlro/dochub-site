@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../../i18n";
-import { CURRENT, CURRENT_CASES, PHASE_A_RECALL, WALKTHROUGHS } from "./data";
+import { CURRENT, CURRENT_CASES, WALKTHROUGHS } from "./data";
 import { currentRates } from "./metrics";
 import {
   CostQualityChart,
   ParityPassBars,
   PerTaskDualPanel,
-  StackedRecallBar,
 } from "./charts";
 
 export function BenchmarkNow() {
@@ -39,21 +38,22 @@ export function BenchmarkNow() {
 
       <div className="bench-viz-grid">
         <ParityPassBars
-          label={t("benchmark", "statPassRate")}
+          label={t("benchmark", "statAdvPass")}
+          mdLabel={mdArm}
+          mcpLabel={mcpArm}
+          mdPct={rates.advMdPct}
+          mcpPct={rates.advMcpPct}
+          nLabel={`n=${CURRENT.advantageN} · A–E`}
+          note={t("benchmark", "parityNote")}
+        />
+        <ParityPassBars
+          label={t("benchmark", "statAllPass")}
           mdLabel={mdArm}
           mcpLabel={mcpArm}
           mdPct={rates.mdPassPct}
           mcpPct={rates.mcpPassPct}
-          nLabel={`n=${CURRENT.n}`}
-          note={t("benchmark", "parityNote")}
-        />
-        <StackedRecallBar
-          label={t("benchmark", "statRecall")}
-          basePct={PHASE_A_RECALL.mdRecall}
-          withPct={PHASE_A_RECALL.mcpRecall}
-          baseCaption={t("benchmark", "recallBase")}
-          deltaCaption={t("benchmark", "recallDelta")}
-          nLabel={`n=${PHASE_A_RECALL.n} · Phase A`}
+          nLabel={`n=${CURRENT.n} · +F`}
+          note={t("benchmark", "allPassNote")}
         />
       </div>
 
@@ -67,22 +67,28 @@ export function BenchmarkNow() {
         mdY={rates.mdPassPct}
         mcpX={rates.mcpMeanExtra}
         mcpY={rates.mcpPassPct}
-        maxX={40}
+        maxX={30}
         note={t("benchmark", "costNote")}
       />
 
       <div className="bench-delta-strip" aria-label={t("benchmark", "deltaTitle")}>
         <div className="bench-delta">
-          <span>{t("benchmark", "statPassRate")}</span>
-          <strong>0 pp</strong>
+          <span>{t("benchmark", "statAdvPass")}</span>
+          <strong className="good">+{rates.advDeltaPp.toFixed(0)} pp</strong>
         </div>
         <div className="bench-delta">
-          <span>{t("benchmark", "statRecall")}</span>
-          <strong className="good">+{rates.recallDelta} pp</strong>
+          <span>{t("benchmark", "phaseEF")}</span>
+          <strong>
+            {CURRENT.classFTies}/{CURRENT.classFTies} {t("benchmark", "phaseETie")}
+          </strong>
         </div>
         <div className="bench-delta">
           <span>{t("benchmark", "statExtras")}</span>
           <strong>+{rates.deltaExtra.toFixed(1)}</strong>
+        </div>
+        <div className="bench-delta">
+          <span>{t("benchmark", "phaseELive")}</span>
+          <strong className="good">{t("benchmark", "phaseELiveYes")}</strong>
         </div>
       </div>
 
@@ -104,9 +110,11 @@ export function BenchmarkNow() {
         mdLabel={mdArm}
         mcpLabel={mcpArm}
         cases={CURRENT_CASES.map((c) => ({
-          id: c.id,
+          id: `${c.id}·${c.klass}`,
           mdPass: c.plainOutcome === "PASS",
           mcpPass: c.dmOutcome === "PASS",
+          mdOutcome: c.plainOutcome,
+          mcpOutcome: c.dmOutcome,
           mdExtra: c.mdExtra,
           mcpExtra: c.mcpExtra,
         }))}

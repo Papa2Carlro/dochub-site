@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { SiteHeader } from "../components/SiteHeader";
+import { SiteHeader } from "components/SiteHeader";
 import { useI18n } from "../i18n";
 import { FEEDBACK_EMAIL, FEEDBACK_MAILTO } from "../lib/contact";
 

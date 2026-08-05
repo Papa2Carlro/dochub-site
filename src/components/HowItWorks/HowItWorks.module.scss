@@ -1,0 +1,46 @@
+@use "styles/abstracts/variables" as v;
+@use "styles/abstracts/mixins" as m;
+
+.HowItWorks {
+  &__list {
+    @include m.reset-list;
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+
+    @include m.media-down(800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 0.15rem;
+  }
+
+  &__n {
+    display: block;
+    font-family: v.$display;
+    font-weight: 800;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: v.$accent;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.55rem;
+  }
+
+  &__name {
+    margin: 0 0 0.4rem;
+    font-family: v.$display;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  &__body {
+    margin: 0;
+    color: v.$mute;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+}

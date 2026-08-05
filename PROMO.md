@@ -102,13 +102,13 @@ macOS (Apple Silicon) / Windows / Linux — інсталери вже на са�
 ## Context Benchmark (EN)
 
 ```
-Fair bake-off — Docs MD (Read/Grep) vs Doc Memory MCP (n=5):
+Discriminative bake-off — Docs MD vs Doc Memory MCP (Phase E, n=7):
 
-PASS rate:              100%  =  100%
-Mean extra lookups:     20.4  →  31.4  (MCP cost more here)
-Packet recall (Phase A): 67.8% → 88.4%  (+20.6 pp)
+Advantage-pool (A–E):   3/5 PASS  →  5/5 PASS
+Negative controls (F):  PASS/PASS ties (×2)
+Live A/E capsules:      same pattern (PARTIAL/FAIL → PASS)
 
-Empty-chat starvation is History — not the fair headline.
+Not empty-chat starvation. Saturated Phase D PASS/PASS is History.
 
 → https://dochub-site.pages.dev/benchmark
 ```
@@ -116,13 +116,13 @@ Empty-chat starvation is History — not the fair headline.
 ## Context Benchmark (UA)
 
 ```
-Чесний bake-off — Docs MD (Read/Grep) vs Doc Memory MCP (n=5):
+Discriminative bake-off — Docs MD vs Doc Memory MCP (Phase E, n=7):
 
-PASS rate:              100%  =  100%
-Середні зайві пошуки:   20.4  →  31.4  (MCP дорожчий тут)
-Packet recall (Phase A): 67.8% → 88.4%  (+20.6 pp)
+Advantage-pool (A–E):   3/5 PASS  →  5/5 PASS
+Negative controls (F):  PASS/PASS ties (×2)
+Live A/E capsules:      той самий патерн (PARTIAL/FAIL → PASS)
 
-Empty-chat starvation — у History, не як чесний headline.
+Не empty-chat starvation. Насичений Phase D PASS/PASS — у History.
 
 → https://dochub-site.pages.dev/benchmark
 ```

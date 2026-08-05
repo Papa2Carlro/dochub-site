@@ -171,4 +171,10 @@
     font-size: 0.82rem;
     color: v.$faint;
   }
+
+  @include m.media-down(640px) {
+    &__card:hover {
+      transform: none;
+    }
+  }
 }

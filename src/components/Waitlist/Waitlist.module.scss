@@ -1,0 +1,39 @@
+@use "styles/abstracts/variables" as v;
+
+.Waitlist {
+  code {
+    font-size: 0.85em;
+    color: v.$accent;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.15rem;
+    max-width: 32rem;
+
+    input {
+      flex: 1 1 14rem;
+      min-height: 2.85rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--glass-edge);
+      background: rgba(14, 18, 24, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: v.$foam;
+      font: inherit;
+      box-shadow: 0 1px 0 var(--glass-shine) inset;
+
+      &::placeholder {
+        color: v.$faint;
+      }
+
+      &:focus {
+        outline: 2px solid rgba(91, 141, 239, 0.45);
+        outline-offset: 1px;
+      }
+    }
+  }
+}
