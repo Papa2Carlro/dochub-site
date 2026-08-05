@@ -15,8 +15,9 @@ const DIST_REPO =
 
 export const USES_OWN_CDN = Boolean(DOWNLOADS_BASE);
 
+/** Secondary “all builds” CTA — never point humans at Worker JSON `/`. */
 export const LATEST_RELEASE_URL = USES_OWN_CDN
-  ? `${DOWNLOADS_BASE}/`
+  ? "#download"
   : `https://github.com/${DIST_REPO}/releases/latest`;
 
 const GH_API = `https://api.github.com/repos/${DIST_REPO}/releases/latest`;
@@ -32,7 +33,7 @@ export function detectOs(): OsKind {
 }
 
 export const OS_LABEL: Record<OsKind, string> = {
-  mac: "macOS",
+  mac: "macOS (Apple Silicon)",
   win: "Windows",
   linux: "Linux",
   other: "your OS",

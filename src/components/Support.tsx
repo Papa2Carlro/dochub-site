@@ -1,13 +1,44 @@
+import { useI18n } from "../i18n";
+import { FEEDBACK_EMAIL, licenseMailto } from "../lib/contact";
 import { PATREON_TIERS, PATREON_URL } from "../lib/patreon";
 
+const BLURB_KEY = {
+  spark: "sparkBlurb",
+  ember: "emberBlurb",
+  patron: "patronBlurb",
+  anvil: "anvilBlurb",
+  "founding-forge": "foundingBlurb",
+  "papa-carlo": "papaBlurb",
+} as const;
+
 export function Support() {
+  const { t } = useI18n();
+
   return (
-    <section className="band support" id="support" aria-labelledby="support-title">
+    <section
+      className="band support"
+      id="support"
+      aria-labelledby="support-title"
+    >
       <p className="packs-eyebrow">Carlo Forge · Prymax Labs</p>
-      <h2 id="support-title">Support the author</h2>
+      <h2 id="support-title">{t("support", "title")}</h2>
       <p>
-        Doc Hub’s free baseline stays free. Patreon is a tip jar for studio work —
-        packs will check out separately when they ship.
+        {t("support", "lede")
+          .split(t("support", "packsLink"))
+          .map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <a href="#packs">{t("support", "packsLink")}</a>
+              </span>
+            ) : (
+              <span key={i}>{part}</span>
+            ),
+          )}
+      </p>
+      <p className="support-feedback">
+        {t("support", "feedback")}{" "}
+        <a href={licenseMailto()}>{FEEDBACK_EMAIL}</a>
       </p>
 
       <ul className="support-grid">
@@ -21,12 +52,16 @@ export function Support() {
               <h3>{tier.name}</h3>
               <p className="support-price">
                 <span className="support-price-amt">${tier.priceUsd}</span>
-                <span className="support-price-unit">/mo</span>
+                <span className="support-price-unit">
+                  {t("support", "priceUnit")}
+                </span>
               </p>
             </div>
-            <p className="support-blurb">{tier.blurb}</p>
+            <p className="support-blurb">
+              {t("support", BLURB_KEY[tier.id as keyof typeof BLURB_KEY])}
+            </p>
             {tier.featured ? (
-              <span className="support-badge">Popular</span>
+              <span className="support-badge">{t("support", "badgePopular")}</span>
             ) : null}
           </li>
         ))}
@@ -39,11 +74,9 @@ export function Support() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Join on Patreon
+          {t("support", "ctaJoin")}
         </a>
-        <p className="support-note">
-          Higher tiers include everything below them. No pack unlocks here.
-        </p>
+        <p className="support-note">{t("support", "note")}</p>
       </div>
     </section>
   );

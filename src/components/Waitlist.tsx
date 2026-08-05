@@ -1,4 +1,11 @@
 import { FormEvent, useState } from "react";
+import { useI18n } from "../i18n";
+import {
+  EARLY_LICENSE_UNTIL_LABEL,
+  FEEDBACK_EMAIL,
+  earlyLicenseOpen,
+  licenseMailto,
+} from "../lib/contact";
 
 type Status = "idle" | "loading" | "ok" | "error";
 
@@ -7,6 +14,7 @@ type Status = "idle" | "loading" | "ok" | "error";
  * Set VITE_FORMSPREE_ID=xxxxxxxx at build time.
  */
 export function Waitlist() {
+  const { t } = useI18n();
   const formId = import.meta.env.VITE_FORMSPREE_ID?.trim();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -19,11 +27,31 @@ export function Waitlist() {
         id="waitlist"
         aria-labelledby="waitlist-title"
       >
-        <h2 id="waitlist-title">Get notified</h2>
+        <h2 id="waitlist-title">{t("waitlist", "title")}</h2>
         <p>
-          Releases ship on the download CDN. Follow the{" "}
-          <a href="#download">Download</a> section when builds are live — or
-          set <code>VITE_FORMSPREE_ID</code> to enable an email waitlist here.
+          {t("waitlist", "ledeNoFormBefore")}{" "}
+          <a href="#download">{t("waitlist", "downloadLink")}</a>{" "}
+          {t("waitlist", "ledeNoFormAfter")}
+          {earlyLicenseOpen() ? (
+            <>
+              {" "}
+              {t("waitlist", "earlyLicense", {
+                date: EARLY_LICENSE_UNTIL_LABEL,
+                email: FEEDBACK_EMAIL,
+              })
+                .split(FEEDBACK_EMAIL)
+                .map((part, i, arr) =>
+                  i < arr.length - 1 ? (
+                    <span key={i}>
+                      {part}
+                      <a href={licenseMailto()}>{FEEDBACK_EMAIL}</a>
+                    </span>
+                  ) : (
+                    <span key={i}>{part}</span>
+                  ),
+                )}
+            </>
+          ) : null}
         </p>
       </section>
     );
@@ -44,11 +72,11 @@ export function Waitlist() {
       });
       if (!res.ok) throw new Error("submit_failed");
       setStatus("ok");
-      setMessage("You’re on the list — we’ll ping you when a build is ready.");
+      setMessage(t("waitlist", "success"));
       setEmail("");
     } catch {
       setStatus("error");
-      setMessage("Couldn’t submit right now. Try again in a moment.");
+      setMessage(t("waitlist", "error"));
     }
   }
 
@@ -58,14 +86,11 @@ export function Waitlist() {
       id="waitlist"
       aria-labelledby="waitlist-title"
     >
-      <h2 id="waitlist-title">Get notified</h2>
-      <p>
-        Builds are rolling out. Leave an email and we’ll tell you when Doc Hub
-        is ready to download.
-      </p>
+      <h2 id="waitlist-title">{t("waitlist", "title")}</h2>
+      <p>{t("waitlist", "ledeWithForm")}</p>
       <form className="waitlist-form" onSubmit={(e) => void onSubmit(e)}>
         <label className="sr-only" htmlFor="waitlist-email">
-          Email
+          {t("waitlist", "emailLabel")}
         </label>
         <input
           id="waitlist-email"
@@ -73,7 +98,7 @@ export function Waitlist() {
           name="email"
           required
           autoComplete="email"
-          placeholder="you@example.com"
+          placeholder={t("waitlist", "emailPlaceholder")}
           value={email}
           onChange={(ev) => setEmail(ev.target.value)}
           disabled={status === "loading" || status === "ok"}
@@ -83,14 +108,14 @@ export function Waitlist() {
           className="btn btn-primary"
           disabled={status === "loading" || status === "ok"}
         >
-          {status === "loading" ? "Sending…" : "Notify me"}
+          {status === "loading"
+            ? t("waitlist", "submitting")
+            : t("waitlist", "submit")}
         </button>
       </form>
       {message ? (
         <p
-          className={
-            status === "error" ? "hint hint-error" : "hint hint-ok"
-          }
+          className={status === "error" ? "hint hint-error" : "hint hint-ok"}
           role="status"
         >
           {message}

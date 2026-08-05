@@ -1,0 +1,6 @@
+# Local only — do not commit
+# Access token expires ~2h from issuance; refresh every 6 months
+ACCESS_TOKEN=LWpGVExWR1pYbzlxWjYwV3UzMDAwbVNnSmhiSW5vblp3bHVuclJRTFQ5RGdLOjE3ODU5NTA4OTgwMDU6MToxOmF0OjE
+REFRESH_TOKEN=UnBtemhhbkpHdXl4Y0JNVWhrOXVfMk0wRHpRcm9IVzJackRpcHhGYUk5MVpKOjE3ODU5NTA4OTgwMDU6MToxOnJ0OjE
+CLIENT_ID=R1U5QUZvSkNRdnNYNURpV3pEVTN6MTpjaQ
+# CLIENT_SECRET= set from X console if refreshing

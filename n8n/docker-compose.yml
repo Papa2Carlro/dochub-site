@@ -1,0 +1,28 @@
+# Doc Hub promo — self-hosted n8n (free Community)
+# Run from this folder: docker compose up -d
+#
+# UI: http://localhost:5678
+# First visit → create owner account (local only).
+# MCP: Settings → Instance-level MCP → enable → use
+#   http://localhost:5678/mcp-server/http  (+ token) in Cursor mcp.json
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Kyiv
+      # Optional: set once and keep
+      # - N8N_ENCRYPTION_KEY=change-me-to-a-long-random-string
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:

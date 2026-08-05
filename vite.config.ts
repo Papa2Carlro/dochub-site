@@ -18,7 +18,14 @@ export default defineConfig(({ mode }) => {
         },
       },
     ],
-    base: "./",
+    base: "/",
+    // Landing only — local admin uses vite.admin.config.ts and is gitignored.
+    build: {
+      emptyOutDir: true,
+      rollupOptions: {
+        input: "index.html",
+      },
+    },
     css: {
       postcss: {
         plugins: [],

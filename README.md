@@ -29,7 +29,17 @@ Promo: [`PROMO.md`](./PROMO.md) + press kit at `/press/`.
 ```bash
 pnpm install
 cp .env.example .env
-pnpm run site:dev
+npm run dev
 ```
 
 Without `VITE_DOWNLOADS_BASE`, Download buttons fall back to GitHub Releases.
+
+## Local admin (not shipped)
+
+Ops UI for download KV counters — **gitignored**, separate Vite config, never in `dist/`.
+
+```bash
+npm run admin   # http://127.0.0.1:4175/
+```
+
+Details: [`ADMIN.md`](./ADMIN.md) · env template: [`ADMIN.env.example`](./ADMIN.env.example).

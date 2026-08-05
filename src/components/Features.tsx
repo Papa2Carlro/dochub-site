@@ -1,24 +1,25 @@
-const FEATURES = [
-  {
-    title: "Local workspaces",
-    body: "Point Doc Hub at any repo. Docs, planning, and tools stay on your machine.",
-  },
-  {
-    title: "Planning board",
-    body: "Tasks, milestones, and trail — free forever on the baseline, offline-ready.",
-  },
-  {
-    title: "Extensions without lock-in",
-    body: "Language adapters and private plugins sit on open contracts. The core stays yours.",
-  },
-] as const;
+import { useI18n } from "../i18n";
 
 export function Features() {
+  const { t } = useI18n();
+  const features = [
+    { title: t("features", "localTitle"), body: t("features", "localBody") },
+    { title: t("features", "boardTitle"), body: t("features", "boardBody") },
+    {
+      title: t("features", "extensionsTitle"),
+      body: t("features", "extensionsBody"),
+    },
+  ];
+
   return (
-    <section className="band features" id="features" aria-labelledby="features-title">
-      <h2 id="features-title">What you get</h2>
+    <section
+      className="band features"
+      id="features"
+      aria-labelledby="features-title"
+    >
+      <h2 id="features-title">{t("features", "title")}</h2>
       <ul className="feature-list">
-        {FEATURES.map((f) => (
+        {features.map((f) => (
           <li key={f.title}>
             <h3>{f.title}</h3>
             <p>{f.body}</p>

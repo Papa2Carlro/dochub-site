@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "../i18n";
 import {
   detectOs,
   fetchReleaseLinks,
   LATEST_RELEASE_URL,
-  OS_LABEL,
   USES_OWN_CDN,
   type OsKind,
   type ReleaseLinks,
@@ -11,7 +11,15 @@ import {
 
 const PLATFORMS: OsKind[] = ["mac", "win", "linux"];
 
+const OS_KEY = {
+  mac: "osMac",
+  win: "osWin",
+  linux: "osLinux",
+  other: "osOther",
+} as const;
+
 export function DownloadCtas() {
+  const { t } = useI18n();
   const [os] = useState(() => detectOs());
   const [links, setLinks] = useState<ReleaseLinks>({
     htmlUrl: LATEST_RELEASE_URL,
@@ -32,35 +40,39 @@ export function DownloadCtas() {
   const primaryHref =
     (os !== "other" ? links.byOs[os] : undefined) ?? links.htmlUrl;
 
+  const osLabel = t("download", OS_KEY[os]);
+
   const hint =
     os === "mac"
-      ? "Unsigned builds: if macOS blocks the app, right-click → Open → Open."
+      ? t("download", "hintMac")
       : os === "win"
-        ? "Unsigned builds: SmartScreen → More info → Run anyway."
+        ? t("download", "hintWin")
         : null;
 
   return (
     <div className="ctas">
       <a className="btn btn-primary" href={primaryHref}>
-        Download for {OS_LABEL[os]}
+        {t("download", "ctaPrimary", { os: osLabel })}
       </a>
       <a className="btn btn-ghost" href={links.htmlUrl}>
-        {links.tracked ? "All builds" : "All releases"}
+        {links.tracked
+          ? t("download", "ctaAllPlatforms")
+          : t("download", "ctaAllReleases")}
       </a>
-      <ul className="platforms" aria-label="Downloads by platform">
+      <ul className="platforms" aria-label={t("download", "platformsAria")}>
         {PLATFORMS.map((kind) => (
           <li key={kind}>
             <a
               className={kind === os ? "is-active" : undefined}
               href={links.byOs[kind] ?? links.htmlUrl}
             >
-              {OS_LABEL[kind]}
+              {t("download", OS_KEY[kind])}
             </a>
           </li>
         ))}
       </ul>
       {links.tracked ? (
-        <p className="hint">Downloads are served from our CDN (counted per OS).</p>
+        <p className="hint">{t("download", "hintCdn")}</p>
       ) : null}
       {hint ? <p className="hint">{hint}</p> : null}
     </div>

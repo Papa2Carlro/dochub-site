@@ -1,32 +1,19 @@
-const STEPS = [
-  {
-    n: "1",
-    title: "Download",
-    body: "Grab the macOS, Windows, or Linux build. No account required.",
-  },
-  {
-    n: "2",
-    title: "Point at a workspace",
-    body: "Pick any folder with Docs/ — Doc Hub indexes it locally on your machine.",
-  },
-  {
-    n: "3",
-    title: "Plan and ship",
-    body: "Use the board, docs browser, and Trophy Room. Everything stays offline-first.",
-  },
-] as const;
+import { useI18n } from "../i18n";
 
 export function HowItWorks() {
+  const { t } = useI18n();
+  const steps = [
+    { n: "1", title: t("how", "step1Title"), body: t("how", "step1Body") },
+    { n: "2", title: t("how", "step2Title"), body: t("how", "step2Body") },
+    { n: "3", title: t("how", "step3Title"), body: t("how", "step3Body") },
+  ];
+
   return (
-    <section
-      className="band how"
-      id="how"
-      aria-labelledby="how-title"
-    >
-      <h2 id="how-title">How it works</h2>
-      <p>Three steps from empty desk to a live local launcher.</p>
+    <section className="band how" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">{t("how", "title")}</h2>
+      <p>{t("how", "lede")}</p>
       <ol className="how-list">
-        {STEPS.map((step) => (
+        {steps.map((step) => (
           <li key={step.n}>
             <span className="how-n" aria-hidden="true">
               {step.n}

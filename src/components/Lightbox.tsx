@@ -1,6 +1,9 @@
 import { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
+import { useI18n } from "../i18n";
 import type { Shot } from "../lib/shots";
+
+type LightboxShot = Shot & { caption: string; alt: string };
 
 export function Lightbox({
   shots,
@@ -8,11 +11,12 @@ export function Lightbox({
   onClose,
   onIndexChange,
 }: {
-  shots: Shot[];
+  shots: LightboxShot[];
   index: number;
   onClose: () => void;
   onIndexChange: (next: number) => void;
 }) {
+  const { t } = useI18n();
   const shot = shots[index];
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -53,10 +57,7 @@ export function Lightbox({
       aria-labelledby={titleId}
       onClick={onClose}
     >
-      <div
-        className="lightbox-panel"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="lightbox-panel" onClick={(e) => e.stopPropagation()}>
         <div className="lightbox-toolbar">
           <p id={titleId} className="lightbox-caption">
             {shot.caption}
@@ -70,9 +71,9 @@ export function Lightbox({
             type="button"
             className="lightbox-close"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t("screens", "close")}
           >
-            Close
+            {t("screens", "close")}
           </button>
         </div>
         <img
@@ -90,17 +91,17 @@ export function Lightbox({
               onClick={() =>
                 onIndexChange((index - 1 + shots.length) % shots.length)
               }
-              aria-label="Previous screenshot"
+              aria-label={t("screens", "previousAria")}
             >
-              Previous
+              {t("screens", "previous")}
             </button>
             <button
               type="button"
               className="lightbox-nav-btn"
               onClick={() => onIndexChange((index + 1) % shots.length)}
-              aria-label="Next screenshot"
+              aria-label={t("screens", "nextAria")}
             >
-              Next
+              {t("screens", "next")}
             </button>
           </div>
         ) : null}

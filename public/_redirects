@@ -1,0 +1,3 @@
+# Cloudflare Pages — SPA fallback for React Router.
+# Existing public/ assets (press/, privacy/, screens/, …) still win.
+/*    /index.html   200
