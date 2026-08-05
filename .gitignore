@@ -3,9 +3,12 @@ dist/
 .DS_Store
 *.local
 .env
+.env.local.build
+package-lock.json
 public/store/catalog.local.json
 public/store/*.dhpack
 
 # Local-only ops UI — never commit / never Pages-deploy (see ADMIN.md)
 /admin/
-admin-dist/n8n/.secrets/
+admin-dist/
+n8n/.secrets/
