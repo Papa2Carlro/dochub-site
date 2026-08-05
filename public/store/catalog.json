@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-05T10:45:00Z",
+  "updated_at": "2026-08-05T11:36:29Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -69,6 +69,16 @@
       "description": "Maps Godot headless project load / test runs into platform build.* and test.* events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.godot/0.1.0.dhpack",
       "sha256": "1bd0642d36731d0c64def2e81ac24fc1215b191cc0335e580c7dd004fd166c08",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.pack.achievements-starter",
+      "name": "Starter Achievements",
+      "version": "0.1.0",
+      "description": "Free language-agnostic starter achievements (build / test / task / scm). Pack-local evaluator.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.achievements-starter/0.1.0.dhpack",
+      "sha256": "6b7497ece5e43c0c23951b08e468c648a045e4b38c1a64a1e55cb5b56511156e",
       "tier": "free",
       "min_api": "^1.0.0"
     },
