@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-05T11:36:29Z",
+  "updated_at": "2026-08-05T11:49:04Z",
   "entries": [
     {
       "id": "com.dochub.adapter.typescript",
@@ -69,6 +69,16 @@
       "description": "Maps Godot headless project load / test runs into platform build.* and test.* events.",
       "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.adapter.godot/0.1.0.dhpack",
       "sha256": "1bd0642d36731d0c64def2e81ac24fc1215b191cc0335e580c7dd004fd166c08",
+      "tier": "free",
+      "min_api": "^1.0.0"
+    },
+    {
+      "id": "com.dochub.pack.docs-watcher",
+      "name": "Docs Watcher",
+      "version": "0.1.0",
+      "description": "Watches Docs/ (or configured paths) and publishes docs.changed events.",
+      "dhpack_url": "https://dochub-downloads.dochubhq.workers.dev/store/com.dochub.pack.docs-watcher/0.1.0.dhpack",
+      "sha256": "9963d082b1d7545fdb65341cddcaf11f24a8035d8c0a588a3ff8632eb5403e4b",
       "tier": "free",
       "min_api": "^1.0.0"
     },

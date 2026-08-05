@@ -21,6 +21,7 @@ Custom domain (`downloads.doc-hub.app`) comes after R2 is enabled and DNS is att
 - `com.dochub.adapter.dotnet` — dotnet build/test → `build.*` / `test.*`
 - `com.dochub.adapter.godot` — headless check/test → `build.*` / `test.*`
 - `com.dochub.pack.achievements-starter` — language-agnostic starter achievements (pack-local eval)
+- `com.dochub.pack.docs-watcher` — poll Docs/ → `docs.changed`
 - `com.dochub.pack.visual-ship-teaser` — UI teaser scanners (funnel → Visual Ship Gate)
 
 ## Upcoming paid packs
