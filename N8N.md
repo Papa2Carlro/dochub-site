@@ -1,6 +1,6 @@
-# Інструкція: n8n + Cursor → пост у Telegram
+# Інструкція: n8n + Cursor → пост у Telegram / LinkedIn / X
 
-Мета: з Cursor / webhook публікувати текст з `PROMO.md` у Telegram (+ X, коли API write ок).
+Мета: з Cursor / webhook публікувати текст з `PROMO.md` у Telegram (+ LinkedIn company page, + X коли API write ок).
 
 Reddit / HN — вручну. Discord — опційно (потрібен webhook URL).
 
@@ -9,10 +9,11 @@ Reddit / HN — вручну. Discord — опційно (потрібен webho
 | channel | Куди |
 |---------|------|
 | `telegram` | Carlo Forge TG |
-| `twitter` / `x` | X / Twitter |
+| `linkedin` | LinkedIn company [Carlo Forge](https://www.linkedin.com/company/carlo-forge/) |
+| `twitter` / `x` | X / Twitter (поки skip — потрібні write permissions) |
 | `discord` | Discord webhook (env) |
 | `both` | Telegram + X |
-| `all` | Telegram + Discord + X |
+| `all` | Telegram + Discord + X + LinkedIn |
 | `dry_run: true` | нічого не шле, повертає payload |
 
 Webhook:
@@ -20,10 +21,30 @@ Webhook:
 ```bash
 curl -X POST http://localhost:5678/webhook/doc-hub-promo \
   -H 'Content-Type: application/json' \
-  -d '{"channel":"telegram","dry_run":false,"text":"… з PROMO.md …","image":"https://dochub-site.pages.dev/screens/portfolio-task-board.png"}'
+  -d '{"channel":"linkedin","dry_run":false,"text":"… з PROMO.md ## LinkedIn …"}'
 ```
 
-Опційно `image` — публічний HTTPS URL. Для Telegram: `sendPhoto` + caption = `text` (≤1024 символів). Без `image` — звичайний текстовий пост. X поки лише текст.
+Опційно `image` — публічний HTTPS URL (лише Telegram: `sendPhoto` + caption ≤1024). Без `image` — текст.
+
+Опційно `linkedin_org` — numeric org id (або env `DOC_HUB_LINKEDIN_ORG_ID`).
+
+---
+
+## LinkedIn (company page) — setup
+
+Сторінка: https://www.linkedin.com/company/carlo-forge/
+
+1. Створи [LinkedIn Developer App](https://www.linkedin.com/developers/apps/new), прив’яжи page **Carlo Forge**.
+2. Products: **Share on LinkedIn**, **Sign In with LinkedIn using OpenID Connect**, для org-постів також **Advertising API** (+ [Community Management App Review](https://learn.microsoft.com/en-us/linkedin/marketing/community-management-app-review) якщо LinkedIn вимагає).
+3. Auth tab → скопіюй **Client ID** / **Client Secret**.
+4. Redirect URL для local n8n: `http://localhost:5678/rest/oauth2-credential/callback`
+5. У n8n → Credentials → **LinkedIn Community Management OAuth2** → Connect (ти як admin сторінки).
+6. Дізнайся **Organization ID** (Company Page Admin → URL часто `.../company/.../admin` або API після OAuth). Постав у Docker env `DOC_HUB_LINKEDIN_ORG_ID=<digits>` або передавай `linkedin_org` у body.
+7. Відкрий ноду **LinkedIn** у workflow → вибери credential → Publish.
+
+Текст брати з `PROMO.md` секція **LinkedIn**.
+
+---
 
 **X:** credential `Carlo Forge X OAuth1` на ноді X (HTTP → `api.twitter.com/2/tweets`). Якщо live дає `oauth1 app permissions` / Forbidden — у [X Developer Console](https://developer.x.com/en/portal/dashboard):
 
@@ -172,9 +193,10 @@ User-level `~/.cursor/mcp.json` має пріоритет для Cursor MCP (`us
 
 | Поле | Значення |
 |------|----------|
-| `channel` | `telegram` · `discord` · `twitter`/`x` · `both` (TG+X) · `all` |
-| `text` | текст поста (з `PROMO.md`); для photo — caption |
-| `image` | опційно HTTPS URL (напр. `/screens/portfolio-task-board.png`) |
+| `channel` | `telegram` · `discord` · `twitter`/`x` · `linkedin` · `both` (TG+X) · `all` |
+| `text` | текст поста (з `PROMO.md`); для TG photo — caption |
+| `image` | опційно HTTPS URL (Telegram photo) |
+| `linkedin_org` | опційно org id (або env `DOC_HUB_LINKEDIN_ORG_ID`) |
 | `dry_run` | `true` = тільки перевірка, `false` = пост |
 
 Тексти брати з: `dochub-site/PROMO.md`  

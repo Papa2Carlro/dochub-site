@@ -21,6 +21,8 @@ services:
       - GENERIC_TIMEZONE=Europe/Kyiv
       # Optional: set once and keep
       # - N8N_ENCRYPTION_KEY=change-me-to-a-long-random-string
+      # LinkedIn company page org id (digits only), after OAuth setup — see N8N.md
+      # - DOC_HUB_LINKEDIN_ORG_ID=
     volumes:
       - n8n_data:/home/node/.n8n
 

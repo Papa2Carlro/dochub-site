@@ -1,0 +1,32 @@
+@use "styles/abstracts/variables" as v;
+
+@mixin root {
+  padding-top: 0.25rem;
+
+  &[data-bench-modal-host] {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  :global(.top) {
+    margin-top: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  &__main {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 58rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.25rem 1.5rem 4rem;
+    animation: none;
+    opacity: 1;
+    transform: none;
+
+    > p {
+      color: v.$mute;
+    }
+  }
+}

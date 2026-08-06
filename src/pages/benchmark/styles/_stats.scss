@@ -1,0 +1,190 @@
+@mixin styles {
+.bench-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .bench-stat {
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      padding: 1rem 1.1rem 1.1rem;
+      background: var(--surface);
+    }
+
+    .bench-stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .bench-stat-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .bench-stat-arm {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .bench-stat-num {
+      display: block;
+      font-family: var(--display);
+      font-size: 1.65rem;
+      letter-spacing: -0.03em;
+      color: var(--foam);
+      line-height: 1.1;
+    }
+
+    .bench-stat-num.good {
+      color: var(--good);
+    }
+
+    .bench-stat-sub {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.78rem;
+      color: var(--faint);
+    }
+
+    .bench-scroll {
+      overflow-x: auto;
+    }
+
+    .bench-table-dense th,
+    .bench-table-dense td {
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .bench-case-sub {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.78rem;
+      white-space: normal;
+    }
+
+    .bench-version {
+      margin: 1.35rem 0 0;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 0.85rem;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+    }
+
+    .bench-version-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.65rem 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .bench-version-head .bench-h3 {
+      margin: 0;
+    }
+
+    .bench-version-id {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--warn, #c4a35a);
+      border: 1px solid var(--line);
+      border-radius: 0.35rem;
+      padding: 0.15rem 0.45rem;
+    }
+
+    .bench-metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin: 0.85rem 0 1rem;
+    }
+
+    .bench-mini-metric {
+      border: 1px solid var(--line);
+      border-radius: 0.55rem;
+      padding: 0.65rem 0.75rem;
+      background: var(--ink, #0e1218);
+    }
+
+    .bench-mini-metric span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .bench-mini-metric strong {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      color: var(--foam);
+      letter-spacing: -0.02em;
+    }
+
+    .bench-mini-metric strong.good {
+      color: var(--good);
+    }
+
+    .bench-mini-metric strong.accent {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .bench-stat-grid,
+      .bench-metric-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .bench-stat-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bench-example {
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      padding: 1.05rem 1.15rem 1.15rem;
+      background: var(--surface);
+    }
+
+    .bench-example-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.65rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .bench-example-head strong {
+      font-family: var(--display);
+      font-size: 1.02rem;
+      color: var(--foam);
+      letter-spacing: -0.01em;
+    }
+
+    .bench-example-id {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+    }
+
+    .bench-example p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    }

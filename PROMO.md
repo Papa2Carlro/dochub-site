@@ -4,7 +4,7 @@ Attach `site/public/screens/portfolio-task-board.png` (or any `portfolio-*.png`)
 Live URL: `https://dochub-site.pages.dev` (flip to `https://doc-hub.app` when DNS is live).
 
 Press kit page: `/press/`  
-Automate TG / X from Cursor: [`N8N.md`](./N8N.md) + local Docker webhook `doc-hub-promo` (`channel`: `telegram` \| `twitter` \| `both`).
+Automate TG / LinkedIn / X from Cursor: [`N8N.md`](./N8N.md) + local Docker webhook `doc-hub-promo` (`channel`: `telegram` \| `linkedin` \| `twitter` \| `both` \| `all`).
 
 ---
 

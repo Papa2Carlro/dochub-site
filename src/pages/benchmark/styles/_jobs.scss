@@ -1,0 +1,368 @@
+@mixin styles {
+.bench-scoreboard {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .bench-compare {
+      border: 1px solid var(--line);
+      border-radius: 0.85rem;
+      padding: 1rem 1.05rem 1.1rem;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+    }
+
+    .bench-compare-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 0.85rem;
+    }
+
+    .bench-compare-rows {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .bench-compare-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.65rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .bench-compare-arm {
+      font-size: 0.78rem;
+      font-weight: 650;
+      color: var(--mute);
+    }
+
+    .bench-compare-arm.with {
+      color: var(--good);
+    }
+
+    .bench-compare-meta strong {
+      font-family: var(--display);
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+      color: var(--foam);
+      line-height: 1;
+    }
+
+    .bench-compare-meta strong.good {
+      color: var(--good);
+    }
+
+    .bench-compare-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: var(--raised);
+      border: 1px solid rgba(52, 58, 70, 0.85);
+      overflow: hidden;
+    }
+
+    .bench-compare-track.thin {
+      height: 0.48rem;
+    }
+
+    .bench-compare-fill {
+      height: 100%;
+      border-radius: inherit;
+      transform-origin: left center;
+      animation: grow-x 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .bench-compare-fill.without {
+      background: linear-gradient(90deg, #5a6474, #8a94a4);
+    }
+
+    .bench-compare-fill.with {
+      background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+    }
+
+    .bench-compare-fill.with.win {
+      background: linear-gradient(90deg, var(--accent-deep), var(--good));
+    }
+
+    .bench-compare-detail {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.76rem;
+      color: var(--faint);
+    }
+
+    .bench-delta-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin: 0.95rem 0 0.35rem;
+    }
+
+    .bench-delta {
+      border: 1px solid var(--line);
+      border-radius: 0.65rem;
+      padding: 0.7rem 0.8rem;
+      background: var(--ink);
+    }
+
+    .bench-delta span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--mute);
+      margin-bottom: 0.28rem;
+    }
+
+    .bench-delta strong {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--foam);
+    }
+
+    .bench-delta strong.good {
+      color: var(--good);
+    }
+
+    .bench-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem 1.1rem;
+      margin: 1.25rem 0 0.25rem;
+    }
+
+    .bench-cta-note {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--mute);
+      max-width: 28rem;
+    }
+
+    .bench-task-charts {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+
+    .bench-task-card {
+      border: 1px solid var(--line);
+      border-radius: 0.85rem;
+      padding: 1rem 1.05rem 1.1rem;
+      background: var(--surface);
+    }
+
+    .bench-task-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.65rem 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .bench-task-head strong {
+      font-family: var(--display);
+      font-size: 1.02rem;
+      color: var(--foam);
+      letter-spacing: -0.01em;
+    }
+
+    .bench-task-head strong span {
+      display: block;
+      margin-top: 0.15rem;
+      font-family: var(--body);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--mute);
+      letter-spacing: 0;
+    }
+
+    .bench-outcome-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .bench-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border-radius: 0.4rem;
+      padding: 0.28rem 0.5rem;
+      border: 1px solid var(--line);
+      color: var(--mute);
+      background: var(--ink);
+    }
+
+    .bench-pill.pass {
+      color: var(--good);
+      border-color: color-mix(in srgb, var(--good) 45%, var(--line));
+    }
+
+    .bench-pill.partial {
+      color: var(--warn, #c4875a);
+      border-color: color-mix(in srgb, #c4875a 45%, var(--line));
+    }
+
+    .bench-pill.fail {
+      color: #e07a7a;
+      border-color: color-mix(in srgb, #e07a7a 40%, var(--line));
+    }
+
+    .bench-cat-chart {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.35rem;
+    }
+
+    .bench-cat-row {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .bench-cat-label {
+      font-size: 0.82rem;
+      font-weight: 650;
+      color: var(--foam);
+      line-height: 1.25;
+    }
+
+    .bench-cat-label em {
+      display: block;
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--faint);
+      margin-top: 0.15rem;
+    }
+
+    .bench-cat-bars {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .bench-cat-pair {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr 2.6rem;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .bench-cat-arm {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .bench-cat-track {
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--raised);
+      border: 1px solid rgba(52, 58, 70, 0.85);
+      overflow: hidden;
+    }
+
+    .bench-cat-fill {
+      height: 100%;
+      border-radius: inherit;
+      transform-origin: left center;
+      animation: grow-x 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .bench-cat-fill.md {
+      background: #8a94a4;
+    }
+
+    .bench-cat-fill.mcp {
+      background: var(--good);
+    }
+
+    .bench-cat-pair strong {
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      color: var(--mute);
+    }
+
+    .bench-cat-lists {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 0.65rem;
+    }
+
+    .bench-cat-section .bench-h3 {
+      margin-top: 0;
+      margin-bottom: 0.45rem;
+    }
+
+    .bench-job-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .bench-job-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      text-align: left;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .bench-job-row:hover,
+    .bench-job-row:focus-visible {
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      background: color-mix(in srgb, var(--surface) 88%, var(--accent));
+      outline: none;
+    }
+
+    .bench-job-main {
+      display: grid;
+      gap: 0.15rem;
+      min-width: 0;
+    }
+
+    .bench-job-main strong {
+      font-size: 0.92rem;
+      color: var(--foam);
+      line-height: 1.25;
+    }
+
+    .bench-job-id {
+      font-size: 0.72rem;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bench-job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .bench-job-open {
+      font-size: 0.78rem;
+      font-weight: 650;
+      color: var(--accent);
+    }
+
+    }

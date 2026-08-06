@@ -4,6 +4,9 @@ import type { Tab } from "./types";
 export type BenchmarkUiState = {
   tab: Tab;
   setTab: (tab: Tab) => void;
+  selectedCaseId: string | null;
+  openCase: (id: string) => void;
+  closeCase: () => void;
 };
 
 export type BenchmarkUiStore = StoreApi<BenchmarkUiState>;
@@ -11,6 +14,9 @@ export type BenchmarkUiStore = StoreApi<BenchmarkUiState>;
 export function createBenchmarkUiStore(initialTab: Tab = "now"): BenchmarkUiStore {
   return createStore<BenchmarkUiState>((set) => ({
     tab: initialTab,
-    setTab: (tab) => set({ tab }),
+    setTab: (tab) => set({ tab, selectedCaseId: null }),
+    selectedCaseId: null,
+    openCase: (id) => set({ selectedCaseId: id }),
+    closeCase: () => set({ selectedCaseId: null }),
   }));
 }

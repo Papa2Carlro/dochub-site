@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy — Doc Hub</title>
+    <title>Privacy Policy — Doc Hub</title>
     <meta
       name="description"
-      content="Privacy policy for the Doc Hub product website and desktop app analytics defaults."
+      content="Privacy Policy for Doc Hub: marketing site, downloads service, desktop app, pack licenses, and tip jar."
     />
     <link rel="canonical" href="https://dochub-site.pages.dev/privacy/" />
+    <link rel="alternate" hreflang="en" href="https://dochub-site.pages.dev/privacy/" />
+    <link rel="alternate" hreflang="uk" href="https://dochub-site.pages.dev/privacy/uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://dochub-site.pages.dev/privacy/" />
     <link rel="icon" type="image/png" href="../app-icon.png" />
+    <meta property="og:title" content="Privacy Policy — Doc Hub" />
+    <meta
+      property="og:description"
+      content="How Doc Hub handles data across the site, downloads Worker, desktop app, and pack licenses."
+    />
+    <meta property="og:url" content="https://dochub-site.pages.dev/privacy/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,9 +30,14 @@
         --ink: #0e1218;
         --foam: #e8eaed;
         --mute: #9aa0a9;
+        --faint: #6b7280;
+        --line: #343a46;
         --accent: #5b8def;
         --display: "Syne", system-ui, sans-serif;
         --body: "DM Sans", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
       }
       body {
         margin: 0;
@@ -33,9 +47,28 @@
         line-height: 1.55;
       }
       main {
-        max-width: 40rem;
+        max-width: 42rem;
         margin: 0 auto;
         padding: 2.5rem 1.5rem 4rem;
+      }
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .lang {
+        display: inline-flex;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .lang a[aria-current="page"] {
+        color: var(--foam);
+        font-weight: 600;
+        text-decoration: none;
+        pointer-events: none;
       }
       a {
         color: var(--accent);
@@ -44,64 +77,543 @@
         font-family: var(--display);
         font-size: 2rem;
         letter-spacing: -0.02em;
+        margin: 0 0 0.5rem;
       }
       h2 {
         font-family: var(--display);
         font-size: 1.15rem;
-        margin-top: 2rem;
+        margin-top: 2.25rem;
+        margin-bottom: 0.65rem;
+      }
+      h3 {
+        font-family: var(--display);
+        font-size: 1rem;
+        margin-top: 1.35rem;
+        margin-bottom: 0.4rem;
+        color: var(--foam);
       }
       p,
-      li {
+      li,
+      td,
+      th {
         color: var(--mute);
+      }
+      .meta {
+        color: var(--faint);
+        font-size: 0.92rem;
+        margin: 0 0 1.25rem;
+      }
+      .note {
+        border-left: 3px solid var(--line);
+        padding-left: 0.9rem;
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        padding-left: 1.25rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        margin: 0.75rem 0 1rem;
+      }
+      th,
+      td {
+        border-top: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        padding: 0.55rem 0.4rem 0.55rem 0;
+      }
+      th {
+        color: var(--foam);
+        font-weight: 600;
+      }
+      code {
+        font-size: 0.88em;
+        color: var(--foam);
+      }
+      nav.toc {
+        margin: 1.25rem 0 0.5rem;
+      }
+      nav.toc ol {
+        margin: 0.4rem 0 0;
+      }
+      footer.page-foot {
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        color: var(--faint);
+        font-size: 0.9rem;
       }
     </style>
   </head>
   <body>
     <main>
-      <p><a href="../">← Doc Hub</a></p>
-      <h1>Privacy</h1>
-      <p>
-        This page covers the public Doc Hub website and how we think about data
-        for the desktop app.
+      <div class="top">
+        <p style="margin: 0"><a href="../">← Doc Hub</a></p>
+        <div class="lang" aria-label="Language">
+          <a href="./" aria-current="page">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="./uk/">UK</a>
+        </div>
+      </div>
+
+      <h1>Privacy Policy</h1>
+      <p class="meta">
+        Effective date: <time datetime="2026-08-06">6 August 2026</time> ·
+        Product: Doc Hub
       </p>
-      <h2>Product site</h2>
       <p>
-        The marketing site is a static SPA on Cloudflare Pages. Privacy-friendly
-        analytics may load when configured at build time:
+        This Privacy Policy explains how personal and technical data is handled
+        for Doc Hub — the marketing website, downloads and licensing service,
+        desktop application, paid packs, early email licenses, and related tip
+        jar. It is a product-accurate notice, not legal advice.
       </p>
+      <p class="note">
+        We do not sell personal data. We do not run advertising on the Doc Hub
+        marketing site.
+      </p>
+
+      <nav class="toc" aria-label="Contents">
+        <strong>Contents</strong>
+        <ol>
+          <li><a href="#who">Who we are</a></li>
+          <li><a href="#scope">What this policy covers</a></li>
+          <li><a href="#data">Data we process</a></li>
+          <li><a href="#purposes">Purposes and legal bases</a></li>
+          <li><a href="#cookies">Cookies and similar technologies</a></li>
+          <li><a href="#third-parties">Third parties</a></li>
+          <li><a href="#retention">Retention</a></li>
+          <li><a href="#sharing">Sharing and sale</a></li>
+          <li><a href="#transfers">International transfers</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#rights">Your rights</a></li>
+          <li><a href="#children">Children</a></li>
+          <li><a href="#changes">Changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="who">1. Who we are</h2>
+      <p>
+        The current data controller for Doc Hub is
+        <strong>Maksym Pryimak</strong>, an individual in Ukraine. Privacy and
+        product questions:
+        <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a>.
+      </p>
+      <p>
+        The operator identity (for example a future legal entity or a different
+        contact address) may change. When it does, we will update this section
+        and the Effective date on this page.
+      </p>
+
+      <h2 id="scope">2. What this policy covers</h2>
+      <p>This policy applies to:</p>
       <ul>
         <li>
-          Cloudflare Web Analytics (<code>VITE_CF_BEACON_TOKEN</code>) — preferred,
-          no cookies
+          The public marketing site hosted on Cloudflare Pages (currently
+          <a href="https://dochub-site.pages.dev/">dochub-site.pages.dev</a>;
+          later <code>doc-hub.app</code> when DNS is live).
         </li>
         <li>
-          Plausible (<code>VITE_PLAUSIBLE_DOMAIN</code>) — optional, no cookies
+          The downloads and licensing Worker (currently
+          <code>dochub-downloads.dochubhq.workers.dev</code>; later
+          <code>downloads.doc-hub.app</code>).
+        </li>
+        <li>The Doc Hub desktop application (local-first launcher).</li>
+        <li>
+          Paid pack licensing (including Gumroad checkout webhooks and early
+          license requests by email until 1 September 2026).
         </li>
         <li>
-          Google Analytics 4 (<code>VITE_GA_MEASUREMENT_ID</code>) — optional; uses
-          Google’s measurement cookies / signals when enabled. Leave unset to keep
-          the site on privacy-friendly beacons only.
+          The Carlo Forge Patreon tip jar linked from the site (processed by
+          Patreon under their own policy).
         </li>
       </ul>
       <p>
-        We do not sell personal data or run ads on this site. An optional waitlist
-        may send your email to Formspree only to notify you about releases.
+        It does <strong>not</strong> turn local project docs, planning boards,
+        or workspace files on your machine into cloud-hosted personal data
+        unless you deliberately send something (for example by email or by
+        activating a license / syncing an install-set).
       </p>
-      <h2>Desktop app</h2>
       <p>
-        Doc Hub is local-first. Planning and docs live on your machine. In-app
-        analytics buffers default to local-only with sync off unless you turn
-        something on later. We do not require an account for the free baseline.
+        An internal operator dashboard may read aggregate download and visit
+        metrics for ops. That dashboard is not shipped to users and is not a
+        product signup flow.
       </p>
-      <h2>Contact</h2>
+
+      <h2 id="data">3. Data we process</h2>
+
+      <h3>3.1 Marketing website</h3>
+      <ul>
+        <li>
+          <strong>Hosting / edge:</strong> Cloudflare may process standard
+          request metadata (IP address, user agent, approximate location,
+          timestamps) to serve pages and protect the network.
+        </li>
+        <li>
+          <strong>Optional page analytics</strong> (only when configured at
+          build time):
+          <ul>
+            <li>
+              Cloudflare Web Analytics
+              (<code>VITE_CF_BEACON_TOKEN</code>) — preferred; no cookies.
+            </li>
+            <li>
+              Plausible (<code>VITE_PLAUSIBLE_DOMAIN</code>) — optional; no
+              cookies.
+            </li>
+            <li>
+              Google Analytics 4 (<code>VITE_GA_MEASUREMENT_ID</code>) —
+              optional; may use Google measurement cookies / signals when
+              enabled. If unset, the site stays on privacy-friendly beacons
+              only.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Optional waitlist:</strong> if
+          <code>VITE_FORMSPREE_ID</code> is set, the email you submit is sent
+          to Formspree so we can notify you about releases (payload may include
+          a source tag such as <code>doc-hub-landing</code>).
+        </li>
+        <li>
+          <strong>Email contact:</strong> if you write to
+          <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a> (feedback,
+          bugs, early pack licenses), we process the content of that message and
+          your email address to reply.
+        </li>
+        <li>
+          <strong>Search Console verification:</strong> an optional meta tag
+          (<code>VITE_GOOGLE_SITE_VERIFICATION</code> may be present for Google
+          Search Console; it is not a visitor tracking pixel by itself.
+        </li>
+      </ul>
+
+      <h3>3.2 Downloads and licensing Worker</h3>
+      <ul>
+        <li>
+          <strong>Download counters:</strong> aggregate hits per platform
+          (mac / win / linux) stored in Cloudflare KV when installers are served
+          through tracked routes.
+        </li>
+        <li>
+          <strong>Edge / ops metadata:</strong> Cloudflare may retain request
+          metadata (for example country or user agent) used for abuse detection
+          and internal funnel metrics. We do not sell this data.
+        </li>
+        <li>
+          <strong>Pack licenses (D1):</strong> when you buy or activate a paid
+          pack we may store license key material, pack id, buyer email (for
+          example from Gumroad), seat count, status (active / revoked), Gumroad
+          sale id (when applicable), and a
+          <code>machine_hash</code> bound to activated seats.
+        </li>
+        <li>
+          <strong>Device install-set (optional sync):</strong>
+          <code>machine_hash</code>, a hashed <code>device_token</code>, and
+          pack intent metadata (which packs are enabled / versions / sources).
+          This is not a Doc Hub account and does not include your docs or
+          planning content. Plugin bits still come from the CDN / local extract.
+        </li>
+        <li>
+          <strong>Store proxy:</strong> catalog and <code>.dhpack</code> assets
+          may be proxied from the Pages origin; requests are technical CDN
+          traffic.
+        </li>
+      </ul>
+
+      <h3>3.3 Desktop application</h3>
+      <ul>
+        <li>
+          <strong>Local-first by default:</strong> workspaces, docs, and
+          planning data stay on your machine. The free baseline does not require
+          an account.
+        </li>
+        <li>
+          <strong>In-app analytics buffers</strong> default to local-only (sync
+          off) unless you turn something on later.
+        </li>
+        <li>
+          <strong>License activation / seat management</strong> and optional
+          install-set push/pull send only the technical identifiers described
+          above to the Worker — not your project documents.
+        </li>
+        <li>
+          A local <code>device_token</code> may be created under your user config
+          directory for install-set sync authentication.
+        </li>
+      </ul>
+
+      <h3>3.4 Patreon tip jar</h3>
       <p>
-        Feedback and privacy questions:
+        If you join
+        <a href="https://www.patreon.com/c/carloforge" rel="noopener noreferrer"
+          >Carlo Forge on Patreon</a
+        >, Patreon is the controller for that membership relationship. See
+        Patreon’s privacy policy. Doc Hub does not receive your card details
+        from Patreon through our own systems.
+      </p>
+
+      <h3>3.5 Summary table</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Surface</th>
+            <th>Examples of data</th>
+            <th>Where it goes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Website visit</td>
+            <td>Request metadata; optional analytics events</td>
+            <td>Cloudflare; optional Plausible / Google</td>
+          </tr>
+          <tr>
+            <td>Waitlist</td>
+            <td>Email</td>
+            <td>Formspree (when enabled)</td>
+          </tr>
+          <tr>
+            <td>Email / early license</td>
+            <td>Email + message content</td>
+            <td>Inbox at contact address</td>
+          </tr>
+          <tr>
+            <td>Installer download</td>
+            <td>Aggregate counters; edge metadata</td>
+            <td>Worker KV / Cloudflare</td>
+          </tr>
+          <tr>
+            <td>Paid pack license</td>
+            <td>Email, key, seats, machine_hash, sale id</td>
+            <td>Worker D1; Gumroad for checkout</td>
+          </tr>
+          <tr>
+            <td>Install-set sync</td>
+            <td>machine_hash, hashed token, pack intents</td>
+            <td>Worker D1</td>
+          </tr>
+          <tr>
+            <td>Desktop docs / board</td>
+            <td>Project content</td>
+            <td>Your device (local)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="purposes">4. Purposes and legal bases</h2>
+      <p>We process data to:</p>
+      <ul>
+        <li>Operate and secure the website, CDN, and download routes.</li>
+        <li>
+          Understand aggregate usage (visits, OS share, download conversion)
+          and improve the product.
+        </li>
+        <li>
+          Fulfil pack purchases and enforce seat limits (contract / legitimate
+          interest in preventing license abuse).
+        </li>
+        <li>
+          Answer support, feedback, and early-license email (legitimate interest
+          / steps prior to a contract).
+        </li>
+        <li>
+          Send release notifications if you join the waitlist (consent via the
+          form).
+        </li>
+      </ul>
+      <p>
+        Where Google Analytics 4 is enabled, that measurement is optional and
+        configured at build time; treat it as analytics that may rely on consent
+        or similar controls depending on your jurisdiction and browser settings.
+      </p>
+
+      <h2 id="cookies">5. Cookies and similar technologies</h2>
+      <ul>
+        <li>
+          Cloudflare Web Analytics and Plausible (when used) are designed to work
+          without cookies.
+        </li>
+        <li>
+          Google Analytics 4, if <code>VITE_GA_MEASUREMENT_ID</code> is set, may
+          set cookies or use similar identifiers. Leave that variable unset to
+          avoid GA4 on the site. You can also use browser controls or blockers.
+        </li>
+        <li>
+          Essential hosting cookies may be set by Cloudflare for security or
+          network reasons.
+        </li>
+      </ul>
+      <p>
+        This page describes cookies; a separate cookie banner UI is not shipped
+        with the current site. If GA4 is enabled in a jurisdiction that requires
+        prior consent, we will add an appropriate control.
+      </p>
+
+      <h2 id="third-parties">6. Third parties</h2>
+      <p>
+        Depending on which features are enabled, processors / independent
+        services may include:
+      </p>
+      <ul>
+        <li>
+          <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer"
+            >Cloudflare</a
+          >
+          — Pages hosting, Workers, KV, D1, R2, Web Analytics.
+        </li>
+        <li>
+          <a href="https://formspree.io/legal/privacy-policy/" rel="noopener noreferrer"
+            >Formspree</a
+          >
+          — optional waitlist email capture.
+        </li>
+        <li>
+          <a href="https://plausible.io/privacy" rel="noopener noreferrer"
+            >Plausible</a
+          >
+          — optional analytics.
+        </li>
+        <li>
+          <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
+            >Google</a
+          >
+          — optional GA4 and Search Console verification.
+        </li>
+        <li>
+          <a href="https://gumroad.com/privacy" rel="noopener noreferrer"
+            >Gumroad</a
+          >
+          — paid pack checkout; sale / email data may flow to our license
+          webhook.
+        </li>
+        <li>
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer"
+            >GitHub</a
+          >
+          — public issues and optional releases fallback for downloads.
+        </li>
+        <li>
+          <a href="https://privacy.patreon.com/" rel="noopener noreferrer"
+            >Patreon</a
+          >
+          — tip jar memberships.
+        </li>
+      </ul>
+
+      <h2 id="retention">7. Retention</h2>
+      <ul>
+        <li>
+          Waitlist emails: kept while useful for release notifications, or until
+          you ask us to delete them.
+        </li>
+        <li>
+          Support / early-license email: kept as long as needed to handle the
+          request and ordinary correspondence records.
+        </li>
+        <li>
+          License records: kept while the license is active and for a reasonable
+          period afterward for fraud prevention, accounting, or dispute
+          handling; revoked keys remain marked revoked.
+        </li>
+        <li>Aggregate download counters: retained as product metrics.</li>
+        <li>
+          Device install-sets: retained while sync is used; you can stop syncing
+          locally.
+        </li>
+        <li>
+          Local desktop data: under your control (files on disk); deleting the
+          app or workspace removes it from our systems only in the sense that we
+          never held it.
+        </li>
+      </ul>
+
+      <h2 id="sharing">8. Sharing and sale</h2>
+      <p>
+        We do not sell personal data. We share data with service providers only
+        as needed to run the surfaces above, or when required by law. Public
+        GitHub issues you open are public by nature.
+      </p>
+
+      <h2 id="transfers">9. International transfers</h2>
+      <p>
+        Infrastructure and vendors (for example Cloudflare, Gumroad, Formspree,
+        Google, Patreon) may process data outside Ukraine and the European
+        Economic Area. Those providers apply their own transfer mechanisms and
+        policies. By using the online surfaces you acknowledge that such
+        processing may occur.
+      </p>
+
+      <h2 id="security">10. Security</h2>
+      <p>We take reasonable technical measures for the current architecture, including:</p>
+      <ul>
+        <li>Hashing device tokens at rest on the Worker.</li>
+        <li>Signed license artifacts (<code>.lic</code>) after activation.</li>
+        <li>
+          Keeping operator secrets (stats tokens, signing keys, webhook secrets)
+          out of the public website bundle.
+        </li>
+      </ul>
+      <p>
+        No method of transmission or storage is perfectly secure. Protect your
+        machine, license keys, and email account.
+      </p>
+
+      <h2 id="rights">11. Your rights</h2>
+      <p>
+        Depending on applicable law, you may have rights to access, correct,
+        delete, restrict, or object to certain processing, and to withdraw
+        consent (for example waitlist). To exercise these rights for data we
+        control, email
+        <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a> with
+        enough detail to locate your data.
+      </p>
+      <p>
+        For purchases on Gumroad or memberships on Patreon, also use those
+        platforms’ account and privacy tools — they hold checkout or membership
+        records directly.
+      </p>
+
+      <h2 id="children">12. Children</h2>
+      <p>
+        Doc Hub is not directed at children under 16. We do not knowingly collect
+        personal data from children under 16. If you believe a child provided
+        data to us, contact us and we will delete it where appropriate.
+      </p>
+
+      <h2 id="changes">13. Changes</h2>
+      <p>
+        We may update this Policy when the product or operator details change.
+        The Effective date at the top will be revised. Continued use of the
+        online surfaces after an update constitutes notice of the revised
+        Policy for those surfaces.
+      </p>
+
+      <h2 id="contact">14. Contact</h2>
+      <p>
+        Privacy and product contact:
         <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a>.
+      </p>
+      <p>
         You can also open an issue on the
         <a href="https://github.com/Papa2Carlro/doc-hub-releases/issues"
-          > public releases repo</a
+          >public releases repo</a
         >.
       </p>
+
+      <footer class="page-foot">
+        <p>
+          <a href="../">← Back to Doc Hub</a>
+          ·
+          <a href="./uk/">Українська версія</a>
+        </p>
+      </footer>
     </main>
   </body>
 </html>

@@ -4,13 +4,20 @@
   // layout hook `.page` stays global
 
   :global(.top) {
-    margin-bottom: 0;
+    margin-bottom: 0.85rem;
   }
 
   &__main {
+    box-sizing: border-box;
+    width: 100%;
     max-width: 58rem;
-    padding-top: 1.25rem;
-    padding-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.25rem 1.5rem 4rem;
+    /* avoid .band rise fill-mode leaving content invisible / edge-flush feel */
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   &__crumb {

@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Політика конфіденційності — Doc Hub</title>
+    <meta
+      name="description"
+      content="Політика конфіденційності Doc Hub: маркетинг-сайт, сервіс завантажень, desktop-додаток, ліцензії паків і tip jar."
+    />
+    <link rel="canonical" href="https://dochub-site.pages.dev/privacy/uk/" />
+    <link rel="alternate" hreflang="en" href="https://dochub-site.pages.dev/privacy/" />
+    <link rel="alternate" hreflang="uk" href="https://dochub-site.pages.dev/privacy/uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://dochub-site.pages.dev/privacy/" />
+    <link rel="icon" type="image/png" href="../../app-icon.png" />
+    <meta property="og:title" content="Політика конфіденційності — Doc Hub" />
+    <meta
+      property="og:description"
+      content="Як Doc Hub обробляє дані на сайті, у downloads Worker, desktop-додатку та ліцензіях паків."
+    />
+    <meta property="og:url" content="https://dochub-site.pages.dev/privacy/uk/" />
+    <meta property="og:locale" content="uk_UA" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0e1218;
+        --foam: #e8eaed;
+        --mute: #9aa0a9;
+        --faint: #6b7280;
+        --line: #343a46;
+        --accent: #5b8def;
+        --display: "Syne", system-ui, sans-serif;
+        --body: "DM Sans", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        background: var(--ink);
+        color: var(--foam);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 4rem;
+      }
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .lang {
+        display: inline-flex;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .lang a[aria-current="page"] {
+        color: var(--foam);
+        font-weight: 600;
+        text-decoration: none;
+        pointer-events: none;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-family: var(--display);
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.5rem;
+      }
+      h2 {
+        font-family: var(--display);
+        font-size: 1.15rem;
+        margin-top: 2.25rem;
+        margin-bottom: 0.65rem;
+      }
+      h3 {
+        font-family: var(--display);
+        font-size: 1rem;
+        margin-top: 1.35rem;
+        margin-bottom: 0.4rem;
+        color: var(--foam);
+      }
+      p,
+      li,
+      td,
+      th {
+        color: var(--mute);
+      }
+      .meta {
+        color: var(--faint);
+        font-size: 0.92rem;
+        margin: 0 0 1.25rem;
+      }
+      .note {
+        border-left: 3px solid var(--line);
+        padding-left: 0.9rem;
+        margin: 1rem 0;
+      }
+      ul,
+      ol {
+        padding-left: 1.25rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        margin: 0.75rem 0 1rem;
+      }
+      th,
+      td {
+        border-top: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        padding: 0.55rem 0.4rem 0.55rem 0;
+      }
+      th {
+        color: var(--foam);
+        font-weight: 600;
+      }
+      code {
+        font-size: 0.88em;
+        color: var(--foam);
+      }
+      nav.toc {
+        margin: 1.25rem 0 0.5rem;
+      }
+      nav.toc ol {
+        margin: 0.4rem 0 0;
+      }
+      footer.page-foot {
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        color: var(--faint);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <p style="margin: 0"><a href="../../">← Doc Hub</a></p>
+        <div class="lang" aria-label="Мова">
+          <a href="../">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="./" aria-current="page">UK</a>
+        </div>
+      </div>
+
+      <h1>Політика конфіденційності</h1>
+      <p class="meta">
+        Дата набрання чинності: <time datetime="2026-08-06">6 серпня 2026</time> ·
+        Продукт: Doc Hub
+      </p>
+      <p>
+        Ця Політика конфіденційності пояснює, як обробляються персональні та
+        технічні дані для Doc Hub — маркетинг-сайту, сервісу завантажень і
+        ліцензування, desktop-додатку, платних паків, ранніх ліцензій електронною
+        поштою та пов’язаного tip jar. Це продуктово-точне повідомлення, а не
+        юридична консультація.
+      </p>
+      <p class="note">
+        Ми не продаємо персональні дані. На маркетинг-сайті Doc Hub немає
+        реклами.
+      </p>
+
+      <nav class="toc" aria-label="Зміст">
+        <strong>Зміст</strong>
+        <ol>
+          <li><a href="#who">Хто ми</a></li>
+          <li><a href="#scope">Що охоплює ця політика</a></li>
+          <li><a href="#data">Які дані ми обробляємо</a></li>
+          <li><a href="#purposes">Цілі та правові підстави</a></li>
+          <li><a href="#cookies">Файли cookie та подібні технології</a></li>
+          <li><a href="#third-parties">Треті сторони</a></li>
+          <li><a href="#retention">Строки зберігання</a></li>
+          <li><a href="#sharing">Передача та продаж</a></li>
+          <li><a href="#transfers">Міжнародні передачі</a></li>
+          <li><a href="#security">Безпека</a></li>
+          <li><a href="#rights">Ваші права</a></li>
+          <li><a href="#children">Діти</a></li>
+          <li><a href="#changes">Зміни</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="who">1. Хто ми</h2>
+      <p>
+        Поточний контролер даних для Doc Hub —
+        <strong>Максим Приймак (Maksym Pryimak)</strong>, фізична особа в
+        Україні. Питання щодо конфіденційності та продукту:
+        <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a>.
+      </p>
+      <p>
+        Ідентичність оператора (наприклад, майбутня юридична особа або інша
+        контактна адреса) може змінитися. У такому разі ми оновимо цей розділ і
+        дату набрання чинності на цій сторінці.
+      </p>
+
+      <h2 id="scope">2. Що охоплює ця політика</h2>
+      <p>Ця політика застосовується до:</p>
+      <ul>
+        <li>
+          Публічного маркетинг-сайту на Cloudflare Pages (зараз
+          <a href="https://dochub-site.pages.dev/">dochub-site.pages.dev</a>;
+          пізніше <code>doc-hub.app</code>, коли DNS буде активним).
+        </li>
+        <li>
+          Worker завантажень і ліцензування (зараз
+          <code>dochub-downloads.dochubhq.workers.dev</code>; пізніше
+          <code>downloads.doc-hub.app</code>).
+        </li>
+        <li>Desktop-додатку Doc Hub (local-first launcher).</li>
+        <li>
+          Ліцензування платних паків (зокрема webhook’и Gumroad і ранні запити
+          ліцензій електронною поштою до 1 вересня 2026).
+        </li>
+        <li>
+          Tip jar Carlo Forge на Patreon, на який є посилання з сайту
+          (обробляється Patreon за їхньою власною політикою).
+        </li>
+      </ul>
+      <p>
+        Вона <strong>не</strong> перетворює локальні docs проєкту, planning board
+        чи файли workspace на вашій машині на хмарні персональні дані, доки ви
+        навмисно щось не надішлете (наприклад електронною поштою або через
+        активацію ліцензії / синхронізацію install-set).
+      </p>
+      <p>
+        Внутрішня операторська панель може читати агреговані метрики завантажень
+        і відвідувань для ops. Ця панель не постачається користувачам і не є
+        продуктовою реєстрацією.
+      </p>
+
+      <h2 id="data">3. Які дані ми обробляємо</h2>
+
+      <h3>3.1 Маркетинг-сайт</h3>
+      <ul>
+        <li>
+          <strong>Хостинг / edge:</strong> Cloudflare може обробляти стандартні
+          метадані запиту (IP-адреса, user agent, приблизна локація, часові
+          мітки) для віддачі сторінок і захисту мережі.
+        </li>
+        <li>
+          <strong>Опційна аналітика сторінок</strong> (лише якщо налаштовано на
+          етапі збірки):
+          <ul>
+            <li>
+              Cloudflare Web Analytics
+              (<code>VITE_CF_BEACON_TOKEN</code>) — пріоритетний варіант; без
+              cookie.
+            </li>
+            <li>
+              Plausible (<code>VITE_PLAUSIBLE_DOMAIN</code>) — опційно; без
+              cookie.
+            </li>
+            <li>
+              Google Analytics 4 (<code>VITE_GA_MEASUREMENT_ID</code>) —
+              опційно; може використовувати measurement cookie / сигнали Google,
+              якщо увімкнено. Якщо змінна не задана, сайт лишається лише на
+              privacy-friendly beacon’ах.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Опційний waitlist:</strong> якщо задано
+          <code>VITE_FORMSPREE_ID</code>, email, який ви надсилаєте, потрапляє
+          до Formspree, щоб ми могли повідомити про релізи (у payload може бути
+          тег джерела на кшталт <code>doc-hub-landing</code>).
+        </li>
+        <li>
+          <strong>Контакт електронною поштою:</strong> якщо ви пишете на
+          <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a>
+          (фідбек, баги, ранні ліцензії паків), ми обробляємо зміст повідомлення
+          і вашу адресу, щоб відповісти.
+        </li>
+        <li>
+          <strong>Верифікація Search Console:</strong> опційний meta-тег
+          <code>VITE_GOOGLE_SITE_VERIFICATION</code> може бути присутній для
+          Google Search Console; сам по собі це не піксель відстеження
+          відвідувача.
+        </li>
+      </ul>
+
+      <h3>3.2 Worker завантажень і ліцензування</h3>
+      <ul>
+        <li>
+          <strong>Лічильники завантажень:</strong> агреговані хіти за платформою
+          (mac / win / linux) у Cloudflare KV, коли інсталятори віддаються через
+          відстежувані маршрути.
+        </li>
+        <li>
+          <strong>Edge / ops-метадані:</strong> Cloudflare може зберігати
+          метадані запиту (наприклад країну або user agent) для виявлення
+          зловживань і внутрішніх funnel-метрик. Ми не продаємо ці дані.
+        </li>
+        <li>
+          <strong>Ліцензії паків (D1):</strong> коли ви купуєте або активуєте
+          платний пак, ми можемо зберігати матеріал ключа ліцензії, pack id,
+          email покупця (наприклад з Gumroad), кількість місць (seats), статус
+          (active / revoked), sale id Gumroad (за наявності) та
+          <code>machine_hash</code>, прив’язаний до активованих місць.
+        </li>
+        <li>
+          <strong>Device install-set (опційна синхронізація):</strong>
+          <code>machine_hash</code>, хешований <code>device_token</code> і
+          метадані намірів щодо паків (які паки увімкнені / версії / джерела).
+          Це не акаунт Doc Hub і не включає ваші docs чи planning. Біти плагінів
+          як і раніше йдуть з CDN / локального extract.
+        </li>
+        <li>
+          <strong>Store proxy:</strong> каталог і файли <code>.dhpack</code>
+          можуть проксуватися з origin Pages; це технічний CDN-трафік.
+        </li>
+      </ul>
+
+      <h3>3.3 Desktop-додаток</h3>
+      <ul>
+        <li>
+          <strong>Local-first за замовчуванням:</strong> workspace, docs і
+          planning лишаються на вашій машині. Безкоштовний baseline не вимагає
+          акаунта.
+        </li>
+        <li>
+          <strong>Буфери in-app аналітики</strong> за замовчуванням лише
+          локальні (sync вимкнено), доки ви пізніше щось не увімкнете.
+        </li>
+        <li>
+          <strong>Активація ліцензії / керування місцями</strong> та опційний
+          push/pull install-set надсилають на Worker лише технічні ідентифікатори,
+          описані вище — не документи вашого проєкту.
+        </li>
+        <li>
+          Локальний <code>device_token</code> може створюватися у вашому
+          user config для автентифікації sync install-set.
+        </li>
+      </ul>
+
+      <h3>3.4 Tip jar на Patreon</h3>
+      <p>
+        Якщо ви приєднуєтесь до
+        <a href="https://www.patreon.com/c/carloforge" rel="noopener noreferrer"
+          >Carlo Forge на Patreon</a
+        >, контролером цього членства є Patreon. Див. їхню політику
+        конфіденційності. Doc Hub не отримує дані вашої картки від Patreon через
+        власні системи.
+      </p>
+
+      <h3>3.5 Зведена таблиця</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Поверхня</th>
+            <th>Приклади даних</th>
+            <th>Куди потрапляють</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Відвідування сайту</td>
+            <td>Метадані запиту; опційні події аналітики</td>
+            <td>Cloudflare; опційно Plausible / Google</td>
+          </tr>
+          <tr>
+            <td>Waitlist</td>
+            <td>Email</td>
+            <td>Formspree (якщо увімкнено)</td>
+          </tr>
+          <tr>
+            <td>Email / рання ліцензія</td>
+            <td>Email + зміст повідомлення</td>
+            <td>Скринька на контактній адресі</td>
+          </tr>
+          <tr>
+            <td>Завантаження інсталятора</td>
+            <td>Агреговані лічильники; edge-метадані</td>
+            <td>Worker KV / Cloudflare</td>
+          </tr>
+          <tr>
+            <td>Ліцензія платного пака</td>
+            <td>Email, ключ, seats, machine_hash, sale id</td>
+            <td>Worker D1; Gumroad для checkout</td>
+          </tr>
+          <tr>
+            <td>Sync install-set</td>
+            <td>machine_hash, хеш токена, наміри паків</td>
+            <td>Worker D1</td>
+          </tr>
+          <tr>
+            <td>Docs / board у desktop</td>
+            <td>Вміст проєкту</td>
+            <td>Ваш пристрій (локально)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="purposes">4. Цілі та правові підстави</h2>
+      <p>Ми обробляємо дані, щоб:</p>
+      <ul>
+        <li>Працювати та захищати сайт, CDN і маршрути завантажень.</li>
+        <li>
+          Розуміти агреговане використання (відвідування, частка ОС, конверсія
+          завантажень) і покращувати продукт.
+        </li>
+        <li>
+          Виконувати покупки паків і обмежувати кількість місць (договір /
+          законний інтерес у запобіганні зловживанню ліцензіями).
+        </li>
+        <li>
+          Відповідати на support, фідбек і email щодо ранніх ліцензій (законний
+          інтерес / кроки до укладення договору).
+        </li>
+        <li>
+          Надсилати сповіщення про релізи, якщо ви приєднались до waitlist
+          (згода через форму).
+        </li>
+      </ul>
+      <p>
+        Якщо увімкнено Google Analytics 4, це вимірювання є опційним і
+        налаштовується на етапі збірки; ставтеся до нього як до аналітики, яка
+        може потребувати згоди або подібних контролів залежно від вашої юрисдикції
+        та налаштувань браузера.
+      </p>
+
+      <h2 id="cookies">5. Файли cookie та подібні технології</h2>
+      <ul>
+        <li>
+          Cloudflare Web Analytics і Plausible (коли використовуються)
+          розраховані на роботу без cookie.
+        </li>
+        <li>
+          Google Analytics 4, якщо задано <code>VITE_GA_MEASUREMENT_ID</code>,
+          може встановлювати cookie або використовувати подібні ідентифікатори.
+          Залиште змінну порожньою, щоб уникнути GA4 на сайті. Також можна
+          скористатися контролами браузера або блокувальниками.
+        </li>
+        <li>
+          Cloudflare може встановлювати необхідні cookie для безпеки чи мережі.
+        </li>
+      </ul>
+      <p>
+        Ця сторінка описує cookie; окремий UI cookie banner у поточній версії
+        сайту не постачається. Якщо GA4 увімкнено в юрисдикції, де потрібна
+        попередня згода, ми додамо відповідний контроль.
+      </p>
+
+      <h2 id="third-parties">6. Треті сторони</h2>
+      <p>
+        Залежно від увімкнених функцій, обробники / незалежні сервіси можуть
+        включати:
+      </p>
+      <ul>
+        <li>
+          <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer"
+            >Cloudflare</a
+          >
+          — хостинг Pages, Workers, KV, D1, R2, Web Analytics.
+        </li>
+        <li>
+          <a href="https://formspree.io/legal/privacy-policy/" rel="noopener noreferrer"
+            >Formspree</a
+          >
+          — опційний збір email для waitlist.
+        </li>
+        <li>
+          <a href="https://plausible.io/privacy" rel="noopener noreferrer"
+            >Plausible</a
+          >
+          — опційна аналітика.
+        </li>
+        <li>
+          <a href="https://policies.google.com/privacy" rel="noopener noreferrer"
+            >Google</a
+          >
+          — опційний GA4 і верифікація Search Console.
+        </li>
+        <li>
+          <a href="https://gumroad.com/privacy" rel="noopener noreferrer"
+            >Gumroad</a
+          >
+          — checkout платних паків; дані продажу / email можуть надходити на наш
+          license webhook.
+        </li>
+        <li>
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer"
+            >GitHub</a
+          >
+          — публічні issues і опційний fallback релізів для завантажень.
+        </li>
+        <li>
+          <a href="https://privacy.patreon.com/" rel="noopener noreferrer"
+            >Patreon</a
+          >
+          — членства tip jar.
+        </li>
+      </ul>
+
+      <h2 id="retention">7. Строки зберігання</h2>
+      <ul>
+        <li>
+          Email waitlist: зберігаються, доки корисні для сповіщень про релізи,
+          або доки ви не попросите їх видалити.
+        </li>
+        <li>
+          Support / email ранніх ліцензій: зберігаються стільки, скільки потрібно
+          для обробки запиту та звичайної кореспонденції.
+        </li>
+        <li>
+          Записи ліцензій: поки ліцензія активна і протягом розумного періоду
+          після цього для запобігання шахрайству, обліку чи спорів; відкликані
+          ключі лишаються позначеними як revoked.
+        </li>
+        <li>Агреговані лічильники завантажень: як продуктові метрики.</li>
+        <li>
+          Device install-set: поки використовується sync; ви можете припинити
+          синхронізацію локально.
+        </li>
+        <li>
+          Локальні дані desktop: під вашим контролем (файли на диску); видалення
+          додатка чи workspace прибирає їх із наших систем лише в тому сенсі, що
+          ми їх ніколи не зберігали.
+        </li>
+      </ul>
+
+      <h2 id="sharing">8. Передача та продаж</h2>
+      <p>
+        Ми не продаємо персональні дані. Ми передаємо дані постачальникам послуг
+        лише тією мірою, яка потрібна для роботи поверхонь вище, або коли цього
+        вимагає закон. Публічні GitHub issues, які ви відкриваєте, є публічними
+        за своєю природою.
+      </p>
+
+      <h2 id="transfers">9. Міжнародні передачі</h2>
+      <p>
+        Інфраструктура та вендори (наприклад Cloudflare, Gumroad, Formspree,
+        Google, Patreon) можуть обробляти дані поза Україною та Європейською
+        економічною зоною. Ці постачальники застосовують власні механізми
+        передачі та політики. Користуючись онлайн-поверхнями, ви визнаєте, що
+        така обробка може відбуватися.
+      </p>
+
+      <h2 id="security">10. Безпека</h2>
+      <p>
+        Ми застосовуємо розумні технічні заходи для поточної архітектури, зокрема:
+      </p>
+      <ul>
+        <li>Хешування device token під час зберігання на Worker.</li>
+        <li>Підписані артефакти ліцензії (<code>.lic</code>) після активації.</li>
+        <li>
+          Зберігання операторських секретів (stats tokens, ключі підпису, секрети
+          webhook) поза публічним бандлом сайту.
+        </li>
+      </ul>
+      <p>
+        Жоден спосіб передачі чи зберігання не є ідеально безпечним. Захищайте
+        свій комп’ютер, ключі ліцензій і поштовий акаунт.
+      </p>
+
+      <h2 id="rights">11. Ваші права</h2>
+      <p>
+        Залежно від застосовного права ви можете мати права на доступ,
+        виправлення, видалення, обмеження чи заперечення проти певної обробки, а
+        також на відкликання згоди (наприклад для waitlist). Щоб скористатися
+        цими правами щодо даних, які ми контролюємо, напишіть на
+        <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a> з
+        достатніми деталями, щоб знайти ваші дані.
+      </p>
+      <p>
+        Для покупок на Gumroad або членства на Patreon також використовуйте
+        інструменти акаунта та конфіденційності цих платформ — вони безпосередньо
+        зберігають записи checkout чи членства.
+      </p>
+
+      <h2 id="children">12. Діти</h2>
+      <p>
+        Doc Hub не орієнтований на дітей віком до 16 років. Ми свідомо не
+        збираємо персональні дані дітей до 16 років. Якщо ви вважаєте, що дитина
+        надала нам дані, зв’яжіться з нами — ми видалимо їх, де це доречно.
+      </p>
+
+      <h2 id="changes">13. Зміни</h2>
+      <p>
+        Ми можемо оновлювати цю Політику, коли змінюються продукт або дані
+        оператора. Дата набрання чинності на початку сторінки буде змінена.
+        Подальше використання онлайн-поверхонь після оновлення означає ознайомлення
+        з оновленою Політикою для цих поверхонь.
+      </p>
+
+      <h2 id="contact">14. Контакти</h2>
+      <p>
+        Контакт щодо конфіденційності та продукту:
+        <a href="mailto:priymak615@gmail.com">priymak615@gmail.com</a>.
+      </p>
+      <p>
+        Також можна відкрити issue у
+        <a href="https://github.com/Papa2Carlro/doc-hub-releases/issues"
+          >публічному репозиторії релізів</a
+        >.
+      </p>
+
+      <footer class="page-foot">
+        <p>
+          <a href="../../">← Назад до Doc Hub</a>
+          ·
+          <a href="../">English version</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

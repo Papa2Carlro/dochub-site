@@ -1,0 +1,223 @@
+@mixin styles {
+  .bench-modal-root {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    background: rgba(8, 10, 14, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    overscroll-behavior: none;
+  }
+
+  .bench-modal {
+    width: min(36rem, 100%);
+    max-height: min(88vh, 44rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-radius: 0.9rem;
+    border: 1px solid var(--glass-edge);
+    background: var(--surface);
+    padding: 1.15rem 1.2rem 1.35rem;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .bench-modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .bench-modal-title {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--foam);
+    line-height: 1.2;
+  }
+
+  .bench-modal-id {
+    margin: 0.25rem 0 0;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+
+  .bench-modal-close {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--mute);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.45rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .bench-modal-close:hover,
+  .bench-modal-close:focus-visible {
+    color: var(--foam);
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .bench-modal-pills {
+    margin-bottom: 0.85rem;
+  }
+
+  .bench-modal-metrics {
+    margin: 0.75rem 0 1.1rem;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .bench-modal .bench-dual-bars {
+    grid-template-columns: 1fr;
+  }
+
+  .bench-modal .btn {
+    width: 100%;
+  }
+
+  .bench-task-bars {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .bench-task-metric-label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 0.45rem;
+  }
+
+  .bench-task-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .bench-task-dual span {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--mute);
+    margin-bottom: 0.25rem;
+  }
+
+  .bench-task-dual em {
+    display: block;
+    margin-top: 0.25rem;
+    font-style: normal;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8rem;
+    color: var(--foam);
+  }
+
+  .bench-details {
+    margin: 1.15rem 0 0;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+    padding: 0.65rem 0.9rem 0.85rem;
+  }
+
+  .bench-details summary {
+    cursor: pointer;
+    font-weight: 650;
+    color: var(--foam);
+    list-style: none;
+  }
+
+  .bench-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .bench-details[open] summary {
+    margin-bottom: 0.65rem;
+  }
+
+  .bench-foot {
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .bench-foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0.85rem 0 0;
+  }
+
+  .bench-foot-links a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .bench-foot-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .bench-scoreboard,
+    .bench-delta-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .bench-task-dual {
+      grid-template-columns: 1fr;
+    }
+
+    .bench-hero-metrics,
+    .bench-fix-grid,
+    .bench-examples {
+      grid-template-columns: 1fr;
+    }
+
+    .bench-cat-row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .bench-job-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .bench-modal-root {
+      padding: 0;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .bench-modal {
+      width: 100%;
+      max-height: 92vh;
+      border-radius: 0.9rem 0.9rem 0 0;
+    }
+
+    .bench-bar-row {
+      grid-template-columns: 6.5rem 1fr 2.8rem;
+      gap: 0.4rem;
+    }
+
+    .bench-case {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+  }
+}

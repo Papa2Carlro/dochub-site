@@ -3,6 +3,16 @@ import type { Messages } from "../../i18n/messages/en";
 export type BenchKey = keyof Messages["benchmark"] & string;
 export type Tab = "now" | "history";
 
+export type CategoryId =
+  | "handoff"
+  | "continuity"
+  | "secrets"
+  | "two_windows"
+  | "stale_docs"
+  | "checklist"
+  | "scattered"
+  | "ties";
+
 export type CurrentCase = {
   id: string;
   titleKey: BenchKey;
@@ -25,4 +35,10 @@ export type Walkthrough = {
   plainKey: BenchKey;
   dmKey: BenchKey;
   takeawayKey: BenchKey;
+};
+
+export type BenchmarkCategory = {
+  id: CategoryId;
+  titleKey: BenchKey;
+  shortKey: BenchKey;
 };
