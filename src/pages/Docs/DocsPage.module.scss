@@ -1,0 +1,299 @@
+@use "styles/abstracts/variables" as v;
+
+.DocsPage {
+  // layout hook `.page` stays global
+
+  :global(.top) {
+    margin-bottom: 0;
+  }
+
+  &__main {
+    max-width: 58rem;
+    padding-top: 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  &__crumb {
+    color: v.$faint;
+    font-size: 0.9rem;
+    margin: 0 0 0.35rem;
+
+    a {
+      color: v.$accent;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__title {
+    font-family: v.$display;
+    font-size: clamp(2rem, 5vw, 2.85rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 0.45rem 0 0.85rem;
+  }
+
+  &__lede {
+    max-width: 40rem;
+    color: v.$mute;
+    font-size: 1.05rem;
+    margin: 0 0 1.35rem;
+  }
+
+  &__toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.85rem;
+    margin: 0 0 2rem;
+    padding: 0.85rem 0 1rem;
+    border-bottom: 1px solid v.$line;
+
+    a {
+      color: v.$mute;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+
+      &:hover {
+        color: v.$accent;
+      }
+    }
+  }
+
+  &__section {
+    margin: 0 0 2.25rem;
+    animation: docs-rise 0.5s ease both;
+
+    &:nth-of-type(2) {
+      animation-delay: 0.04s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.08s;
+    }
+
+    > p {
+      color: v.$mute;
+    }
+
+    a {
+      color: v.$accent;
+    }
+  }
+
+  &__h2 {
+    font-family: v.$display;
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 0.55rem;
+  }
+
+  &__section:first-of-type &__h2 {
+    margin-top: 0;
+  }
+
+  &__h3 {
+    font-family: v.$display;
+    font-size: 1rem;
+    margin: 1.35rem 0 0.5rem;
+  }
+
+  &__list {
+    color: v.$mute;
+    padding-left: 1.2rem;
+  }
+
+  &__steps {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+
+    li {
+      border-left: 2px solid v.$accent;
+      padding: 0.15rem 0 0.15rem 0.9rem;
+    }
+
+    strong {
+      display: block;
+      font-family: v.$display;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      margin: 0;
+      color: v.$mute;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    border: 1px solid var(--glass-edge);
+    border-radius: 0.75rem;
+    background: var(--glass-strong);
+    backdrop-filter: blur(12px);
+    padding: 1rem 1.05rem 1.1rem;
+
+    strong {
+      display: block;
+      font-family: v.$display;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      margin: 0;
+      color: v.$mute;
+      font-size: 0.95rem;
+    }
+  }
+
+  &__ctaRow {
+    margin: 1.1rem 0 0;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 0.55rem;
+    background: v.$accent;
+    color: #0b0d10;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness(1.08);
+    }
+
+    &_ghost {
+      background: transparent;
+      color: v.$accent;
+      border: 1px solid v.$line;
+
+      &:hover {
+        border-color: v.$accent;
+        filter: none;
+      }
+    }
+  }
+
+  &__code {
+    margin: 0.85rem 0 0;
+    padding: 0.85rem 1rem;
+    border-radius: 0.65rem;
+    border: 1px solid var(--glass-edge);
+    background: rgba(8, 10, 14, 0.72);
+    color: v.$foam;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    overflow-x: auto;
+    white-space: pre;
+
+    &_wide {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  }
+
+  &__callout {
+    margin: 0.85rem 0 0;
+    padding: 0.95rem 1.1rem;
+    border-radius: 0.65rem;
+    border: 1px solid rgba(212, 161, 90, 0.35);
+    background: rgba(212, 161, 90, 0.07);
+    color: v.$mute;
+    font-size: 0.92rem;
+
+    strong {
+      color: v.$foam;
+    }
+
+    a {
+      color: v.$accent;
+    }
+  }
+
+  &__toolList {
+    display: grid;
+    gap: 1.15rem;
+    margin: 1.35rem 0 1.75rem;
+  }
+
+  &__tool {
+    padding: 1rem 1.1rem 1.15rem;
+    border: 1px solid var(--glass-edge);
+    border-radius: 0.75rem;
+    background: var(--glass-strong);
+    backdrop-filter: blur(12px);
+
+    .DocsPage__h3 {
+      margin-top: 0;
+    }
+
+    > p {
+      margin: 0.35rem 0 0;
+      color: v.$mute;
+    }
+  }
+
+  &__toolMcp {
+    margin: 0.65rem 0 0;
+    color: v.$faint;
+    font-size: 0.82rem;
+    line-height: 1.4;
+
+    span {
+      color: v.$mute;
+      font-weight: 600;
+    }
+  }
+
+  &__faint {
+    color: v.$faint;
+    font-size: 0.85rem;
+    margin: 0.75rem 0 0;
+  }
+
+  &__foot {
+    margin: 2rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid v.$line;
+    color: v.$faint;
+
+    a {
+      color: v.$accent;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@keyframes docs-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

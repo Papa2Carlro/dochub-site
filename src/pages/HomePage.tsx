@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ControlledWorkflow } from "components/ControlledWorkflow";
 import { DownloadBand } from "components/DownloadBand";
 import { Faq } from "components/Faq";
@@ -8,16 +7,13 @@ import { HowItWorks } from "components/HowItWorks";
 import { Packs } from "components/Packs";
 import { Promo } from "components/Promo";
 import { Screens } from "components/Screens";
+import { SiteFooter } from "components/SiteFooter";
 import { SiteHeader } from "components/SiteHeader";
-import { SocialLinks } from "components/SocialLinks";
 import { Support } from "components/Support";
 import { Waitlist } from "components/Waitlist";
-import { WhatsNew } from "../components/WhatsNew";
-import { useI18n } from "../i18n";
-import { FEEDBACK_EMAIL, FEEDBACK_MAILTO } from "../lib/contact";
+import { WhatsNew } from "components/WhatsNew";
 
 export function HomePage() {
-  const { t } = useI18n();
   return (
     <div className="page">
       <SiteHeader variant="home" />
@@ -35,22 +31,7 @@ export function HomePage() {
       <Faq />
       <DownloadBand />
 
-      <footer className="foot">
-        <div className="foot-brand">
-          <span>{t("footer", "tagline")}</span>
-          <SocialLinks variant="footer" />
-        </div>
-        <span className="foot-links">
-          <a href="/privacy/">{t("footer", "privacy")}</a>
-          <a href="/press/">{t("footer", "press")}</a>
-          <Link to="/docs">{t("footer", "docs")}</Link>
-          <Link to="/benchmark">{t("footer", "benchmark")}</Link>
-          <a href="#support">{t("footer", "support")}</a>
-          <a href={FEEDBACK_MAILTO}>{FEEDBACK_EMAIL}</a>
-          <a href="#waitlist">{t("footer", "notify")}</a>
-          <a href="#download">{t("footer", "download")}</a>
-        </span>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

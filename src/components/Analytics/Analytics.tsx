@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type FC } from "react";
 import { useLocation } from "react-router-dom";
 
 declare global {
@@ -10,9 +10,8 @@ declare global {
 
 function gaAlreadyInHead(measurementId: string) {
   return Boolean(
-    document.querySelector(
-      `script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`,
-    ) || document.querySelector(`script[data-ga-id="${measurementId}"]`),
+    document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`) ||
+      document.querySelector(`script[data-ga-id="${measurementId}"]`),
   );
 }
 
@@ -57,7 +56,7 @@ function trackGaPageView(measurementId: string, path: string, title: string) {
  *   VITE_GA_MEASUREMENT_ID=G-XXXXXXXX
  *   (also injected into index.html at build time for GSC / crawlers)
  */
-export function Analytics() {
+const Analytics: FC = () => {
   const { pathname, search } = useLocation();
 
   useEffect(() => {
@@ -72,9 +71,7 @@ export function Analytics() {
 
     const domain = import.meta.env.VITE_PLAUSIBLE_DOMAIN?.trim();
     if (domain && !document.querySelector(`script[data-domain="${domain}"]`)) {
-      const src =
-        import.meta.env.VITE_PLAUSIBLE_SRC?.trim() ||
-        "https://plausible.io/js/script.js";
+      const src = import.meta.env.VITE_PLAUSIBLE_SRC?.trim() || "https://plausible.io/js/script.js";
       const el = document.createElement("script");
       el.defer = true;
       el.dataset.domain = domain;
@@ -97,4 +94,6 @@ export function Analytics() {
   }, [pathname, search]);
 
   return null;
-}
+};
+
+export { Analytics };

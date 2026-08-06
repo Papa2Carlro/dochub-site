@@ -1,0 +1,21 @@
+@use "styles/abstracts/variables" as v;
+
+.WhatsNew {
+  &__list {
+    margin: 1.15rem 0 0;
+    padding: 0 0 0 1.15rem;
+    max-width: 38rem;
+    color: v.$mute;
+    line-height: 1.55;
+
+    li {
+      margin: 0.35rem 0;
+    }
+  }
+
+  &__note {
+    margin: 1rem 0 0;
+    font-size: 0.88rem;
+    color: v.$faint;
+  }
+}

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { Analytics } from "./components/Analytics";
 import { Seo } from "./components/Seo";
-import { BenchmarkPage } from "./pages/BenchmarkPage";
-import { DocsPage } from "./pages/DocsPage";
+import { BenchmarkPage } from "./pages/benchmark";
+import { DocsPage } from "./pages/Docs";
 import { HomePage } from "./pages/HomePage";
 
 export function App() {

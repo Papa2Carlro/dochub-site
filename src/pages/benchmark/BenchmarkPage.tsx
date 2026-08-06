@@ -1,20 +1,22 @@
+import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import classNames from "classnames/bind";
 import { SiteHeader } from "components/SiteHeader";
 import { useI18n } from "i18n";
-import { BenchmarkHistory } from "./benchmark/BenchmarkHistory";
-import { BenchmarkNow } from "./benchmark/BenchmarkNow";
-import { BenchmarkStoreProvider, useBenchmarkUi } from "./benchmark/BenchmarkStoreContext";
+import { BenchmarkHistory } from "./BenchmarkHistory";
+import { BenchmarkNow } from "./BenchmarkNow";
+import { BenchmarkStoreProvider, useBenchmarkUi } from "./BenchmarkStoreContext";
+import scss from "./Benchmark.module.scss";
 
-export function BenchmarkPage() {
-  return (
-    <BenchmarkStoreProvider>
-      <BenchmarkPageInner />
-    </BenchmarkStoreProvider>
-  );
-}
+const cn = classNames.bind(scss);
 
-function BenchmarkPageInner() {
+const BenchmarkPage: FC = () => (
+  <BenchmarkStoreProvider>
+    <BenchmarkPageInner />
+  </BenchmarkStoreProvider>
+);
+
+const BenchmarkPageInner: FC = () => {
   const { t } = useI18n();
   const tab = useBenchmarkUi((s) => s.tab);
   const setTab = useBenchmarkUi((s) => s.setTab);
@@ -24,10 +26,10 @@ function BenchmarkPageInner() {
   }, []);
 
   return (
-    <div className="page bench-page">
+    <div className={`page ${cn("Benchmark")}`}>
       <SiteHeader variant="page" />
 
-      <main className="band bench">
+      <main className={`band ${cn("Benchmark__main")}`}>
         <p className="bench-crumb">
           <Link to="/">{t("benchmark", "crumbHome")}</Link>
           <span>{t("benchmark", "crumbCurrent")}</span>
@@ -77,4 +79,6 @@ function BenchmarkPageInner() {
       </main>
     </div>
   );
-}
+};
+
+export { BenchmarkPage };

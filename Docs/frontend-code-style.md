@@ -187,7 +187,11 @@ cn("SocialLinks__list");
 - [x] Перший пілотний folder-компонент: `components/SocialLinks`.
 - [x] Перший ADR 0001 view store: Benchmark tabs.
 - [x] Наступні sections: home bands through Download/Lightbox (`Features`…`Screens`, `ProductStage`, `ControlledWorkflow`, `DownloadBand`/`DownloadCtas`, `Lightbox`).
-- [ ] Лишились: `WhatsNew`, footer/`Seo`/`Analytics`, shared `.btn`/page CSS (`bench`/`docs`).
+- [x] `WhatsNew` + `SiteFooter`.
+- [x] `Seo` / `Analytics` folder components.
+- [x] `pages/Docs` (DocsPage folder + SCSS module; article chrome no longer via `.bench-*`).
+- [x] `pages/benchmark` — `Benchmark.module.scss` scoped under `.Benchmark` (`:global` `.bench-*` until BEM pass); page barrel + Provider.
+- [ ] Лишились: shared `.btn`/page CSS, layout hooks (`.page`/`.band`); optional BEM rewrite of `.bench-*` JSX.
 - [ ] Не переписувати весь `index.css` у тому ж PR.
 
 ---

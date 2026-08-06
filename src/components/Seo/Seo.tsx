@@ -1,10 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, type FC } from "react";
 import { useLocation } from "react-router-dom";
-import { useI18n } from "../i18n";
+import { useI18n } from "i18n";
 
-const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || "https://dochub-site.pages.dev"
-).replace(/\/$/, "");
+const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://dochub-site.pages.dev").replace(/\/$/, "");
 
 type PageKey = "home" | "docs" | "benchmark";
 
@@ -27,11 +25,7 @@ const PAGE_META = {
   benchmark: { title: "benchmarkTitle", description: "benchmarkDescription" },
 } as const;
 
-function upsertMeta(
-  attr: "name" | "property",
-  key: string,
-  content: string,
-) {
+function upsertMeta(attr: "name" | "property", key: string, content: string) {
   const selector = `meta[${attr}="${key}"]`;
   let el = document.head.querySelector(selector) as HTMLMetaElement | null;
   if (!el) {
@@ -43,9 +37,7 @@ function upsertMeta(
 }
 
 function upsertCanonical(href: string) {
-  let el = document.head.querySelector(
-    'link[rel="canonical"]',
-  ) as HTMLLinkElement | null;
+  let el = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
   if (!el) {
     el = document.createElement("link");
     el.rel = "canonical";
@@ -58,7 +50,7 @@ function upsertCanonical(href: string) {
  * Per-route title / description / canonical / Open Graph for the SPA.
  * Crawlers that execute JS (Google) pick this up after render.
  */
-export function Seo() {
+const Seo: FC = () => {
   const { pathname } = useLocation();
   const { t, locale } = useI18n();
   const key = pageKey(pathname);
@@ -88,4 +80,6 @@ export function Seo() {
   }, [title, description, url, locale]);
 
   return null;
-}
+};
+
+export { Seo };
